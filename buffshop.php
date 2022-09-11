@@ -25,11 +25,11 @@ require 'steamauth/userInfo.php';
  <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b>
 <button href="steamauth/logout.php" type="button" class="logout"> logout</button>
   <div class="wp-site-blocks">
-    <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img loading="lazy"
-        src="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25" width="302"
-        height="131"
-        srcset="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png 302w, lazy" src="https://ryzen.me/images/ryzen_calligraphy.png 300w"
-        sizes="(max-width: 302px) 100vw, 302px"></figure>
+        <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
+                loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt=""
+                class="wp-image-25" width="302" height="131"
+                srcset="https://ryzen.me/images/ryzen_calligraphy.png 302w, https://ryzen.me/images/ryzen_calligraphy.png 300w"
+                sizes="(max-width: 302px) 100vw, 302px"></figure>
   </div>
   <hr class="line"> <br>
   <div class="navigation">
