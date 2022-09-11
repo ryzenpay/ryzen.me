@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<?php
+  require 'steamauth/steamauth.php';
+require 'steamauth/userInfo.php';
+  if (isset($_SESSION['steamid']))
+  {
+    $id = $_SESSION['steamid'];
+
+  }
+  else
+  {
+    #not loggedin
+  }
+?>
 <html lang="en-US">
 
 <head>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <?php
-$servername:
-$username:
-$password:
-$conn = new my
+$servername;
+$username;
+$password;
+$conn;
 ?>
 
 <head>
@@ -14,7 +14,7 @@ $conn = new my
 </head>
 
 <body>
-
+<button href="steamauth/logout.php" type="button" class="logout"> logout</button>
   <div class="wp-site-blocks">
     <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img loading="lazy"
         src="https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy.png" alt="" class="wp-image-25" width="302"
