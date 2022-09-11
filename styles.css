@@ -90,8 +90,9 @@ h2 {
   background-color: #b651e0;
   color: white;
 }
-.login{
-  position: fixed;
+
+.login {
+  position: absolute;
   bottom: 550px;
   left: 0;
   text-align: center;
@@ -99,13 +100,15 @@ h2 {
   align-items: center;
   width: 100%;
 }
-.logout{
+
+.logout {
   position: fixed;
-  top:10px;
-  right:10px;
+  top: 10px;
+  right: 10px;
 }
-.img-rounded{
+
+.img-rounded {
   position: fixed;
-  top:10px;
-  left:10px;
+  top: 10px;
+  left: 10px;
 }
