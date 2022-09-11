@@ -22,19 +22,21 @@ require 'steamauth/userInfo.php';
 </head>
 <div class="navigation">
     <a class="active" href="main.html">Home</a>
-    <a href="tickets.html">BuffShop</a>
+    <a href="buffshop.php">BuffShop</a>
 </div>
 <body>
+    <div class="navigation">
   <? if(isset($_SESSION['steamid'])) {?>
     <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b>
         <button href="steamauth/logout.php"type="button" class="logout"> logout</button>
-    <a href="tickets.php">
+    <a href="buffshop.php">
       <button type="button" class="shop">Shop</button>
       </a>
   <? } else{?>
     <button type="button" class="login"> Login with Steam to access the shop</button>
     <? echo loginbutton();?>
 <? } ?>
+</div>
 
 
     <div class="wp-site-blocks">
