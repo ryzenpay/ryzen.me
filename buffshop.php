@@ -14,30 +14,50 @@ $conn;
 </head>
 
 <body>
+<<<<<<< HEAD
 
  <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b>
 <button href="steamauth/logout.php" type="button" class="logout"> logout</button>
+=======
+>>>>>>> 0506b9c342dcfd1cc4be981648135c0bfae34f01
   <div class="wp-site-blocks">
     <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img loading="lazy"
         src="https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy.png" alt="" class="wp-image-25" width="302"
         height="131"
         srcset="https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy.png 302w, https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy-300x130.png 300w"
         sizes="(max-width: 302px) 100vw, 302px"></figure>
-
   </div>
-  <label for="STEAM_ID">Steam ID:</label>
-  <input type="text" id="STEAM_ID" name="STEAM_ID" placeholder="012345678901234567" required> </input><br>
-
-  <label for="payment">Payment Method:</label>
+  <hr class="line"> <br>
+  <div class="navigation">
+    <? if(isset($_SESSION['steamid'])) {?>
+    <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b>
+      <?=$steamprofile['personaname'];?>
+    </b><b class="caret"></b>
+    <button href="steamauth/logout.php" type="button" class="logout"> logout</button>
+      <button type="button" class="shop">Shop</button>
+  </div>
+  <label for="STEAM_ID">Steam ID: </label>
+  <label for="STEAM_ID" id="STEAM_ID">
+    <? $_SESSION['steamid'] ?>
+  </label> <br>
+  <label class="ticket" for="payment">Payment Method:</label>
   <select name="payment" id="payment" required>
     <option value="PP">Paypal</option>
     <option value="CA">Cashapp</option>
     <option value="CRYPTO">Crypto</option>
   </select>
-  <input type="text" id="PPC" name="PPC" placeholder="name@email.com" hidden>
+  <input class="input" type="text" id="PPC" name="PPC" placeholder="name@email.com" hidden>
   <br>
-
-  <input type="text" id="Name" name="Name" placeholder="Discord (tag), Telegram (Alias), OGU (Alias)">
+  <label class="ticket" for="comm">Communication Method: </label>
+  <input class="input" type="text" id="comm" name="comm" placeholder="Discord (tag), Telegram (Alias), OGU (Alias)" required> <br>
+  <label class="ticket" for="OGU">OGU Name (Optional): </label>
+  <input class="input" type="text" id="OGU" name="OGU"> <br>
+    <hr class="line"> <br>
+  <? } else{?>
+  <br>
+  <button type="button" class="login"> Login with Steam to access the shop</button>
+  <? echo loginbutton();?>
+  <? } ?>
 </body>
 <script>
   function newID() {

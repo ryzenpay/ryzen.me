@@ -3,4 +3,40 @@ body {
   color: #b651e0;
   text-align: center;
   align-self: center;
+  padding: 5px;
+}
+
+.navigation {
+  background-color: darkgrey;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 13px;
+  border-radius: 20%;
+  display: block;
+  top: 0;
+  position: fixed;
+}
+
+.navigation:active {
+  background-color: #b651e0;
+  color: white;
+}
+
+.line {
+  color: purple;
+  border: 2px solid purple;
+  width: 100%;
+  position: absolute;
+  border-radius: 30%;
+}
+
+.ticket {
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.input {
+  padding: 2px;
 }
