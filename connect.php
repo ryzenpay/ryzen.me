@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "bot";
+$username = "ryzeuofr_bot";
 $password = "thisisabot12345";
 
 $db = "bufftrade";
