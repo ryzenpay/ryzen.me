@@ -17,21 +17,18 @@ require 'steamauth/userInfo.php';
 <head>
   <title>Ryzen.me shop</title>
   <link rel="stylesheet" href="ticketsstyles.css">
-  <link rel="icon" href="https://ryzen.me/wp-content/uploads/2022/09/ogu_pfp-removebg-preview.png" />
+  <link rel="icon" href="https://ryzen.me/images/flavicon.png" />
 </head>
 
 <body>
-<<<<<<< HEAD
 
  <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b>
 <button href="steamauth/logout.php" type="button" class="logout"> logout</button>
-=======
->>>>>>> 0506b9c342dcfd1cc4be981648135c0bfae34f01
   <div class="wp-site-blocks">
     <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img loading="lazy"
-        src="https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy.png" alt="" class="wp-image-25" width="302"
+        src="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25" width="302"
         height="131"
-        srcset="https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy.png 302w, https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy-300x130.png 300w"
+        srcset="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png 302w, lazy" src="https://ryzen.me/images/ryzen_calligraphy.png 300w"
         sizes="(max-width: 302px) 100vw, 302px"></figure>
   </div>
   <hr class="line"> <br>

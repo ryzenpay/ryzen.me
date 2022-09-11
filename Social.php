@@ -18,15 +18,15 @@ require 'steamauth/userInfo.php';
 <head>
     <link rel="stylesheet" href="styles.css">
     <title>Ryzen.me</title>
-    <link rel="icon" href="https://ryzen.me/wp-content/uploads/2022/09/ogu_pfp-removebg-preview.png" />
+    <link rel="icon" href="https://ryzen.me/images/flavicon.png" />
 </head>
 
 <body>
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
-                loading="lazy" src="https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy.png" alt=""
+                loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt=""
                 class="wp-image-25" width="302" height="131"
-                srcset="https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy.png 302w, https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy-300x130.png 300w"
+                srcset="https://ryzen.me/images/ryzen_calligraphy.png 302w, https://ryzen.me/images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
 <hr class="line"> <br>
         <h2 style="color:#b651e0">Discord: <button onclick="disccopy()" title="Copy" class="minibutton">ryzen#8829
