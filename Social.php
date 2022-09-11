@@ -22,12 +22,6 @@ require 'steamauth/userInfo.php';
 </head>
 
 <body>
-
-
-  
-
-
-
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
                 loading="lazy" src="https://ryzen.me/wp-content/uploads/2022/09/ryzen-calligraphy.png" alt=""
