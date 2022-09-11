@@ -52,15 +52,15 @@ require 'steamauth/userInfo.php';
     <option value="CA">Cashapp</option>
     <option value="CRYPTO">Crypto</option>
   </select>
-  <input class="input" type="text" id="PPC" name="PPC" placeholder="name@email.com" hidden>
-  <input class="input" type="text" id="CA" name="CA" placeholder="$name" hidden>
-  <select name="CRYPTYPE" id="CRYPTYPE" onchange="cryptotype()" hidden>
+  <input class="hidden" type="text" id="PPC" name="PPC" placeholder="name@email.com" >
+  <input class="hidden" type="text" id="CAC" name="CAC" placeholder="$name">
+  <select class="hidden" name="CRYPTYPE" id="CRYPTYPE" onchange="cryptotype()">
     <option>(select)</option>
     <option>LTC</option>
     <option>BTC</option>
     <option>ETH</option>
   </select>
-  <input class="input" type="text" id="CRYPTO" name="CRYPTO" placeholder="Crypto addy" hidden>
+  <input class="hidden" type="text" id="CRYPTOC" name="CRYPTOC" placeholder="Crypto addy">
   <br>
   <label class="ticket" for="comm">Communication Method: </label>
   <input class="input" type="text" id="comm" name="comm" placeholder="Discord (tag), Telegram (Alias), OGU (Alias)"
@@ -72,7 +72,8 @@ require 'steamauth/userInfo.php';
   <br>
   <button type="button" class="login"> Login with Steam to access the shop</button>
   <? echo loginbutton();?>
-  <? } ?>
+  <?
+}?>
 </body>
 <script>
   function newID() {
@@ -82,23 +83,31 @@ require 'steamauth/userInfo.php';
     //obtain steam user id from when they logged in
   }
   function paymentmethod() {
-    if (document.getElementById('payment'), value == "(select)") {
+    if (document.getElementById('payment').value == "(select)") {
+      document.getElementById('PPC').className = "hidden";
+      document.getElementById('CAC').className = "hidden";
+      document.getElementById('CRYPTOC').className = "hidden";
+      document.getElementById('CRYPTYPE').className = "hidden";
     }
     else if (document.getElementById('payment').value == "PP") {
-      document.getElementById('CRYPTO').value = "NULL";
-      document.getElementById('PP').style.visibility = 'visible';
+      document.getElementById('CRYPTOC').value = "NULL";
+      document.getElementById('PPC').className = "shown";
+      document.getElementById('CAC').className = "hidden";
+      document.getElementById('CRYPTOC').className = "hidden";
+      document.getElementById('CRYPTYPE').className = "hidden";
     }
     else if (document.getElementById("payment").value == "CA") {
-      document.getElementById('CRYPTO').value = "NULL";
-      document.getElementById('CA').style.visibility = 'visible';
+      document.getElementById('CRYPTOC').value = "NULL";
+      document.getElementById('CAC').className = "shown";
+            document.getElementById('PPC').className = "hidden";
+      document.getElementById('CRYPTOC').className = "hidden";
+      document.getElementById('CRYPTYPE').className = "hidden";
     }
     else if (document.getElementById("payment").value == "CRYPTO") {
-      document.getElementById('CRYPTYPE').style.visibility = 'visible';
+      document.getElementById('CRYPTYPE').className = "shown";
+      document.getElementById('CAC').className = "hidden";
+      document.getElementById('PPC').className = "hidden";
     }
   }
   function cryptotype() {
-    document.getElementById('CRYPTO').style.visibility = 'visible';
   }
-</script>
-
-</html>
