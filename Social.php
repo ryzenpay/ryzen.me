@@ -20,23 +20,12 @@ require 'steamauth/userInfo.php';
     <title>Ryzen.me</title>
     <link rel="icon" href="https://ryzen.me/wp-content/uploads/2022/09/ogu_pfp-removebg-preview.png" />
 </head>
-<div class="navigation">
-    <a class="active" href="main.html">Home</a>
-    <a href="buffshop.php">BuffShop</a>
-</div>
+
 <body>
-    <div class="navigation">
-  <? if(isset($_SESSION['steamid'])) {?>
-    <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b>
-        <button href="steamauth/logout.php"type="button" class="logout"> logout</button>
-    <a href="buffshop.php">
-      <button type="button" class="shop">Shop</button>
-      </a>
-  <? } else{?>
-    <button type="button" class="login"> Login with Steam to access the shop</button>
-    <? echo loginbutton();?>
-<? } ?>
-</div>
+
+
+  
+
 
 
     <div class="wp-site-blocks">
@@ -55,6 +44,17 @@ require 'steamauth/userInfo.php';
         </h2>
         <hr class="line">
     </div>
+    <? if(isset($_SESSION['steamid'])) {?>
+    <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b>
+        <button href="steamauth/logout.php"type="button" class="logout"> Logout</button>
+    <a href="buffshop.php">
+      <button type="button" class="shop">Shop</button>
+      </a>
+      
+  <? } else{?>
+    <p class="login"> Login with Steam to access the shop</p>
+    <? echo loginbutton();?>
+<? } ?>
     <address>
         <div class="footer">
             <p>Author:Ryzen</p>

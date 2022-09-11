@@ -14,6 +14,8 @@ $conn;
 </head>
 
 <body>
+
+ <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b>
 <button href="steamauth/logout.php" type="button" class="logout"> logout</button>
   <div class="wp-site-blocks">
     <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img loading="lazy"
