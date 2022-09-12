@@ -51,7 +51,9 @@ require 'steamauth/userInfo.php';
     <? echo logoutbutton(); ?>
 
 
-    <label for="STEAM_ID">Steam ID: </label>
+    <label for="STEAM_ID">Steam ID:
+        <?$steamid?>
+    </label>
     <label for="STEAM_ID" id="STEAM_ID">
         <? $_SESSION['steamid'] ?>
     </label> <br>
@@ -110,6 +112,9 @@ require 'steamauth/userInfo.php';
 </address>
 <a href="TOS.php">
     <button title="TOS" class="tos">TOS</button>
+</a>
+<a href="privpos.php">
+    <button title="privpos" class="privpos">Privacy Policy</button>
 </a>
 </body>
 <script>

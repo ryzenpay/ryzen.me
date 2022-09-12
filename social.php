@@ -41,6 +41,9 @@
     <a href="TOS.php">
         <button title="TOS" class="tos">TOS</button>
     </a>
+    <a href="privpos.php">
+        <button title="privpos" class="privpos">Privacy Policy</button>
+    </a>
 </body>
 <script>
 function paypcopy() {
