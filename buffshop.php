@@ -8,18 +8,16 @@ require 'steamauth/userInfo.php';
     $id = $_SESSION['steamid'];
 
     $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
+    $json = json_decode(file_get_contents($url));
 
-    //call api
-    $json = file_get_contents($url);
-    $json = json_decode($json, true);
-    foreach ($json['descriptions'] as $key => $description) {
-    echo '<pre>';
-    echo $description['appid'];
-    echo $description['market_name'];
-    echo '</pre>';
+    foreach($json->rgInventory as $value => $v){
+      $name = $v->market_hash_name;
+      $icon_url = $v->icon_url;
+      $trade = $v->tradable;
+    $icon = "<img src='http://cdn.steamcommunity.com/economy/image/$icon_url'>";
+    //array_push($data, array($name, $icon, $trade));
 }
-print $json;
-  }
+}
   else
   {
     #not loggedin
@@ -77,12 +75,14 @@ print $json;
     required> <br>
   <label class="ticket" for="OGU">OGU Name (Optional): </label>
   <input class="input" type="text" id="OGU" name="OGU"> <br>
+  <p id="inventory"></p>
   <hr class="line"> <br>
    <?} else{ ?>
     <p class="login"> Login with Steam to access the shop</p>
     <? echo loginbutton();?>
   <br>
-   <?} ?>
+   <?
+}?>
 </body>
 <script>
   function newID() {
@@ -108,6 +108,19 @@ print $json;
   }
   function cryptotype() {
     document.getElementById('CRYPTO').style.visibility = 'visible';
+  }
+  function inventory(){
+     var ids = getID($json.rgInventory);
+     var item = getItems($json.rgDescriptions);
+            for (var i = 0; i < ids.length; i++) {
+                for (var k = 0; k < item.length; k++) {
+                    if (ids[i].classid == item[k].classid) {
+                        ids[i].market_name = item[k].market_name;
+                        ids[i].icon_url = item[k].icon_url;
+                        ids[i].tradable = item[k].tradable;
+                    }
+                }
+            }
   }
 </script>
 
