@@ -11,7 +11,7 @@ require 'steamauth/userInfo.php';
 
     //call api
     $json = file_get_contents($url);
-    $json = json_decode($json);
+    //$json = json_decode($json);
   print $json;
   }
   else
@@ -40,9 +40,9 @@ require 'steamauth/userInfo.php';
 </a>
     <? if(isset($_SESSION['steamid'])) {?>
     <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b class="username">
-      <?=$steamprofile['personaname'];?>
+      <?= $steamprofile['personaname']; ?>
     </b><b class="caret"></b>
-    <button href="steamauth/logout.php" type="button" class="logout"> logout</button>
+    <button href='<?php logoutbutton() ?>' type="button" class="logout"> logout</button>
 
 
   <label for="STEAM_ID">Steam ID: </label>
