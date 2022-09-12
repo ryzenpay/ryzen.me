@@ -275,7 +275,7 @@ function commcheck() {
 }
 
 function submit() {
-
+    $sql = "INSERT INTO Bufftrade (trade, payment, payment_id, item, price, communication, ogu, date)";
 }
 </script>
 
