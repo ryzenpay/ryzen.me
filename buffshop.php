@@ -11,7 +11,14 @@ require 'steamauth/userInfo.php';
 
     //call api
     $json = file_get_contents($url);
-   //print $json;
+    $json = json_decode($json, true);
+    foreach ($json['descriptions'] as $key => $description) {
+    echo '<pre>';
+    echo $description['appid'];
+    echo $description['market_name'];
+    echo '</pre>';
+}
+print $json;
   }
   else
   {
