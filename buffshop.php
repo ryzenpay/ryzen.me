@@ -15,6 +15,7 @@ require 'steamauth/userInfo.php';
       $trade = $value->tradable;
     $icon = "<img src='http://cdn.steamcommunity.com/economy/image/$icon_url'>";
     array_push($inventory, $curr);
+
 }
 }
   else
@@ -99,6 +100,19 @@ require 'steamauth/userInfo.php';
 <button onclick='select' class="minibutton">
     <? $skins ?>Skin(s) Selected
 </button> <br> <br>
+<form method="post">
+    <select name="skin">
+        <option selected="selected">Choose a skin</option>
+        <?php
+        // A sample product array
+        $inventory
+
+        // Iterating through the product array
+        foreach($inventory as $item){
+            echo '<option value="' . strtolower($item) . '">' . $item . '</option>';
+        }
+        ?>
+    </select>
 <button onclick="paycheck" class="button">Submit</button>
 <hr class="line"> <br>
 <?} else{ ?>
