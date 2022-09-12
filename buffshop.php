@@ -9,13 +9,12 @@ require 'steamauth/userInfo.php';
 
     $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
     $json = json_decode(file_get_contents($url));
-
     foreach($json->rgInventory as $value => $v){
+    $int = $int + 1;
       $name = $v->market_hash_name;
       $icon_url = $v->icon_url;
       $trade = $v->tradable;
     $icon = "<img src='http://cdn.steamcommunity.com/economy/image/$icon_url'>";
-    //array_push($data, array($name, $icon, $trade));
 }
 }
   else
