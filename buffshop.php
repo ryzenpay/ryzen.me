@@ -28,6 +28,8 @@ require 'steamauth/userInfo.php';
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="https://ryzen.me/images/flavicon.png" />
 </head>
+<hr class="headline" style="top: -10px;">
+<hr class="headline" style="bottom: -10px;">
 
 <body>
 
