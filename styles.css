@@ -2,11 +2,11 @@ body {
   background-color: black;
   color: #b651e0;
   position: center;
-  display: flex;
   justify-content: center;
   align-items: center;
-
-  min-height: 100%;
+  text-align: center;
+  padding: 5px;
+  align-self: center;
 }
 
 head {
@@ -18,7 +18,7 @@ h2 {
   align-items: center;
 }
 
-.shop {
+.button {
   background-color: purple;
   border: none;
   border-radius: 4px;
@@ -28,20 +28,19 @@ h2 {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  position: absolute;
-  top: 50%;
   transition-duration: 0.4s;
-  left: 47%;
+  margin: auto;
+  align-items: center;
 }
 
-.shop:hover {
+.button:hover {
   background-color: purple;
   color: #b651e0;
   opacity: 1;
 
 }
 
-.shop:active {
+.button:active {
   background-color: purple;
   transform: translateY(4px);
 }
@@ -71,24 +70,15 @@ h2 {
   width: 25%;
   position: absolute;
   border-radius: 30%;
+  left: 37%;
 }
 
-.navigation {
-  background-color: black;
-  overflow: hidden;
-  align-items: center;
-  text-align: center;
-  padding: 5px 5px;
-  font-size: 13px;
-  border-radius: 20%;
-  display: block;
-  top: 0;
-  position: left;
-}
-
-.navigation:active {
-  background-color: #b651e0;
-  color: white;
+.headline {
+  color: purple;
+  border: 3px solid purple;
+  width: 100%;
+  position: fixed;
+  border-radius: 30%;
 }
 
 .login {
@@ -109,4 +99,50 @@ h2 {
   position: fixed;
   top: 10px;
   left: 10px;
+}
+
+.tos {
+  background-color: purple;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  left: 0%;
+  bottom: 0%;
+  position: fixed;
+}
+
+.ticket {
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.input {
+  align-items: center;
+  margin: auto;
+}
+
+.username {
+  position: fixed;
+  top: 15px;
+  left: 40px;
+}
+
+.img-rounded {
+  position: fixed;
+  top: 10px;
+  left: 15px;
+}
+
+.logout {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.home {
+  position: fixed;
+  top: 1%;
+  left: 50%;
 }

@@ -6,6 +6,8 @@
     <title>Ryzen.me</title>
     <link rel="icon" href="https://ryzen.me/images/flavicon.png" />
 </head>
+<hr class="headline" style="top: -10px;">
+<hr class="headline" style="bottom: -10px;">
 
 <body>
     <div class="wp-site-blocks">
@@ -23,10 +25,11 @@
             <button onclick="steamtradecopy()" title="Open in new tab" class="minibutton">Steam trade link </button>
         </h2>
         <hr class="line">
+        <br>
     </div>
 
     <a href="buffshop.php">
-        <button type="button" class="shop">Shop</button>
+        <button type="button" class="button">Shop</button>
     </a>
 
     <address>
@@ -35,6 +38,9 @@
             <p>Collaborator: Ezi</p>
             </footer>
     </address>
+    <a href="TOS.php">
+        <button title="TOS" class="tos">TOS</button>
+    </a>
 </body>
 <script>
 function paypcopy() {

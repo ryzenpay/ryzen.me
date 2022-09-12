@@ -25,7 +25,7 @@ require 'steamauth/userInfo.php';
 
 <head>
     <title>Ryzen.me shop</title>
-    <link rel="stylesheet" href="ticketsstyles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="https://ryzen.me/images/flavicon.png" />
 </head>
 
@@ -96,11 +96,19 @@ require 'steamauth/userInfo.php';
 <button onclick="submit" class="button">Submit</button>
 <hr class="line"> <br>
 <?} else{ ?>
-<p class="login"> Login with Steam to access the shop</p>
+<p> Login with Steam to access the shop</p>
 <? echo loginbutton();?>
 <br>
 <?
 }?>
+<address>
+    <div class="footer">
+        <p>By using our services you agree to our TOS</p>
+        </footer>
+</address>
+<a href="TOS.php">
+    <button title="TOS" class="tos">TOS</button>
+</a>
 </body>
 <script>
 function paymentmethod() {
