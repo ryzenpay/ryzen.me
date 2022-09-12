@@ -14,7 +14,7 @@ require 'steamauth/userInfo.php';
       $icon_url = $value->icon_url;
       $trade = $value->tradable;
     $icon = "<img src='http://cdn.steamcommunity.com/economy/image/$icon_url'>";
-    array_push($inventory, $curr);
+    array_push($inventory, array($name, $icon_url, $trade));
 
 }
 }
@@ -107,8 +107,10 @@ require 'steamauth/userInfo.php';
 $inventory;
 
         // Iterating through the product array
+        $i = 0;
         foreach($inventory as $item){
-            echo '<option value="' . strtolower($item) . '">' . $item . '</option>';
+  $i++;
+            echo '<option value="' . strtolower($inventory[$i][1]) . '">' . $inventory[$i][1] . '</option>';
         }
         ?>
     </select>
