@@ -11,8 +11,7 @@ require 'steamauth/userInfo.php';
 
     //call api
     $json = file_get_contents($url);
-    //$json = json_decode($json);
-  print $json;
+   print $json;
   }
   else
   {
