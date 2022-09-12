@@ -13,7 +13,6 @@ echo "Connected successfully";
 
 $ID = $_POST['ID'];
 $steam_ID = $_POST['STEAM_ID'];
-$TRADE = $_POST['TRADE'];
 $payment = $_POST['Payment'];
 $CRYPTYPE = $_POST['CRYPTYPE'];
 $item = $_POST['Item'];

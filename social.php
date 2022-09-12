@@ -1,17 +1,3 @@
-<?
-  require 'steamauth/steamauth.php';
-require 'steamauth/userInfo.php';
-  if (isset($_SESSION['steamid']))
-  {
-    $id = $_SESSION['steamid'];
-
-  }
-  else
-  {
-    #not loggedin
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -38,17 +24,11 @@ require 'steamauth/userInfo.php';
         </h2>
         <hr class="line">
     </div>
-    <? if(isset($_SESSION['steamid'])) {?>
-    <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b>
-        <button href="steamauth/logout.php"type="button" class="logout"> Logout</button>
+    
     <a href="buffshop.php">
       <button type="button" class="shop">Shop</button>
       </a>
       
-  <? } else{?>
-    <p class="login"> Login with Steam to access the shop</p>
-    <? echo loginbutton();?>
-<? } ?>
     <address>
         <div class="footer">
             <p>Author:Ryzen</p>
