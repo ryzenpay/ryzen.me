@@ -41,6 +41,7 @@ require 'steamauth/userInfo.php';
     <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b class="username">
       <?= $steamprofile['personaname']; ?>
     </b><b class="caret"></b>
+    <? echo logoutbutton(); ?>
     <button href='<?php logoutbutton() ?>' type="button" class="logout"> logout</button>
 
 
@@ -71,11 +72,11 @@ require 'steamauth/userInfo.php';
   <label class="ticket" for="OGU">OGU Name (Optional): </label>
   <input class="input" type="text" id="OGU" name="OGU"> <br>
   <hr class="line"> <br>
-  <? } else{?>
+   <?} else{ ?>
+    <p class="login"> Login with Steam to access the shop</p>
+    <? echo loginbutton();?>
   <br>
-  <p class="login"> Login with Steam to access the shop</p>
-  <? echo loginbutton();?>
-  <? } ?>
+   <?} ?>
 </body>
 <script>
   function newID() {
