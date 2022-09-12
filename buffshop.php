@@ -59,7 +59,7 @@ require 'steamauth/userInfo.php';
     </label> <br>
     <label class="ticket" for="payment">Payment Method:</label>
     <select name="payment" id="payment" onchange="paymentmethod()" required>
-        <option>(select)</Option>
+        <option value=''>(select)</Option>
         <option value="PP">Paypal</option>
         <option value="CA">Cashapp</option>
         <option value="CRYPTO">Crypto</option>
@@ -70,7 +70,7 @@ require 'steamauth/userInfo.php';
     <input class="input" type="text" id="CAC" name="CAC" placeholder="$name" style="display: none">
     <label class="ticket" for="CRYPTYPE" id="CRYPTYPEI" style="display: none">Type of Crypto:</label>
     <select name="CRYPTYPE" id="CRYPTYPE" onchange="cryptotype()" style="display: none">
-        <option>(select)</option>
+        <option value=''>(select)</option>
         <option value="LTC">LTC</option>
         <option value="BTC">BTC</option>
         <option value="ETH">ETH</option>
@@ -80,7 +80,7 @@ require 'steamauth/userInfo.php';
     <br>
     <label class="ticket" for="comm">Communication Method: </label>
     <select name="commtype" id="commtype" onchange="commtype()" required>
-        <option>(select)</option>
+        <option value=''>(select)</option>
         <option value="disc">Discord</option>
         <option value="tele">Telegram</option>
         <option value="ogu">OGU DM</option>
@@ -96,8 +96,10 @@ require 'steamauth/userInfo.php';
 <label class="ticket" for="OGU">OGU Name (Optional): </label>
 <input class="input" type="text" id="OGU" name="OGU"> <br>
 <p id="inventory"></p>
-<button onclick='select' class="button">Select Skin(s)</button> <br> <br>
-<button onclick="submit" class="button">Submit</button>
+<button onclick='select' class="minibutton">
+    <? $skins ?>Skin(s) Selected
+</button> <br> <br>
+<button onclick="paycheck" class="button">Submit</button>
 <hr class="line"> <br>
 <?} else{ ?>
 <p> Login with Steam to access the shop</p>
@@ -198,10 +200,82 @@ function commtype() {
 function select() {
     //if >=1 selected, change text to 'nmbr skins selected'
     // pop up new window to select skins
+    <?php $skins ?>
+}
+
+function paycheck() {
+    if (document.getElementById('payment').value == '') {
+        alert("Please select payment option");
+        break;
+    } else if (document.getElementById('payment').value == 'PP') {
+        if (document.getElementById('PPC').value = '') {
+            alert("Please input your paypal email");
+            break;
+        } else if (!document.getElementById('PPC').value.includes('@') || !document.getElementById('PPC').value
+            .includes('.')) {
+            alert("Please input valid paypal email");
+            break;
+        } else {
+            $payment = 'Paypal';
+            $payment_id = document.getElementById('PPC').value;
+            commcheck();
+        }
+    } else if (document.getElementById('payment').value == 'CA') {
+        if (document.getElementById('CAC').value == '') {
+            alert('Please input a cashapp tag');
+            break;
+        } else if (!document.getElementById('CAC').value.includes(
+                '$')) {
+            alert("Please input valid Cashapp Tag");
+            break;
+        } else {
+            $payment = 'Cashapp';
+            $payment_id = document.getElementById('CAC').value;
+            commcheck();
+        }
+    } else if (document.getElementById('payment').value == 'CRYPTO') {
+        if (document.getElementById('CRYPTYPE').value == '') {
+            alert('Please select type of crypto');
+            break;
+        } else {
+            if (document.getElementById('CRYPTO').value == '') {
+                alert("Please input a crypto address");
+                break;
+            } else {
+                $payment = document.getElementById('CRYPTYPE').value;
+                $payment_id = document.getElementById('CRYPTO').value;
+                commcheck();
+            }
+        }
+    }
+}
+
+function commcheck() {
+    if (document.getElementById('commtype').value == "") {
+        alert('please select a communication method');
+        break;
+    } else if (document.getElementById('commtype').value == "disc") {
+        if (!document.getElementById('disc').value.includes('#')) {
+            alert('Please input correct discord tag');
+        } else {
+            $comm = document.getElementById('disc').value;
+            submit();
+        }
+    } else if (document.getElementById('commtype').value == 'tele') {
+        if (!document.getElementById('tele').value.includes('@')) {
+            alert('Please input correct telegram alias');
+        } else {
+            $comm = document.getElementById('tele').value;
+            submit();
+        }
+    } else {
+        $comm = document.getElementById('ogu').value;
+        submit();
+    }
 }
 
 function submit() {
-    //go through all of the checkboxes and verify if they are filled in
+
 }
 </script>
 
