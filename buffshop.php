@@ -75,7 +75,7 @@ require 'steamauth/userInfo.php';
 </body>
 <br>
 <label class="ticket" for="OGU">OGU Name (Optional): </label>
-<input class="input" type="text" id="OGU" name="OGU"> <br>
+<input class="input" type="text" id="ogu2" name="ogu2"> <br>
 <p id="inventory"></p>
 <button onclick='select' class="minibutton">
     <? $skins ?>Skin(s) Selected
@@ -273,8 +273,17 @@ foreach ($json->rgDescriptions as $value => $v) {
     }
 
     function submit() {
-        $sql =
-            "INSERT INTO Bufftrade (trade, payment, payment_id, item, price, communication, ogu, date) VALUES ()";
+        if (document.getElementById('trade').value == '') {
+            alert('Please input valid trade link');
+        } else {
+            if (document.getElementById('ogu2').value == '') {
+                $ogu = 'NULL';
+            } else {
+                $ogu = document.getElementById('ogu2').value;
+            }
+            $trade = document.getElementById('id').value;
+            mysqli_query($con, $sql);
+        }
     }
     </script>
 
