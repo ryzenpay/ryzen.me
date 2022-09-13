@@ -32,7 +32,7 @@ require 'steamauth/userInfo.php';
     </b><b class="caret"></b>
     <? echo logoutbutton(); ?>
 
-    <a href='https://steamcommunity.com/my/tradeoffers/privacy'>
+    <a href='https://steamcommunity.com/my/tradeoffers/privacy' target="_blank">
         <label for="trade">Tradelink: </label> </a>
     <input class="input" type="text" id="trade" name="trade"> <br>
     <label for="STEAM_ID" id="STEAM_ID">
