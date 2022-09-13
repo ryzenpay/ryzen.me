@@ -134,6 +134,9 @@ h2 {
 .input {
   align-items: center;
   margin: auto;
+  background-color: black;
+  color: #b651e0;
+  border-color: purple;
 }
 
 .username {

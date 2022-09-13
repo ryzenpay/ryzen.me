@@ -40,7 +40,7 @@ require 'steamauth/userInfo.php';
     </label> <br>
     <p style="clear:both">
         <label class="ticket" for="payment">Payment Method:</label>
-        <select class="d-inline-flex" name="payment" id="payment" onchange="paymentmethod()" required>
+        <select name="payment" id="payment" onchange="paymentmethod()">
             <option value=''>(select)</Option>
             <option value="PP">Paypal</option>
             <option value="CA">Cashapp</option>
@@ -51,7 +51,7 @@ require 'steamauth/userInfo.php';
         <label class="ticket" for="CACI" id="CACI" style="display: none">Cashapp Tag:</label>
         <input class="input" type="text" id="CAC" name="CAC" placeholder="$name" style="display: none">
         <label class="ticket" for="CRYPTYPE" id="CRYPTYPEI" style="display: none">Type of Crypto:</label>
-        <select class="d-inline-flex" name="CRYPTYPE" id="CRYPTYPE" onchange="cryptotype()" style="display: none">
+        <select name="CRYPTYPE" id="CRYPTYPE" onchange="cryptotype()" style="display: none">
             <option value=''>(select)</option>
             <option value="LTC">LTC</option>
             <option value="BTC">BTC</option>
@@ -63,7 +63,7 @@ require 'steamauth/userInfo.php';
     <br>
     <p style="clear:both">
         <label class="ticket" for="comm">Communication Method: </label>
-        <select class="d-inline-flex" name="commtype" id="commtype" onchange="commtype()" required>
+        <select name="commtype" id="commtype" onchange="commtype()" required>
             <option value=''>(select)</option>
             <option value="disc">Discord</option>
             <option value="tele">Telegram</option>
@@ -126,7 +126,7 @@ foreach ($json->rgDescriptions as $value => $v) {
     </body>
     <script>
     function paymentmethod() {
-        if (document.getElementById('payment').value == "") {
+        if (document.getElementById('payment').value == '') {
             document.getElementById('PPC').style = "display: none";
             document.getElementById('PPCI').style = "display: none";
             document.getElementById('CAC').style = "display: none";
@@ -162,16 +162,16 @@ foreach ($json->rgDescriptions as $value => $v) {
     }
 
     function cryptotype() {
-        if (document.getElementById('payment').value == "") {
+        if (document.getElementById('payment').value == '') {
             document.getElementById('CRYPTO').style = "display: none";
         } else {
-            document.getElementById('CRYPTO').value = "";
+            document.getElementById('CRYPTO').value = '';
             document.getElementById('CRYPTO').style = "display: block";
         }
     }
 
     function commtype() {
-        if (document.getElementById('commtype').value == "") {
+        if (document.getElementById('commtype').value == '') {
             document.getElementById('disci').style = "display: none";
             document.getElementById('disc').style = "display: none";
             document.getElementById('tele').style = "display: none";
