@@ -3,22 +3,6 @@
 <?
   require 'steamauth/steamauth.php';
 require 'steamauth/userInfo.php';
-  if (isset($_SESSION['steamid']))
-  {
-    $id = $_SESSION['steamid'];
-    $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
-    $json = json_decode(file_get_contents($url));
-    $names = array();
-      foreach($json->rgDescriptions as $value => $v){
-      $name = $v->market_hash_name;
-      $icon_url = $v->icon_url;
-      array_push($inventory, $name);
-  }
-}
-else
-{
-#not loggedin
-}
 ?>
 
 <head>
@@ -99,18 +83,23 @@ else
 <form method="post">
     <select name="skin">
         <option selected="selected">Choose a skin</option>
-        <?php
-        foreach($inventory as $n){
-         ?> <option>
-            <? array_pop($inventory) ?>
-        </option>
-        <?
-        }
+        <?php 
+        $id = $_SESSION['steamid'];
+        $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
+        $json = json_decode(file_get_contents($url));
+$i = 0;
+foreach ($json->rgDescriptions as $value => $v) {
+    $name = $v->market_hash_name;
+    $icon_url = $v->icon_url;
+    $price = 0.00;
+    //obtain price (if crypto -2 bucks) (if price = 0 reject)
+    echo '<option value='.$i.'>' . $name . ' | $' . $price . '</option>';
+}
         ?>
-    </select>
-    <button onclick="paycheck" class="button">Submit</button>
+    </select> <br>
     <hr class="line"> <br>
-    <?} else{ ?>
+    <button onclick="paycheck" class="button">Submit</button>
+    <?} else { ?>
     <p> Login with Steam to access the shop</p>
     <? echo loginbutton();?>
     <br>
