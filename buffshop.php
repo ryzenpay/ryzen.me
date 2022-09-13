@@ -6,22 +6,19 @@ require 'steamauth/userInfo.php';
   if (isset($_SESSION['steamid']))
   {
     $id = $_SESSION['steamid'];
-  $inventory = array();
     $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
     $json = json_decode(file_get_contents($url));
-    foreach($json->rgDescriptions as $value){
-      $name = $value->market_hash_name;
-      $icon_url = $value->icon_url;
-      $trade = $value->tradable;
-    $icon = "<img src='http://cdn.steamcommunity.com/economy/image/$icon_url'>";
-    array_push($inventory, array($name, $icon_url, $trade));
-
-}
-}
-  else
-  {
-    #not loggedin
+    $names = array();
+      foreach($json->rgDescriptions as $value => $v){
+      $name = $v->market_hash_name;
+      $icon_url = $v->icon_url;
+      array_push($inventory, $name);
   }
+}
+else
+{
+#not loggedin
+}
 ?>
 
 <head>
@@ -103,14 +100,11 @@ require 'steamauth/userInfo.php';
     <select name="skin">
         <option selected="selected">Choose a skin</option>
         <?php
-        // A sample product array
-$inventory;
-
-        // Iterating through the product array
-        $i = 0;
-        foreach($inventory as $item){
-  $i++;
-            echo '<option value="' . strtolower($inventory[$i][1]) . '">' . $inventory[$i][1] . '</option>';
+        foreach($inventory as $n){
+         ?> <option>
+            <? array_pop($inventory) ?>
+        </option>
+        <?
         }
         ?>
     </select>
@@ -290,7 +284,8 @@ $inventory;
     }
 
     function submit() {
-        $sql = "INSERT INTO Bufftrade (trade, payment, payment_id, item, price, communication, ogu, date) VALUES ()";
+        $sql =
+            "INSERT INTO Bufftrade (trade, payment, payment_id, item, price, communication, ogu, date) VALUES ()";
     }
     </script>
 
