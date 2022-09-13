@@ -38,44 +38,50 @@ require 'steamauth/userInfo.php';
     <label for="STEAM_ID" id="STEAM_ID">
         <? $_SESSION['steamid'] ?>
     </label> <br>
-    <label class="ticket" for="payment">Payment Method:</label>
-    <select class="d-inline-flex" name="payment" id="payment" onchange="paymentmethod()" required>
-        <option value=''>(select)</Option>
-        <option value="PP">Paypal</option>
-        <option value="CA">Cashapp</option>
-        <option value="CRYPTO">Crypto</option>
-    </select>
-    <label class="ticket" for="PPC" id="PPCI" style="display: none">Paypal Email:</label>
-    <input class="input" type="text" id="PPC" name="PPC" placeholder="name@email.com" style="display: none">
-    <label class="ticket" for="CACI" id="CACI" style="display: none">Cashapp Tag:</label>
-    <input class="input" type="text" id="CAC" name="CAC" placeholder="$name" style="display: none">
-    <label class="ticket" for="CRYPTYPE" id="CRYPTYPEI" style="display: none">Type of Crypto:</label>
-    <select class="d-inline-flex" name="CRYPTYPE" id="CRYPTYPE" onchange="cryptotype()" style="display: none">
-        <option value=''>(select)</option>
-        <option value="LTC">LTC</option>
-        <option value="BTC">BTC</option>
-        <option value="ETH">ETH</option>
-    </select> <br>
-    <label class="ticket" for="CRYPTO" id="CRYPTOI" style="display: none">Crypto address:</label>
-    <input class="input" type="text" id="CRYPTO" name="CRYPTO" placeholder="Crypto addy" style="display: none">
+    <p style="clear:both">
+        <label class="ticket" for="payment">Payment Method:</label>
+        <select class="d-inline-flex" name="payment" id="payment" onchange="paymentmethod()" required>
+            <option value=''>(select)</Option>
+            <option value="PP">Paypal</option>
+            <option value="CA">Cashapp</option>
+            <option value="CRYPTO">Crypto</option>
+        </select>
+        <label class="ticket" for="PPC" id="PPCI" style="display: none">Paypal Email:</label>
+        <input class="input" type="text" id="PPC" name="PPC" placeholder="name@email.com" style="display: none">
+        <label class="ticket" for="CACI" id="CACI" style="display: none">Cashapp Tag:</label>
+        <input class="input" type="text" id="CAC" name="CAC" placeholder="$name" style="display: none">
+        <label class="ticket" for="CRYPTYPE" id="CRYPTYPEI" style="display: none">Type of Crypto:</label>
+        <select class="d-inline-flex" name="CRYPTYPE" id="CRYPTYPE" onchange="cryptotype()" style="display: none">
+            <option value=''>(select)</option>
+            <option value="LTC">LTC</option>
+            <option value="BTC">BTC</option>
+            <option value="ETH">ETH</option>
+        </select> <br>
+        <label class="ticket" for="CRYPTO" id="CRYPTOI" style="display: none">Crypto address:</label>
+        <input class="input" type="text" id="CRYPTO" name="CRYPTO" placeholder="Crypto addy" style="display: none">
+    </p>
     <br>
-    <label class="ticket" for="comm">Communication Method: </label>
-    <select class="d-inline-flex" name="commtype" id="commtype" onchange="commtype()" required>
-        <option value=''>(select)</option>
-        <option value="disc">Discord</option>
-        <option value="tele">Telegram</option>
-        <option value="ogu">OGU DM</option>
-    </select>
-    <label class="ticket" for="disci" id="disci" style="display: none">Discord: </label>
-    <input class="input" type="text" id="disc" name="disc" placeholder="name#0000" style="display: none">
-    <label class="ticket" for="tele" id="telei" style="display: none">Telegram: </label>
-    <input class="input" type="text" id="tele" name="tele" placeholder="@name" style="display: none">
-    <label class="ticket" for="ogu" id="ogui" style="display: none">OGU Name: </label>
-    <input class="input" type="text" id="ogu" name="ogu" placeholder="name" style="display: none"><br>
+    <p style="clear:both">
+        <label class="ticket" for="comm">Communication Method: </label>
+        <select class="d-inline-flex" name="commtype" id="commtype" onchange="commtype()" required>
+            <option value=''>(select)</option>
+            <option value="disc">Discord</option>
+            <option value="tele">Telegram</option>
+            <option value="ogu">OGU DM</option>
+        </select>
+        <label class="ticket" for="disci" id="disci" style="display: none">Discord: </label>
+        <input class="input" type="text" id="disc" name="disc" placeholder="name#0000" style="display: none">
+        <label class="ticket" for="tele" id="telei" style="display: none">Telegram: </label>
+        <input class="input" type="text" id="tele" name="tele" placeholder="@name" style="display: none">
+        <label class="ticket" for="ogu" id="ogui" style="display: none">OGU Name: </label>
+        <input class="input" type="text" id="ogu" name="ogu" placeholder="name" style="display: none">
+    </p>
+    <br>
 </body>
 <br>
 <label class="ticket" for="OGU">OGU Name (Optional): </label>
 <input class="input" type="text" id="ogu2" name="ogu2"> <br>
+<p style="clear:both">
 <p id="inventory"></p>
 <button onclick='select' class="minibutton">
     <? $skins ?>Skin(s) Selected
@@ -105,6 +111,7 @@ foreach ($json->rgDescriptions as $value => $v) {
     <br>
     <?
 }?>
+    </p>
     <address>
         <div class="footer">
             <p>By using our services you agree to our TOS</p>
