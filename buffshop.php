@@ -92,14 +92,26 @@ require 'steamauth/userInfo.php';
         <?php 
         $id = $_SESSION['steamid'];
         $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
-        $json = json_decode(file_get_contents($url));
+        $inventory = json_decode(file_get_contents($url));
+        $url = "https://prices.csgotrader.app/latest/prices_v6.json";
+        $prices = json_decode($url);
 $i = 0;
-foreach ($json->rgDescriptions as $value => $v) {
+foreach ($inventory->rgDescriptions as $value => $v) {
     $name = $v->market_hash_name;
     $icon_url = $v->icon_url;
-    $price = 0.00;
-    //obtain price (if crypto -2 bucks) (if price = 0 reject)
+    $market_hash = $v->market_hash_name;
+    foreach ($prices as $item => $ite)
+    {
+        if ($ite == $market_hash)
+        {
+            $price = $ite->$market_hash->buff163->starting_at->price;
+        }
+        else {
+            $price = 'error';
+        }
+    }
     echo '<option value='.$i.'>' . $name . ' | $' . $price . '</option>';
+    $i++;
 }
         ?>
     </select> <br>
