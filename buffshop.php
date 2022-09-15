@@ -3,6 +3,7 @@
 <?
   require 'steamauth/steamauth.php';
 require 'steamauth/userInfo.php';
+ini_set("allow_url_fopen", 1);
 ?>
 
 <head>
@@ -93,28 +94,25 @@ require 'steamauth/userInfo.php';
         $id = $_SESSION['steamid'];
         $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
         $inventory = json_decode(file_get_contents($url));
-        $url = "https://prices.csgotrader.app/latest/prices_v6.json";
-        $prices = json_decode($url);
+        //$url2 = "https://prices.csgotrader.app/latest/prices_v6.json";
+$url2 = 'https://www.ryzen.me/prices.json';
+        $prices = json_decode(file_get_contents($url2));
 $i = 0;
+$value = 0.0;
 foreach ($inventory->rgDescriptions as $value => $v) {
+    $price = 'NULL';
     $name = $v->market_hash_name;
     $icon_url = $v->icon_url;
-    $market_hash = $v->market_hash_name;
-    foreach ($prices as $item => $ite)
-    {
-        if ($ite == $market_hash)
-        {
-            $price = $ite->$market_hash->buff163->starting_at->price;
-        }
-        else {
-            $price = 'error';
-        }
+    if (isset($prices->$name)) {
+        $price = $prices->$name->buff163->starting_at->price;
+        $value = $value + $price;
     }
     echo '<option value='.$i.'>' . $name . ' | $' . $price . '</option>';
     $i++;
 }
         ?>
     </select> <br>
+    <?php echo '<b>'.$value.'</b>' ?>
     <hr class="line"> <br>
     <button onclick="paycheck" class="button">Submit</button>
     <?} else { ?>
