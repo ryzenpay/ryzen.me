@@ -162,3 +162,9 @@ h2 {
   top: 1%;
   left: 50%;
 }
+
+.time {
+  top: 0;
+  right: 0;
+  color: #b651e0;
+}
