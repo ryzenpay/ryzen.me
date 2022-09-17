@@ -14,8 +14,7 @@ ini_set("allow_url_fopen", 1);
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
 
-<body>
-
+<body onload="startTime()">
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
                 loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25"
@@ -27,6 +26,7 @@ ini_set("allow_url_fopen", 1);
     <a href="social.php">
         <button type="button" class="home">Home</button>
     </a>
+    <div id="time" class="time"></div>
     <? if(isset($_SESSION['steamid'])) {?>
     <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b class="username">
         <?= $steamprofile['personaname']; ?>
@@ -84,9 +84,6 @@ ini_set("allow_url_fopen", 1);
 <input class="input" type="text" id="ogu2" name="ogu2"> <br>
 <p style="clear:both">
 <p id="inventory"></p>
-<button onclick='select' class="minibutton">
-    <? $skins ?>Skin(s) Selected
-</button> <br> <br>
 <form method="post">
     <select name="skin">
         <option selected="selected">Choose a skin</option>
@@ -95,26 +92,24 @@ ini_set("allow_url_fopen", 1);
         $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
         $inventory = json_decode(file_get_contents($url));
         //$url2 = "https://prices.csgotrader.app/latest/prices_v6.json";
-$url2 = 'https://www.ryzen.me/prices.json';
+$url2 = 'https://www.ryzen.me/update.py/prices.json';
         $prices = json_decode(file_get_contents($url2));
 $i = 0;
-$value = 0.0;
 foreach ($inventory->rgDescriptions as $value => $v) {
     $price = 'NULL';
     $name = $v->market_hash_name;
     $icon_url = $v->icon_url;
     if (isset($prices->$name)) {
         $price = $prices->$name->buff163->starting_at->price;
-        $value = $value + $price;
     }
     echo '<option value='.$i.'>' . $name . ' | $' . $price . '</option>';
     $i++;
 }
         ?>
     </select> <br>
-    <?php echo '<b>'.$value.'</b>' ?>
     <hr class="line"> <br>
-    <button onclick="paycheck" class="button">Submit</button>
+    <button onclick="force_update()" class="minibutton">Update inventory</button> <br> <br>
+    <button onclick="paycheck()" class="button">Submit</button>
     <?} else { ?>
     <p> Login with Steam to access the shop</p>
     <? echo loginbutton();?>
@@ -212,11 +207,6 @@ foreach ($inventory->rgDescriptions as $value => $v) {
         }
     }
 
-    function select() {
-        //if >=1 selected, change text to 'nmbr skins selected'
-        // pop up new window to select skins
-        <?php $skins ?>
-    }
 
     function paycheck() {
         if (document.getElementById('payment').value == '') {
@@ -301,6 +291,70 @@ foreach ($inventory->rgDescriptions as $value => $v) {
             $trade = document.getElementById('id').value;
             mysqli_query($con, $sql);
         }
+    }
+
+    function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+        setTimeout(startTime, 1000);
+    }
+
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i
+        }; // add zero in front of numbers < 10
+        return i;
+    }
+
+    function update() {
+        const d = new Date();
+        let hour = d.getUTCHours();
+        if (hour == 4) {
+            force_update();
+        }
+    }
+
+    function force_update() {
+        <?php
+        $url = "https://prices.csgotrader.app/latest/prices_v6.json";
+        $fp = fopen (dirname(__FILE__) . '/prices.json', 'w+');
+        $options = [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER => false,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_USERAGENT => "CURL",
+            CURLOPT_AUTOREFERER => true,
+            CURLOPT_CONNECTTIMEOUT => 12000,
+            CURLOPT_TIMEOUT => 12000,
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_FILE => $fp
+            ];
+
+        $ch = curl_init ($url);
+        curl_setopt_array ( $ch, $options );
+
+        $return = [];
+        $return['response'] = curl_exec ( $ch );
+        $return['errno'] = curl_errno ( $ch );
+        $return['errmsg'] = curl_error ( $ch );
+        $return['httpcode'] = curl_getinfo ( $ch, CURLINFO_HTTP_CODE );
+
+        curl_close ($ch);
+        fclose($fp);
+        if($return['httpcode'] == 200)
+        {
+            echo $return['response']; //Here is your response
+
+        }
+
+    ?>
+
     }
     </script>
 
