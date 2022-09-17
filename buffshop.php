@@ -91,9 +91,13 @@ ini_set("allow_url_fopen", 1);
         $id = $_SESSION['steamid'];
         $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
         $inventory = json_decode(file_get_contents($url));
-        //$url2 = "https://prices.csgotrader.app/latest/prices_v6.json";
-$url2 = 'https://www.ryzen.me/update.py/prices.json';
-        $prices = json_decode(file_get_contents($url2));
+        $url2 = 'https://www.ryzen.me/update.py/prices.json';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL,$url2);
+        $result=curl_exec($ch);
+        curl_close($ch);
+        $prices = json_decode($result);
 $i = 0;
 foreach ($inventory->rgDescriptions as $value => $v) {
     $price = 'NULL';
@@ -333,7 +337,8 @@ foreach ($inventory->rgDescriptions as $value => $v) {
             CURLOPT_CONNECTTIMEOUT => 12000,
             CURLOPT_TIMEOUT => 12000,
             CURLOPT_MAXREDIRS => 10,
-            CURLOPT_FILE => $fp
+            CURLOPT_FILE => $fp,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1
             ];
 
         $ch = curl_init ($url);
