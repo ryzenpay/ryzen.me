@@ -9,7 +9,7 @@
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
 
-<body>
+<body background-image: url('https://ryzen.me/images/Background.png');>
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
                 loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25"

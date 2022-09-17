@@ -10,12 +10,11 @@ ini_set("allow_url_fopen", 1);
     <title>Ryzen.me shop</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="https://ryzen.me/images/flavicon.png" />
-    <p style="background-image: url('https://ryzen.me/images/Background.png');">
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
 
-<body onload="startTime()">
+<body onload="startTime()" background-image: url('https://ryzen.me/images/shopbackground.png');>
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
                 loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25"
