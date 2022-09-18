@@ -8,8 +8,13 @@
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
+<style>
+body {
+    background-image: url("https://ryzen.me/images/Background.png");
+}
+</style>
 
-<body background-image: url('https://ryzen.me/images/Background.png');>
+<body>
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
                 loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25"
@@ -21,8 +26,10 @@
             </button>
             <br>CashApp: <button onclick="cashcopy()" title="Copy" class="minibutton">$Zaiga
             </button> <br>Telegram:
-            <button onclick="telecopy()" title="Copy" class="minibutton">@highballer </button> <br> Steam:
+            <button onclick="telecopy()" title="Open in new tab" class="minibutton">@highballer </button> <br> Steam:
             <button onclick="steamtradecopy()" title="Open in new tab" class="minibutton">Steam trade link </button>
+            <br> Discord server: <button onclick="discord()" title="Open in new tab" class="minibutton">Discord
+                invite</button>
         </h2>
         <hr class="line">
         <br>
@@ -60,13 +67,16 @@ function disccopy() {
 
 function steamtradecopy() {
     window.open('https://steamcommunity.com/tradeoffer/new/?partner=1092089915&token=o8jkW4va', '_blank');
-    alert("Opened in new tab");
 }
 
 function telecopy() {
     navigator.clipboard.writeText("@highballer");
     window.open('https://t.me/highballer', '_blank');
-    alert('Opened in new tab');
+}
+
+function discord() {
+    navigator.clipboard.writeText('https://discord.gg/wE7yQSXsts');
+    window.open('https://discord.gg/wE7yQSXsts', '_blank');
 }
 </script>
 

@@ -13,8 +13,13 @@ ini_set("allow_url_fopen", 1);
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
+<style>
+body {
+    background-image: url("https://ryzen.me/images/shopbackground.png");
+}
+</style>
 
-<body onload="startTime()" background-image: url('https://ryzen.me/images/shopbackground.png');>
+<body onload="startTime()">
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
                 loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25"
@@ -33,8 +38,8 @@ ini_set("allow_url_fopen", 1);
     </b><b class="caret"></b>
     <? echo logoutbutton(); ?>
 
-    <a href='https://steamcommunity.com/my/tradeoffers/privacy' target="_blank">
-        <label for="trade">Tradelink: </label> </a>
+    <button onclick="tradelink()" title="Open in new tab" class="minibutton">TradeLink:
+    </button>
     <input class="input" type="text" id="trade" name="trade"> <br>
     <label for="STEAM_ID" id="STEAM_ID">
         <? $_SESSION['steamid'] ?>
@@ -92,21 +97,16 @@ ini_set("allow_url_fopen", 1);
         $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
         $inventory = json_decode(file_get_contents($url));
         $url2 = 'https://www.ryzen.me/update.py/prices.json';
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL,$url2);
-        $result=curl_exec($ch);
-        curl_close($ch);
-        $prices = json_decode($result);
+        $prices = json_decode(file_get_contents($url2),true);
 $i = 0;
 foreach ($inventory->rgDescriptions as $value => $v) {
-    $price = 'NULL';
+    $fprice = 'NULL';
     $name = $v->market_hash_name;
     $icon_url = $v->icon_url;
-    if (isset($prices->$name)) {
-        $price = $prices->$name->buff163->starting_at->price;
+    for ($x = 0; $x < count($prices); $x++){
+        $fprice = $prices[$name]['buff163']['starting_at']['price'];
     }
-    echo '<option value='.$i.'>' . $name . ' | $' . $price . '</option>';
+    echo '<option value='.$i.'>' . $name . ' | $' . $fprice . '</option>';
     $i++;
 }
         ?>
@@ -360,6 +360,11 @@ foreach ($inventory->rgDescriptions as $value => $v) {
 
     ?>
 
+    }
+
+    function tradelink() {
+        window.open('https://steamcommunity.com/my/tradeoffers/privacy', '_blank');
+        alert("Opened in new tab");
     }
     </script>
 
