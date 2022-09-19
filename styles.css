@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+
 body {
   color: #b651e0;
   position: center;
@@ -6,7 +8,7 @@ body {
   text-align: center;
   padding: 5px;
   align-self: center;
-  font-family: "cursive, Lucida Handwriting";
+  font-family: 'Kanit', sans-serif;
 }
 
 head {
