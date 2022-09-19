@@ -29,7 +29,7 @@ body {
         </button> <br>Telegram:
         <button onclick="telecopy()" title="Open in new tab" class="minibutton">@highballer </button> <br> Steam:
         <button onclick="steamtradecopy()" title="Open in new tab" class="minibutton">Steam trade link </button>
-        <br> Discord server: <button onclick="discord()" title="Open in new tab" class="minibutton">Discord
+        <br> Exchange server: <button onclick="discord()" title="Open in new tab" class="minibutton">Discord
             invite</button>
     </h2>
     <hr class="line">

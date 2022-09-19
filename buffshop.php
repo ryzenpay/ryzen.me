@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <?
-  require 'steamauth/steamauth.php';
+require 'steamauth/steamauth.php';
 require 'steamauth/userInfo.php';
 ini_set("allow_url_fopen", 1);
 ?>
@@ -31,8 +31,8 @@ body {
     <a href="social.php">
         <button type="button" class="home">Home</button>
     </a>
-    <? if(isset($_SESSION['steamid'])) {?>
-    <img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b class="username">
+    <? if (isset($_SESSION['steamid'])) { ?>
+    <img class="img-rounded" src="<?= $steamprofile['avatar']; ?>"> <b class="username">
         <?= $steamprofile['personaname']; ?>
     </b><b class="caret"></b>
     <? echo logoutbutton(); ?>
@@ -50,8 +50,9 @@ body {
             <label for="discord">Discord</label> <br>
             <input type="radio" id="telegram" name="telegram" value="telegram">
             <label for="telegram">Telegram</label> <br>
-            <input type="text" id="communication" name="communication">
             <label for="communication">Communication method Alias:</label> <br>
+            <input type="text" id="communication" name="communication">
+
         </form>
         <br>
         <form name="payment method" onchange="">
@@ -62,41 +63,44 @@ body {
             <label for="paypal">Paypal</label><br>
             <input type="radio" id="cashapp" name="cashapp" value="cashapp">
             <label for="cashapp">Cashapp</label><br>
-            <input type="text" id="payment" name="payment">
             <label for="payment">Payment method address</label> <br>
+            <input type="text" id="payment" name="payment">
+
         </form>
         <br>
         <form name="skins" onchange="">
-            <?php 
-        $id = $_SESSION['steamid'];
-        $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
-        $inventory = json_decode(file_get_contents($url));
-        $url2 = 'http://prices.ryzen.me/prices.json';
-        $prices = json_decode(file_get_contents($url2),true);
-$i = 0;
-foreach ($inventory->rgDescriptions as $value => $v) {
-    $fprice = 'NULL';
-    $name = $v->market_hash_name;
-    $icon_url = $v->icon_url;
-    for ($x = 0; $x < count($prices); $x++){
-        $fprice = $prices[$name]['buff163']['starting_at']['price'];
-    }
-    echo '<input type="checkbox id="' . $i . '" name="' . $name . '" value="' . $i . '">';
-    echo '<label for="' . $i . '"> ' . $name . ' | $' . $fprice . '</label> <br>';
-    $i++;
-}
-        ?>
+            <?php
+                $id = $_SESSION['steamid'];
+                $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
+                $inventory = json_decode(file_get_contents($url));
+                $url2 = 'http://prices.ryzen.me/prices.json';
+                $prices = json_decode(file_get_contents($url2), true);
+                $i = 0;
+                foreach ($inventory->rgDescriptions as $value => $v) {
+                    $fprice = 'NULL';
+                    $name = $v->market_hash_name;
+                    $icon_url = $v->icon_url;
+                    for ($x = 0; $x < count($prices); $x++) {
+                        $fprice = $prices[$name]['buff163']['starting_at']['price'];
+                    }
+                    if ($fprice != null) {
+                        echo '<input type="checkbox" id="' . $i . '" name="' . $name . '" value="' . $i . '">';
+                        echo '<label for="' . $i . '"> ' . $name . ' | $' . $fprice . '</label> <br>';
+                    }
+                    $i++;
+                }
+                ?>
             <br>
         </form>
-        <input type="submit" value="check" class="button"><br>
+        <input type="submit" value="check" class="minibutton"><br>
     </form>
     <hr class="line"> <br><br>
-    <?} else { ?>
+    <? } else { ?>
     <p> Login with Steam to access the shop</p>
-    <? echo loginbutton();?>
+    <? echo loginbutton(); ?>
     <br>
     <?
-}?>
+    } ?>
     </p>
     <address>
         <div class="footer">
