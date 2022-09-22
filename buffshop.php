@@ -9,22 +9,21 @@ ini_set("allow_url_fopen", 1);
 <head>
     <title>Ryzen.me shop</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="https://ryzen.me/images/flavicon.png" />
+    <link rel="icon" href="/images/flavicon.png" />
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
 <style>
 body {
-    background-image: url("https://ryzen.me/images/shopbackground.png");
+    background-image: url("/images/shopbackground.png");
 }
 </style>
 
 <body>
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
-                loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25"
-                width="302" height="131"
-                srcset="https://ryzen.me/images/ryzen_calligraphy.png 302w, https://ryzen.me/images/ryzen_calligraphy.png 300w"
+                loading="lazy" src="/images/ryzen_calligraphy.png" alt="" class="wp-image-25" width="302" height="131"
+                srcset="/images/ryzen_calligraphy.png 302w, /images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
     <hr class="line"> <br>
@@ -76,20 +75,32 @@ body {
                 $url2 = 'http://prices.ryzen.me/prices.json';
                 $prices = json_decode(file_get_contents($url2), true);
                 $i = 0;
+                $value = 0.0;
+                echo '<p>Inventory Value: $'.$value.'</p><br>';
                 foreach ($inventory->rgDescriptions as $value => $v) {
                     $fprice = 'NULL';
                     $name = $v->market_hash_name;
                     $icon_url = $v->icon_url;
                     for ($x = 0; $x < count($prices); $x++) {
+        if (isset($prices[$name]['buff163']['starting_at']['price'])) {
+            $fprice = $prices[$name]['buff163']['starting_at']['price'];
+            $value = $value + $fprice;
+        }
+                    }
+                        if (isset($prices[$name]['buff163']['starting_at']['price'])){
                         $fprice = $prices[$name]['buff163']['starting_at']['price'];
+                        $name = str_replace('StatTrak™', 'ST™', $name);
+                        $name = str_replace('Factory New', 'FN', $name);
+                        $name = str_replace('Minimal Wear', 'MW', $name);
+                        $name = str_replace('Field-Tested', 'FT', $name);
+                        $name = str_replace('Well-Worn', 'WW', $name);
+                        $name = str_replace('Battle Scarred', 'BS', $name);
+                        echo '<input type="checkbox" id="' . $i . '" name="' . $name . '" value="' . $i .' ">';
+                        echo '<label for="' . $i . '"> '. $name . ' | $' . $fprice . '  </label>';
+                        $i++;
                     }
-                    if ($fprice != null) {
-                        echo '<input type="checkbox" id="' . $i . '" name="' . $name . '" value="' . $i . '">';
-                        echo '<label for="' . $i . '"> ' . $name . ' | $' . $fprice . '</label> <br>';
-                    }
-                    $i++;
                 }
-                ?>
+?>
             <br>
         </form>
         <input type="submit" value="check" class="minibutton"><br>
