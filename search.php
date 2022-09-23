@@ -31,10 +31,11 @@ body {
     <br>
 
     <label for="searchbar">Search Buffdatabase:</label>
-    <input type="text" id="searchbar" name="searchbar">
+    <input type="text" id="searchbar" name="searchbar" onchange="search()">
     <br>
     <script>
-    <?php
+    function search() {
+        <?php
      $url = 'prices.json';
     $buff = json_decode(file_get_contents($url2), true);
     $index = $_GET["searchbar"];
@@ -44,7 +45,8 @@ body {
     $price = ($value['buff163']['starting_at']['price'] * 0.141279);
     echo '<p>' . $value . '|' . $price . '</p>';
 }
-    ?>
+?>
+    }
     </script>
     <br>
     <hr class="line"> <br>
