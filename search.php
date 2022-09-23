@@ -29,10 +29,10 @@ body {
         <button type="button" class="minibutton">Shop</button>
     </a>
     <br>
-    <form onsubmit="return search()">
+    <form>
         <label for="searchbar">Search Buffdatabase:</label>
         <input type="search" id="searchbar" name="searchbar">
-        <input type="submit" value="Submit">
+        <input id="searchbutton" type="button" value="search" onclick="search();" />
     </form>
     <br>
     <hr class="line"> <br>
