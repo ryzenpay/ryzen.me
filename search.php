@@ -29,28 +29,25 @@ body {
         <button type="button" class="minibutton">Shop</button>
     </a>
     <br>
-    <form action="" method="get">
-        <label for="searchbar">Search Buffdatabase:</label>
-        <input type="search" id="searchbar" name="searchbar">
-        <input id="searchbutton" type="button" value="search" onclick="search();" />
-    </form>
+
+    <label for="searchbar">Search Buffdatabase:</label>
+    <input type="search" id="searchbar" name="searchbar">
     <br>
-    <hr class="line"> <br>
-</body>
-<script>
-function search() {
+    <script>
     <?php
      $url = 'prices.json';
     $buff = json_decode(file_get_contents($url2), true);
-$index = $_GET["searchbar"];
-$array = array_filter($buff, $index);
-echo '<p>All current results: </p>';
-foreach($array as $value){
+    $index = $_GET["searchbar"];
+    $array = array_filter($buff, $index);
+    echo '<p>All current results: </p>';
+    foreach($array as $value){
     $price = ($value['buff163']['starting_at']['price'] * 0.141279);
     echo '<p>' . $value . '|' . $price . '</p>';
 }
     ?>
-}
-</script>
+    </script>
+    <br>
+    <hr class="line"> <br>
+</body>
 
 </html>
