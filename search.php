@@ -31,23 +31,30 @@ body {
     <br>
 
     <label for="searchbar">Search Buffdatabase:</label>
-    <input type="text" id="searchbar" name="searchbar" onchange="search()">
-    <br>
-    <script>
-    function search() {
-        <?php
-     $url = 'prices.json';
-    $buff = json_decode(file_get_contents($url), true);
-    $index = $_GET["searchbar"];
-    $array = array_filter($buff, $index);
-    echo '<p>All current results: </p>';
-    foreach($array as $value){
-    $price = ($value['buff163']['starting_at']['price'] * 0.141279);
-    echo '<p>' . $value . '|' . $price . '</p>';
-}
-?>
-    }
-    </script>
+    <div id="searchWrapper">
+        <input type="text" name="searchbar" id="searchbar" placeholder="Search through buff database" />
+        <pre id="0"></pre>
+        <pre id="1"></pre>
+        <pre id="2"></pre>
+        <pre id="3"></pre>
+        <pre id="4"></pre>
+        <pre id="5"></pre>
+        <pre id="6"></pre>
+        <pre id="7"></pre>
+        <pre id="8"></pre>
+        <pre id="9"></pre>
+        <script>
+        const message = document.querySelector('#searchbar');
+        const json = require('./prices.json');
+        const buff = JSON.parse(json);
+        message.addEventListener('keyup', (input) => {
+            let arr = array_filter(buff, input);
+            for (let i = 0; i < arr.length() && i < 10; i++) {
+                document.getElementById(i).innerHTML = arr + " | " + (arr.buff163.starting_at.price * 0.141279);
+            }
+        });
+        </script>
+    </div>
     <br>
     <hr class="line"> <br>
 </body>
