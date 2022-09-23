@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <?
-require './steamauth/steamauth.php';
-require './steamauth/userInfo.php';
+require 'steamauth/steamauth.php';
+require 'steamauth/userInfo.php';
 ini_set("allow_url_fopen", 1);
 $action = $_GET["action"];
 if ($action = "check"){
@@ -57,45 +57,50 @@ body {
     <a href="search.php">
         <button type="button" class="minibutton">Buff database search</button>
     </a>
-    <? if (isset($_SESSION['steamid'])) { ?>
-    <img class="img-rounded" src="<?= $steamprofile['avatar']; ?>"> <b class="username">
-        <?= $steamprofile['personaname']; ?>
-    </b><b class="caret"></b>
-    <? echo logoutbutton(); ?>
-    <br>
-    <form name="details" onsubmit="" action="?action = check">
-        <form name="tradelink" action="">
-            <button onclick="tradelink()" title="Open in new tab" class="minibutton">Tradelink:
-            </button>
-            <input class="input" type="text" id="trade" name="trade"> <br>
-        </form>
+    <?php
+    if(!isset($_SESSION['steamid'])) {
+    echo '<p> Login with Steam to access the shop</p>';
+    loginbutton();
+    } else {
+    include ('steamauth/userInfo.php');
+    echo '    <img class="img-rounded" src="<?= $steamprofile["avatar"]; ?>"> <b class="username">
+        <?= $steamprofile["personaname"]; ?>';
+        logoutbutton();
+        ?>
         <br>
-        <form name="communication method" onchange="">
-            <p>Select communication method: </p>
-            <input type="radio" id="discord" name="discord" value="discord">
-            <label for="discord">Discord</label> <br>
-            <input type="radio" id="telegram" name="telegram" value="telegram">
-            <label for="telegram">Telegram</label> <br>
-            <label for="communication">Communication method Alias:</label> <br>
-            <input type="text" id="communication" name="communication" class="input">
+        <form name="details" onsubmit="" action="?action = check">
+            <form name="tradelink" action="">
+                <button onclick="tradelink()" title="Open in new tab" class="minibutton">Tradelink:
+                </button>
+                <input class="input" type="text" id="trade" name="trade"> <br>
+            </form>
+            <br>
+            <form name="communication method" onchange="">
+                <p>Select communication method: </p>
+                <input type="radio" id="discord" name="discord" value="discord">
+                <label for="discord">Discord</label> <br>
+                <input type="radio" id="telegram" name="telegram" value="telegram">
+                <label for="telegram">Telegram</label> <br>
+                <label for="communication">Communication method Alias:</label> <br>
+                <input type="text" id="communication" name="communication" class="input">
 
-        </form>
-        <br>
-        <form name="payment method" onchange="">
-            <p>Select Payment method:</p>
-            <input type="radio" id="crypto" name="crypto" value="crypto">
-            <label for="crypto">Crypto</label><br>
-            <input type="radio" id="paypal" name="paypal" value="paypal">
-            <label for="paypal">Paypal</label><br>
-            <input type="radio" id="cashapp" name="cashapp" value="cashapp">
-            <label for="cashapp">Cashapp</label><br>
-            <label for="payment">Payment method address</label> <br>
-            <input type="text" id="payment" name="payment" class="input">
+            </form>
+            <br>
+            <form name="payment method" onchange="">
+                <p>Select Payment method:</p>
+                <input type="radio" id="crypto" name="crypto" value="crypto">
+                <label for="crypto">Crypto</label><br>
+                <input type="radio" id="paypal" name="paypal" value="paypal">
+                <label for="paypal">Paypal</label><br>
+                <input type="radio" id="cashapp" name="cashapp" value="cashapp">
+                <label for="cashapp">Cashapp</label><br>
+                <label for="payment">Payment method address</label> <br>
+                <input type="text" id="payment" name="payment" class="input">
 
-        </form>
-        <br>
-        <form name="skins" onchange="">
-            <?php
+            </form>
+            <br>
+            <form name="skins" onchange="">
+                <?php
                 $id = $_SESSION['steamid'];
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
@@ -128,29 +133,25 @@ body {
                     }
                 }
 ?>
-            <br>
+                <br>
+            </form>
+            <input type="submit" value="check" class="minibutton"><br>
         </form>
-        <input type="submit" value="check" class="minibutton"><br>
-    </form>
-    <hr class="line"> <br><br>
-    <? } else { ?>
-    <p> Login with Steam to access the shop</p>
-    <? echo loginbutton(); ?>
-    <br>
-    <?
-    } ?>
-    </p>
-    <address>
-        <div class="footer">
-            <p>By using our services you agree to our TOS</p>
-            </footer>
-    </address>
-    <a href="TOS.php">
-        <button title="TOS" class="tos">TOS</button>
-    </a>
-    <a href="privpos.php">
-        <button title="privpos" class="privpos">Privacy Policy</button>
-    </a>
+        <hr class="line"> <br><br>
+        <?php
+        }
+        ?>
+        <address>
+            <div class="footer">
+                <p>By using our services you agree to our TOS</p>
+                </footer>
+        </address>
+        <a href="TOS.php">
+            <button title="TOS" class="tos">TOS</button>
+        </a>
+        <a href="privpos.php">
+            <button title="privpos" class="privpos">Privacy Policy</button>
+        </a>
 </body>
 <script>
 function tradelink() {
