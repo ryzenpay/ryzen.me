@@ -4,31 +4,58 @@
 require 'steamauth/steamauth.php';
 require 'steamauth/userInfo.php';
 ini_set("allow_url_fopen", 1);
+$action = $_GET["action"];
+if ($action = "check"){
+    $tradelink = $_GET["tradelink"];
+    if (strlen($tradelink) != 77){
+        echo 'alert("Please input valid tradelink")';
+        break;
+    }
+    else{
+    $communication = $_GET["communication"];
+    if ($communication == NULL){
+        echo 'alert("Please input communication alias")';
+    } else{
+        $payment = $_GET["payment"];
+        if ($payment == NULL){
+            echo 'alert("Please input payment alias")';
+        }
+        else{
+            for ($x = 0; $i < $x; $x++){
+                
+            }
+        }
+    }
+    }
+}
 ?>
 
 <head>
     <title>Ryzen.me shop</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/images/flavicon.png" />
+    <link rel="icon" href="images/flavicon.png" />
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
 <style>
 body {
-    background-image: url("/images/shopbackground.png");
+    background-image: url("images/shopbackground.png");
 }
 </style>
 
 <body>
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
-                loading="lazy" src="/images/ryzen_calligraphy.png" alt="" class="wp-image-25" width="302" height="131"
-                srcset="/images/ryzen_calligraphy.png 302w, /images/ryzen_calligraphy.png 300w"
+                loading="lazy" src="images/ryzen_calligraphy.png" alt="" class="wp-image-25" width="302" height="131"
+                srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
     <hr class="line"> <br>
     <a href="social.php">
         <button type="button" class="home">Home</button>
+    </a>
+    <a href="search.php">
+        <button type="button" class="button">Buff database search</button>
     </a>
     <? if (isset($_SESSION['steamid'])) { ?>
     <img class="img-rounded" src="<?= $steamprofile['avatar']; ?>"> <b class="username">
@@ -36,9 +63,9 @@ body {
     </b><b class="caret"></b>
     <? echo logoutbutton(); ?>
     <br>
-    <form name="details" onsubmit="paycheck()">
+    <form name="details" onsubmit="" action="?action = check">
         <form name="tradelink" action="">
-            <button onclick="tradelink()" title="Open in new tab" class="minibutton">TradeLink:
+            <button onclick="tradelink()" title="Open in new tab" class="minibutton">Tradelink:
             </button>
             <input class="input" type="text" id="trade" name="trade"> <br>
         </form>
@@ -50,7 +77,7 @@ body {
             <input type="radio" id="telegram" name="telegram" value="telegram">
             <label for="telegram">Telegram</label> <br>
             <label for="communication">Communication method Alias:</label> <br>
-            <input type="text" id="communication" name="communication">
+            <input type="text" id="communication" name="communication" class="input">
 
         </form>
         <br>
@@ -63,7 +90,7 @@ body {
             <input type="radio" id="cashapp" name="cashapp" value="cashapp">
             <label for="cashapp">Cashapp</label><br>
             <label for="payment">Payment method address</label> <br>
-            <input type="text" id="payment" name="payment">
+            <input type="text" id="payment" name="payment" class="input">
 
         </form>
         <br>
@@ -72,7 +99,7 @@ body {
                 $id = $_SESSION['steamid'];
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
-                $url2 = 'http://prices.ryzen.me/prices.json';
+                $url2 = 'prices.json';
                 $prices = json_decode(file_get_contents($url2), true);
                 $i = 0;
                 $value = 0.0;
@@ -84,7 +111,7 @@ body {
                     for ($x = 0; $x < count($prices); $x++) {
         if (isset($prices[$name]['buff163']['starting_at']['price'])) {
             $fprice = $prices[$name]['buff163']['starting_at']['price'];
-            $value = $value + $fprice;
+            $value = $value + ($fprice * 0.141279);
         }
                     }
                         if (isset($prices[$name]['buff163']['starting_at']['price'])){
@@ -96,7 +123,7 @@ body {
                         $name = str_replace('Well-Worn', 'WW', $name);
                         $name = str_replace('Battle Scarred', 'BS', $name);
                         echo '<input type="checkbox" id="' . $i . '" name="' . $name . '" value="' . $i .' ">';
-                        echo '<label for="' . $i . '"> '. $name . ' | $' . $fprice . '  </label>';
+                        echo '<label for="' . $i . '"> '. $name . ' | $' . ($fprice * 0.141279) . '  </label>';
                         $i++;
                     }
                 }
@@ -126,10 +153,6 @@ body {
     </a>
 </body>
 <script>
-function submit() {
-    mysqli_query($con, $sql);
-}
-
 function tradelink() {
     window.open('https://steamcommunity.com/my/tradeoffers/privacy', '_blank');
     alert("Opened in new tab");

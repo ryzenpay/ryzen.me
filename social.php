@@ -4,22 +4,21 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <title>Ryzen.me</title>
-    <link rel="icon" href="https://ryzen.me/images/flavicon.png" />
+    <link rel="icon" href="images/flavicon.png" />
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
 <style>
 body {
-    background-image: url("https://ryzen.me/images/Background.png");
+    background-image: url("images/Background.png");
 }
 </style>
 
 <body>
     <div class="wp-site-blocks">
         <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
-                loading="lazy" src="https://ryzen.me/images/ryzen_calligraphy.png" alt="" class="wp-image-25"
-                width="302" height="131"
-                srcset="https://ryzen.me/images/ryzen_calligraphy.png 302w, https://ryzen.me/images/ryzen_calligraphy.png 300w"
+                loading="lazy" src="images/ryzen_calligraphy.png" alt="" class="wp-image-25" width="302" height="131"
+                srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
     <hr class="line"> <br>
@@ -36,6 +35,9 @@ body {
     <br>
     <a href="buffshop.php">
         <button type="button" class="button">Shop</button>
+    </a>
+    <a href="search.php">
+        <button type="button" class="button">Buff database search</button>
     </a>
 
     <address>

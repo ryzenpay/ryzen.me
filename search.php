@@ -21,15 +21,33 @@ body {
                 srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
-    <br>
-    <p>Under development, use any of the current sites </p>
-    <a href="social.php"><button type="button" class="home">Home</button></a><br>
-    <a href="buffshop.php"><button type="button" class="home">Shop</button></a><br>
-    <a href="search.php"><button type="button" class="home">Buff
-            database search</button></a><br>
-    <a href="https://discord.gg/wE7yQSXsts">
-        <p>If you enjoy the site check out the discord server</p>
+    <hr class="line"> <br>
+    <a href="social.php">
+        <button type="button" class="home">Home</button>
     </a>
+    <a href="buffshop.php">
+        <button type="button" class="button">Shop</button>
+    </a>
+    <form action="search()">
+        <label for="searchbar">Search Buffdatabase:</label>
+        <input type="search" id="searchbar" name="searchbar">
+        <input type="submit" value="Submit">
+    </form>
 </body>
+<script>
+function search() {
+    <?php
+     $url = 'prices.json';
+    $buff = json_decode(file_get_contents($url2), true);
+$index = $_GET["searchbar"];
+$array = array_filter($buff, $index);
+echo '<p>All current results: </p>';
+foreach($array as $value){
+    $price = ($value['buff163']['starting_at']['price'] * 0.141279);
+    echo '<p>' . $value . '|' . $price . '</p>';
+}
+    ?>
+}
+</script>
 
 </html>
