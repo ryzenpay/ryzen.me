@@ -60,6 +60,7 @@ body {
     <?php
     if(!isset($_SESSION['steamid'])) {
     echo '<p> Login with Steam to access the shop</p>';
+    include ('steamauth/steamauth.php');
     loginbutton();
     } else {
     include ('steamauth/userInfo.php');
