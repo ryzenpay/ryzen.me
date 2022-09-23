@@ -37,7 +37,7 @@ body {
     function search() {
         <?php
      $url = 'prices.json';
-    $buff = json_decode(file_get_contents($url2), true);
+    $buff = json_decode(file_get_contents($url), true);
     $index = $_GET["searchbar"];
     $array = array_filter($buff, $index);
     echo '<p>All current results: </p>';
