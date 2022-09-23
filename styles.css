@@ -57,6 +57,18 @@ h2 {
   font-size: 16px;
 }
 
+.minibutton:hover {
+  background-color: purple;
+  color: #b651e0;
+  opacity: 1;
+
+}
+
+.minibutton:active {
+  background-color: purple;
+  transform: translateY(4px);
+}
+
 .footer {
   position: fixed;
   position: center;

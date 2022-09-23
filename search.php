@@ -33,16 +33,6 @@ body {
     <label for="searchbar">Search Buffdatabase:</label>
     <div id="searchWrapper">
         <input type="text" name="searchbar" id="searchbar" placeholder="Search through buff database" />
-        <pre id="0"></pre>
-        <pre id="1"></pre>
-        <pre id="2"></pre>
-        <pre id="3"></pre>
-        <pre id="4"></pre>
-        <pre id="5"></pre>
-        <pre id="6"></pre>
-        <pre id="7"></pre>
-        <pre id="8"></pre>
-        <pre id="9"></pre>
         <script>
         const message = document.querySelector('#searchbar');
         const json = require('./prices.json');

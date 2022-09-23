@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <?
-require 'steamauth/steamauth.php';
-require 'steamauth/userInfo.php';
+require './steamauth/steamauth.php';
+require './steamauth/userInfo.php';
 ini_set("allow_url_fopen", 1);
 $action = $_GET["action"];
 if ($action = "check"){
