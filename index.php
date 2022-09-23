@@ -24,8 +24,8 @@ body {
     <br>
     <p>Under development, use any of the current sites </p>
     <a href="social.php"><button type="button" class="home">Home</button></a><br>
-    <a href="buffshop.php"><button type="button" class="home">Shop</button></a><br>
-    <a href="search.php"><button type="button" class="home">Buff
+    <a href="buffshop.php"><button type="button" class="minibutton">Shop</button></a><br>
+    <a href="search.php"><button type="button" class="minibutton">Buff
             database search</button></a><br>
     <a href="https://discord.gg/wE7yQSXsts">
         <p>If you enjoy the site check out the discord server</p>

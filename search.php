@@ -31,7 +31,7 @@ body {
     <br>
 
     <label for="searchbar">Search Buffdatabase:</label>
-    <input type="search" id="searchbar" name="searchbar">
+    <input type="text" id="searchbar" name="searchbar">
     <br>
     <script>
     <?php
