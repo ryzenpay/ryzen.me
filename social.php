@@ -34,10 +34,10 @@ body {
     <hr class="line">
     <br>
     <a href="buffshop.php">
-        <button type="button" class="button">Shop</button>
+        <button type="button" class="minibutton">Shop</button>
     </a>
     <a href="search.php">
-        <button type="button" class="button">Buff database search</button>
+        <button type="button" class="minibutton">Buff database search</button>
     </a>
 
     <address>

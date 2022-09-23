@@ -26,13 +26,16 @@ body {
         <button type="button" class="home">Home</button>
     </a>
     <a href="buffshop.php">
-        <button type="button" class="button">Shop</button>
+        <button type="button" class="minibutton">Shop</button>
     </a>
-    <form action="search()">
+    <br>
+    <form onsubmit="return search()">
         <label for="searchbar">Search Buffdatabase:</label>
         <input type="search" id="searchbar" name="searchbar">
         <input type="submit" value="Submit">
     </form>
+    <br>
+    <hr class="line"> <br>
 </body>
 <script>
 function search() {

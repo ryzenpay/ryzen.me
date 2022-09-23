@@ -55,7 +55,7 @@ body {
         <button type="button" class="home">Home</button>
     </a>
     <a href="search.php">
-        <button type="button" class="button">Buff database search</button>
+        <button type="button" class="minibutton">Buff database search</button>
     </a>
     <? if (isset($_SESSION['steamid'])) { ?>
     <img class="img-rounded" src="<?= $steamprofile['avatar']; ?>"> <b class="username">
