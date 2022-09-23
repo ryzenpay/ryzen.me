@@ -29,7 +29,7 @@ body {
         <button type="button" class="minibutton">Shop</button>
     </a>
     <br>
-    <form>
+    <form action="" method="get">
         <label for="searchbar">Search Buffdatabase:</label>
         <input type="search" id="searchbar" name="searchbar">
         <input id="searchbutton" type="button" value="search" onclick="search();" />
