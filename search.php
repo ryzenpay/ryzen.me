@@ -29,22 +29,12 @@ body {
         <button type="button" class="minibutton">Shop</button>
     </a>
     <br>
+    <form action="search.php" method="post" action="1-form.php">
+        <label for="search">Search Buffdatabase:</label>
+        <input type="text" name="search" required />
+        <input type="submit" value="Search" />
+    </form>
 
-    <label for="searchbar">Search Buffdatabase:</label>
-    <div id="searchWrapper">
-        <input type="text" name="searchbar" id="searchbar" placeholder="Search through buff database" />
-        <script>
-        const message = document.querySelector('#searchbar');
-        const json = require('./prices.json');
-        const buff = JSON.parse(json);
-        message.addEventListener('keyup', (input) => {
-            let arr = array_filter(buff, input);
-            for (let i = 0; i < arr.length() && i < 10; i++) {
-                document.getElementById(i).innerHTML = arr + " | " + (arr.buff163.starting_at.price * 0.141279);
-            }
-        });
-        </script>
-    </div>
     <br>
     <hr class="line"> <br>
 </body>
