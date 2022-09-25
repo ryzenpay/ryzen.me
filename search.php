@@ -44,30 +44,27 @@ body {
         <button type="button" class="minibutton">Shop</button>
     </a>
     <br>
-    <form onsubmit="search()">
+    <form name="Searchmenu" action="" method="get">
         <label for="searchbar">Buff search:</label>
-        <input type="text" id="searchbar" name="searchbar" class="input">
-        <input type="submit" value="Submit" />
+        <input type="text" id="searchbar" name="searchbar" class="input"
+            value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
     </form>
-    <br>
-    <hr class="line"> <br>
-</body>
-<script>
-function search() {
     <?php
-$sql = "select * from prices where name like '%$search%'";
+echo '<p>Search results: </p>';
+$sql = "select * from prices where name like '%".$_GET['searchbar']."%'";
 
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0){
+$result = $conn->query($sql);if ($result->num_rows > 0)
 while($row = $result->fetch_assoc() ){
 	echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
 }
-} else {
+ else {
 	echo "0 records";
 }
     ?>
-}
-</script>
+
+    <br>
+    <hr class="line"> <br>
+</body>
+
 
 </html>
