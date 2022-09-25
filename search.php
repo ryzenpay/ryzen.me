@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US">
+<?php
+
+$search = $_POST['search'];
+
+$servername = "localhost";
+$username = "kobe";
+$password = "dennis3200";
+$db = "prices";
+
+$conn = new mysqli($servername, $username, $password, $db);
+
+if ($conn->connect_error){
+	die("Connection failed: ". $conn->connect_error);
+}
+?>
 
 <head>
     <title>Ryzen.me shop</title>
@@ -29,14 +44,30 @@ body {
         <button type="button" class="minibutton">Shop</button>
     </a>
     <br>
-    <form action="search.php" method="post" action="1-form.php">
-        <label for="search">Search Buffdatabase:</label>
-        <input type="text" name="search" required />
-        <input type="submit" value="Search" />
+    <form onsubmit="search()">
+        <label for="searchbar">Buff search:</label>
+        <input type="text" id="searchbar" name="searchbar" class="input">
+        <input type="submit" value="Submit" />
     </form>
-
     <br>
     <hr class="line"> <br>
 </body>
+<script>
+function search() {
+    <?php
+$sql = "select * from prices where name like '%$search%'";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0){
+while($row = $result->fetch_assoc() ){
+	echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
+}
+} else {
+	echo "0 records";
+}
+    ?>
+}
+</script>
 
 </html>

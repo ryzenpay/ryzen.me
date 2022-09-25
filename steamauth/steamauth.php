@@ -37,13 +37,13 @@ if (isset($_GET['login'])){
 					exit;
 				} else {
 					?>
-					<script type="text/javascript">
-						window.location.href="<?=$steamauth['loginpage']?>";
-					</script>
-					<noscript>
-						<meta http-equiv="refresh" content="0;url=<?=$steamauth['loginpage']?>" />
-					</noscript>
-					<?php
+<script type="text/javascript">
+window.location.href = "<?=$steamauth['loginpage']?>";
+</script>
+<noscript>
+    <meta http-equiv="refresh" content="0;url=<?=$steamauth['loginpage']?>" />
+</noscript>
+<?php
 					exit;
 				}
 			} else {
