@@ -39,6 +39,9 @@ body {
     <a href="search.php">
         <button type="button" class="minibutton">Buff database search</button>
     </a>
+    <a href="inventory.php">
+        <button type="button" class="minibutton">Inventory price check</button>
+    </a>
 
     <address>
         <div class="footer">

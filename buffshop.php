@@ -57,6 +57,9 @@ body {
     <a href="search.php">
         <button type="button" class="minibutton">Buff database search</button>
     </a>
+    <a href="inventory.php">
+        <button type="button" class="minibutton">Inventory price check</button>
+    </a>
     <?php
     if(!isset($_SESSION['steamid'])) {
     echo '<p> Login with Steam to access the shop</p>';
@@ -117,7 +120,7 @@ body {
                     for ($x = 0; $x < count($prices); $x++) {
         if (isset($prices[$name]['buff163']['starting_at']['price'])) {
             $fprice = $prices[$name]['buff163']['starting_at']['price'];
-            $value = $value + ($fprice * 0.141279);
+            $value += ($fprice * 0.141279);
         }
                     }
                         if (isset($prices[$name]['buff163']['starting_at']['price'])){
