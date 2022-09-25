@@ -50,7 +50,7 @@ body {
                 srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
-    <hr class="line"> <br>
+    <br>
     <a href="social.php">
         <button type="button" class="home">Home</button>
     </a>
@@ -60,6 +60,8 @@ body {
     <a href="inventory.php">
         <button type="button" class="minibutton">Inventory price check</button>
     </a>
+    <br>
+    <hr class="line"> <br>
     <?php
     if(!isset($_SESSION['steamid'])) {
     echo '<p> Login with Steam to access the shop</p>';

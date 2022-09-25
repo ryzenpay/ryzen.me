@@ -36,7 +36,6 @@ body {
                 srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
-    <hr class="line"> <br>
     <a href="social.php">
         <button type="button" class="home">Home</button>
     </a>
@@ -50,12 +49,15 @@ body {
         <button type="button" class="minibutton">Buff datbase search</button>
     </a>
     <br>
-
+    <hr class="line"> <br>
     <br>
     <form name="steamidmenu" action="" method="get">
         <label for="steamid">Enter steam id:</label>
         <input type="text" id="steamid" name="steamid" class="input"
             value="<?php echo htmlspecialchars($_GET['steamid']); ?>">
+        <a target="_blank" href="https://www.steamidfinder.com/">
+            <button type="button" class="minibutton">Stream ID finder</button>
+        </a>
     </form>
     <form name="skins" onchange="">
         <?php
@@ -71,12 +73,16 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0){
                     while($row = $result->fetch_assoc() ){
+            echo '<img src = '.$icon_url.'>';
 	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
                         $value += (float)$row["price"];
                             }}
 }
                 ?>
     </form>
+    <br>
+    <hr class="line"> <br>
+    <br>
     <address>
         <div class="footer">
             <p>By using our services you agree to our TOS</p>

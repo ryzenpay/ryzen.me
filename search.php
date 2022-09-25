@@ -36,7 +36,7 @@ body {
                 srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
-    <hr class="line"> <br>
+    <br>
     <a href="social.php">
         <button type="button" class="home">Home</button>
     </a>
@@ -47,6 +47,7 @@ body {
         <button type="button" class="minibutton">Inventory price check</button>
     </a>
     <br>
+    <hr class="line"> <br>
     <form name="Searchmenu" action="" method="get">
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
