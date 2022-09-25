@@ -59,7 +59,7 @@ body {
     </form>
     <form name="skins" onchange="">
         <?php
-$value = 0;
+$value = (float)$value;
                 $id = $_GET['steamid'];
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
@@ -72,11 +72,8 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     if ($result->num_rows > 0){
                     while($row = $result->fetch_assoc() ){
 	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
-                        $value += $row["price"];
+                        $value += (float)$row["price"];
                             }}
-                            else {
-	                        echo "Error fetching inventory information, ensure it is set to public";
-}
 }
                 ?>
     </form>
