@@ -73,7 +73,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0){
                     while($row = $result->fetch_assoc() ){
-            echo '<img src = "http://cdn.steamcommunity.com/economy/image/'.$icon_url.'">';
+            echo '<img src = "http://steamcommunity.com/economy/image/'.$icon_url.'.png">';
 	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
                         $value += (float)$row["price"];
                             }}
