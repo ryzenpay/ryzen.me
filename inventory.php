@@ -80,11 +80,11 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                         $value += $row["price"];
             echo
                 '<script type="text/javascript">
-            document.getElementById("value").setAttribute("value","'.$value.'")
+            document.getElementById("value").setAttribute("value","'.number_format($value).'")
         </script>';
                             }}
 }
-echo '<p>Inventory value: '.$value.'</p>';
+echo '<p>Inventory value: '.number_format($value).'</p>';
 ?>
     </form>
     <br>
