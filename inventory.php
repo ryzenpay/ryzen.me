@@ -85,7 +85,8 @@ foreach ($inventory->rgDescriptions as $value => $v) {
         </script>';
                             }}
 }
-                ?>
+echo '<p>Inventory value: '.$value.'</p>';
+?>
     </form>
     <br>
     <hr class="line"> <br>
