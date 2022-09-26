@@ -77,14 +77,14 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     while($row = $result->fetch_assoc() ){
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
 	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
-                        $value += floor($row["price"]);
+                        $value += floor(number_format($row["price"]));
             echo
                 '<script type="text/javascript">
-            document.getElementById("value").setAttribute("value","'.number_format($value).'")
+            document.getElementById("value").setAttribute("value","'.$value.'")
         </script>';
                             }}
 }
-echo '<p>Inventory value: '.number_format($value).'</p>';
+echo '<p>Inventory value: '.$value.'</p>';
 ?>
     </form>
     <br>
