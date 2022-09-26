@@ -76,9 +76,10 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     if ($result->num_rows > 0){
                     while($row = $result->fetch_assoc() ){
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
-	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
-                        $value += ($row["price"]);
-            var_dump($row["price"]);
+            $price = $row["price"];
+	                    echo '<label>'.$row["name"].' | $'.$price."</label><br>";
+                        $value += $price;
+            var_dump($price);
             echo
                 '<script type="text/javascript">
             document.getElementById("value").setAttribute("value","'.$value.'")
