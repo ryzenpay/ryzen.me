@@ -69,11 +69,11 @@ echo '<p>Inventory value: $' . $value . '</p>';
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
                     $icon_url = $v->icon_url;
-                    $sql = "select * from prices where name like '%". $name ."%'";
+                    $sql = "select * from prices where name='".$name."'";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0){
                     while($row = $result->fetch_assoc() ){
-            echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" width="16" height ="auto">';
+            echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon">';
 	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
                         $value += (float)$row["price"];
                             }}

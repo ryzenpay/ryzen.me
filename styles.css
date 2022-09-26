@@ -183,3 +183,13 @@ h2 {
   text-align: center;
   font-size: 16px;
 }
+
+.icon {
+  width: 32;
+  height: auto;
+
+}
+
+.icon:hover {
+  transform: scale(2);
+}
