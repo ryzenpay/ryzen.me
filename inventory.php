@@ -25,7 +25,7 @@ if ($conn->connect_error){
 <hr class="headline" style="bottom: -10px;">
 <style>
 body {
-    background-image: url("images/shopbackground.png");
+    background-image: url("images/Background.png");
 }
 </style>
 
