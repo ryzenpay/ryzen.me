@@ -11,10 +11,10 @@ $db = "prices";
 
 $conn = new mysqli($servername, $username, $password, $db);
 
+
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
-$value = 0.0;
 ?>
 
 <head>
@@ -66,7 +66,7 @@ body {
                 $id = $_GET['steamid'];
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
-echo '<p>Inventory value: $' . $value . '</p>';
+
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
                     $icon_url = $v->icon_url;
@@ -79,6 +79,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                         $value += (float)$row["price"];
                             }}
 }
+echo '<p for="skins">Inventory value: $' . $value . '</p>';
                 ?>
     </form>
     <br>
