@@ -5,8 +5,8 @@
 $search = $_POST['search'];
 
 $servername = "localhost";
-$username = "kobe";
-$password = "dennis3200";
+$username = "readonly";
+$password = "secret_password";
 $db = "prices";
 
 $conn = new mysqli($servername, $username, $password, $db);

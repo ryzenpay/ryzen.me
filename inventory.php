@@ -5,8 +5,8 @@
 $search = $_POST['search'];
 
 $servername = "localhost";
-$username = "kobe";
-$password = "dennis3200";
+$username = "readonly";
+$password = "secret_password";
 $db = "prices";
 
 $conn = new mysqli($servername, $username, $password, $db);
@@ -14,6 +14,7 @@ $conn = new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
+$value = 0.0;
 ?>
 
 <head>
@@ -62,7 +63,6 @@ body {
     </form>
     <form name="skins" onchange="">
         <?php
-$value = (float)$value;
                 $id = $_GET['steamid'];
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
