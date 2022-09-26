@@ -23,7 +23,8 @@ body {
     </div>
     <br>
     <p>Under development, use any of the current sites </p>
-    <a href="social.php"><button type="button" class="home">Home</button></a><br>
+    <a href="index.php"><button type="button" class="home">Home</button></a>
+    <a href="social.php"><button type="button" class="minibutton">Socials</button></a><br>
     <a href="buffshop.php"><button type="button" class="minibutton">Shop</button></a><br>
     <a href="search.php"><button type="button" class="minibutton">Buff
             database search</button></a><br>

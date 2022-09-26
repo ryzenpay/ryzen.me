@@ -37,8 +37,9 @@ body {
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
     <br>
+    <a href="index.php"><button type="button" class="home">Home</button></a>
     <a href="social.php">
-        <button type="button" class="home">Home</button>
+        <button type="button" class="minibutton">Socials</button>
     </a>
     <a href="buffshop.php">
         <button type="button" class="minibutton">Shop</button>
