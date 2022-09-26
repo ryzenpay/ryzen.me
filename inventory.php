@@ -63,7 +63,6 @@ body {
     </form>
     <form name="skins" onchange="">
         <?php
-$value = 0;
                 $id = $_GET['steamid'];
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
