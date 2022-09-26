@@ -77,7 +77,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     while($row = $result->fetch_assoc() ){
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
 	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
-                        $value += (number_format((float)$row["price"]));
+                        $value += (number_format($row["price"]);
             var_dump($value);
             echo
                 '<script type="text/javascript">
