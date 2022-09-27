@@ -75,7 +75,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     $result->execute();
                     $result->store_result();
                     $result->bind_result($price);
-                    while ($result->fetch()){
+    $result->fetch();
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
 	                    echo '<label>'.$name.' | $'.$price."</label><br>";
                         $value += ($price);
@@ -83,7 +83,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                 '<script type="text/javascript">
             document.getElementById("value").setAttribute("value","'.$value.'")
         </script>';
-}         
+        
 }
 echo '<p>Inventory value: '.$value.'</p>';
 ?>
