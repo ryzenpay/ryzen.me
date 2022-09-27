@@ -71,6 +71,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     $icon_url = $v->icon_url;
                     $sql = "select price from prices where name='".$name."'";
                     $result =  $conn->prepare($sql);
+    $result->bind_param("d", $price);
                     $result->execute();
                     $result->store_result();
                     $result->bind_result($price);
