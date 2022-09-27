@@ -75,7 +75,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     $result->store_result();
                     $result->bind_result($price);
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
-	                    echo '<label>'.$row["name"].' | $'.$price."</label><br>";
+	                    echo '<label>'.$name.' | $'.$price."</label><br>";
                         $value += ($price);
             echo
                 '<script type="text/javascript">
