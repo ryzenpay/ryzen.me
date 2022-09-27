@@ -71,18 +71,19 @@ echo '<input type="text" id="value" name="value" value="0.0" class="input" reado
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
                     $icon_url = $v->icon_url;
-                    $sql = "select * from prices where name='".$name."'";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0){
-        $row = $result->fetch_assoc();
+                    $sql = "select price from prices where name='".$name."'";
+                    $result =  $mysqli->prepare($sql);
+                    $result->execute();
+                    $result->store_result();
+                    $result->bind_result($price);
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
-	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
-                        $value += (doubleval($row["price"]));
+	                    echo '<label>'.$row["name"].' | $'.$price."</label><br>";
+                        $value += ($price);
             echo
                 '<script type="text/javascript">
             document.getElementById("value").setAttribute("value","'.$value.'")
         </script>';
-                            }
+                            
 }
 echo '<p>Inventory value: '.$value.'</p>';
 ?>
