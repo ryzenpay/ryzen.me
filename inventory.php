@@ -68,14 +68,14 @@ echo '<label for="value">Inventory Value: </label>';
 echo '<input type="text" id="value" name="value" value="0.0" class="input" readonly> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
-    $price = 0.0;
                     $icon_url = $v->icon_url;
                     $sql = "select price from prices where name='".$name."'";
                     $result =  $conn->prepare($sql);
-    $result->bind_param("d", $price);
+                    $result->bind_param("d", $price);
                     $result->execute();
                     $result->store_result();
                     $result->bind_result($price);
+                    while ($result->fetch()){
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
 	                    echo '<label>'.$name.' | $'.$price."</label><br>";
                         $value += ($price);
@@ -83,7 +83,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                 '<script type="text/javascript">
             document.getElementById("value").setAttribute("value","'.$value.'")
         </script>';
-                            
+}         
 }
 echo '<p>Inventory value: '.$value.'</p>';
 ?>
