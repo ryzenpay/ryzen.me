@@ -68,6 +68,7 @@ echo '<label for="value">Inventory Value: </label>';
 echo '<input type="text" id="value" name="value" value="0.0" class="input" readonly> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
+    $price = 0.0;
                     $icon_url = $v->icon_url;
                     $sql = "select price from prices where name='".$name."'";
                     $result =  $conn->prepare($sql);
