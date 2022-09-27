@@ -2,8 +2,6 @@
 <html lang="en-US">
 <?php
 
-$search = $_POST['search'];
-
 $servername = "localhost";
 $username = "readonly";
 $password = "secret_password";
@@ -72,7 +70,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
                     $icon_url = $v->icon_url;
                     $sql = "select price from prices where name='".$name."'";
-                    $result =  $mysqli->prepare($sql);
+                    $result =  $conn->prepare($sql);
                     $result->execute();
                     $result->store_result();
                     $result->bind_result($price);
