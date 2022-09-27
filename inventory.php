@@ -74,15 +74,15 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     $sql = "select * from prices where name='".$name."'";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0){
-                    while($row = $result->fetch_assoc() ){
+        $row = $result->fetch_assoc();
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
 	                    echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
-                        $value += (floatval($row["price"]));
+                        $value += (doubleval($row["price"]));
             echo
                 '<script type="text/javascript">
             document.getElementById("value").setAttribute("value","'.$value.'")
         </script>';
-                            }}
+                            }
 }
 echo '<p>Inventory value: '.$value.'</p>';
 ?>
