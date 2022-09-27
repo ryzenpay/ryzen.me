@@ -78,15 +78,14 @@ foreach ($inventory->rgDescriptions as $value => $v) {
                     $result->fetch();
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
 	                    echo '<label>'.$name.' | $'.$price."</label><br>";
-                        $value = $value + $price;
-    var_dump($value);
+                        $invval = $invval + $price;
             echo
                 '<script type="text/javascript">
-            document.getElementById("value").setAttribute("value","'.$value.'")
+            document.getElementById("value").setAttribute("value","'.$invval.'")
         </script>';
         
 }
-echo '<p>Inventory value: '.$value.'</p>';
+echo '<p>Inventory value: '.$invval.'</p>';
 ?>
     </form>
     <br>
