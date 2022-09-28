@@ -148,6 +148,7 @@ h2 {
 
 .input {
   align-items: center;
+  position: relative;
   margin: auto;
   background-color: black;
   color: #b651e0;
@@ -162,6 +163,7 @@ h2 {
   background: transparent;
   border: none;
   color: #b651e0;
+  position: relative;
 }
 
 .username {
