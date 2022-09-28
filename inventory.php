@@ -42,7 +42,6 @@ body {
     <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
     <br>
     <hr class="line"> <br>
-    <br>
     <form name="steamidmenu" action="" method="get">
         <label for="steamid">Enter steam id:</label>
         <input type="text" id="steamid" name="steamid" class="input"
@@ -58,6 +57,7 @@ body {
                 $inventory = json_decode(file_get_contents($url));
 echo '<label for="value">Inventory Value: </label>';
 echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" readonly> <br>';
+echo '<hr class="line"> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
                     $icon_url = $v->icon_url;
