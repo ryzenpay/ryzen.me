@@ -37,16 +37,10 @@ body {
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
     <br>
-    <a href="index.php"><button type="button" class="home">Home</button></a>
-    <a href="social.php">
-        <button type="button" class="minibutton">Socials</button>
-    </a>
-    <a href="buffshop.php">
-        <button type="button" class="minibutton">Shop</button>
-    </a>
-    <a href="inventory.php">
-        <button type="button" class="minibutton">Inventory price check</button>
-    </a>
+    <a href="index.php"><button type="button" class="minibutton">Home</button></a>
+    <a href="social.php"><button type="button" class="minibutton">Socials</button></a>
+    <a href="inventory.php"><button type="button" class="minibutton">Inventory price check</button></a>
+    <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
     <br>
     <hr class="line"> <br>
     <form name="Searchmenu" action="" method="get">
