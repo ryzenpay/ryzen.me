@@ -152,6 +152,8 @@ h2 {
   background-color: black;
   color: #b651e0;
   border-color: purple;
+  padding: 3px;
+  border-radius: 10px;
 }
 
 .username {

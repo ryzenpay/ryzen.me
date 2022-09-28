@@ -53,6 +53,9 @@ body {
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
+        <a href="search.php">
+            <button class="minibutton">search</button>
+        </a>
     </form>
     <?php
 echo '<p>Search results: </p>';
@@ -70,11 +73,10 @@ while($row = $result->fetch_assoc() ){
  else {
 	echo "0 records";
 }
-    ?>
+?>
 
     <br>
     <hr class="line"> <br>
 </body>
-
 
 </html>
