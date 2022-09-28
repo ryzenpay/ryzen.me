@@ -156,6 +156,13 @@ h2 {
   border-radius: 10px;
 }
 
+.hiddeninput {
+  align-items: center;
+  margin: 0%;
+  background: transparent;
+  border: none;
+}
+
 .username {
   position: fixed;
   top: 15px;

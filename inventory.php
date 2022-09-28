@@ -57,7 +57,7 @@ body {
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
 echo '<label for="value">Inventory Value: </label>';
-echo '<input type="text" id="value" name="value" value="0.0" class="input" readonly> <br>';
+echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" readonly> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
                     $icon_url = $v->icon_url;
