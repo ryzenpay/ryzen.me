@@ -96,11 +96,6 @@ $result = $conn->query($check);
             $insert = 'INSERT INTO leaderboard (name, value) VALUES("' . $id .'",' . $invval . ');';
             $conn->query($insert);
               }
-              if ($conn->query($insert)=== TRUE || $conn->query($update) === TRUE || $conn->query($sql) === TRUE){
-    echo "Data successfully imported";
-} else{
-    echo "error saving data: " . $conn->error;
-}
 ?>
     </form>
     <br>
