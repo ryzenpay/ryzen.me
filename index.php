@@ -27,7 +27,7 @@ body {
     <a href="inventory.php"><button type="button" class="minibutton">Inventory price check</button></a>
     <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
     <br>
-    <a href="https://discord.gg/wE7yQSXsts">
+    <a target="_blank" href="https://discord.gg/wE7yQSXsts">
         <p>If you enjoy the site check out the discord server</p>
     </a>
 </body>

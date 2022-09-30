@@ -56,6 +56,11 @@ body {
     <form name="skins" onchange="">
         <?php
                 $id = $_GET['steamid'];
+                if ( strlen($id) == 17 && is_int($id)){
+    $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
+    $id_json = json_decode(file_get_contents($id_url));
+    $id = $id_json->response->steamid;
+                }
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
 echo '<label for="value">Inventory Value: </label>';
