@@ -49,9 +49,6 @@ body {
         <a href="inventory.php">
             <button type="button" class="minibutton">Search</button>
         </a>
-        <a target="_blank" href="https://www.steamidfinder.com/">
-            <button type="button" class="minibutton">Steam ID finder</button>
-        </a>
     </form>
     <form name="skins" onchange="">
         <?php
