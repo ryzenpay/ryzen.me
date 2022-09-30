@@ -2,8 +2,6 @@
 <html lang="en-US">
 <?php
 
-$search = $_POST['search'];
-
 $servername = "localhost";
 $username = "readonly";
 $password = "secret_password";
@@ -11,13 +9,14 @@ $db = "prices";
 
 $conn = new mysqli($servername, $username, $password, $db);
 
+
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
 ?>
 
 <head>
-    <title>Ryzen.me buff search</title>
+    <title>Ryzen.me inventory checker</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/flavicon.png" />
 </head>
@@ -44,37 +43,7 @@ body {
     <a href="leaderboard.php"><button type="button" class="minibutton">Inventory leaderboard</button></a>
     <br>
     <hr class="line"> <br>
-    <form name="Searchmenu" action="" method="get">
-        <label for="searchbar">Buff search:</label>
-        <input type="text" id="searchbar" name="searchbar" class="input"
-            value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
-        <?php
-        echo '        <a href="search.php?searchbar="'.$_GET["searchbar"].'">
-            <button class="minibutton">search</button>
-        </a>'
-            ?>
-
-    </form>
-    <?php
-echo '<p>Search results: </p>';
-$inputarray = explode(' ',$_GET['searchbar']);
-$sql = "select * from prices where name like '%". $inputarray[0] ."%'";
-for ($int = 1; $int < count($inputarray); $int++){
-    $sql .=" and name like '%".$inputarray[$int]."%'";
-}
-
-$result = $conn->query($sql);
-if ($result->num_rows > 0){
-while($row = $result->fetch_assoc() ){
-	echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
-}}
- else {
-	echo "0 records";
-}
-?>
-
-    <br>
+    <p>Current inventory price leaderboard:</p>
     <hr class="line"> <br>
-</body>
 
 </html>

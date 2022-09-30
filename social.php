@@ -37,6 +37,7 @@ body {
     <a href="social.php"><button type="button" class="minibutton">Socials</button></a>
     <a href="inventory.php"><button type="button" class="minibutton">Inventory price check</button></a>
     <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
+    <a href="leaderboard.php"><button type="button" class="minibutton">Inventory leaderboard</button></a>
     <br>
     <address>
         <div class="footer">

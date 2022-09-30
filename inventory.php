@@ -40,6 +40,7 @@ body {
     <a href="social.php"><button type="button" class="minibutton">Socials</button></a>
     <a href="inventory.php"><button type="button" class="minibutton">Inventory price check</button></a>
     <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
+    <a href="leaderboard.php"><button type="button" class="minibutton">Inventory leaderboard</button></a>
     <br>
     <hr class="line"> <br>
     <form name="steamidmenu" action="" method="get">
@@ -88,7 +89,7 @@ echo '<p>Inventory value: '.$invval.'</p>';
 $check = 'SELECT * from leaderboard where name="' . $id . '"';
 $result = $conn->query($check);
         if ($result->num_rows > 0) {
-            $update = 'UPDATE leaderboard SET value="'.$invval.'" WHERE name="' . $id . '"';
+            $update = 'UPDATE leaderboard SET value="' . $invval . '" WHERE name="' . $id . '"';
             $conn->query($update);
         }
                 else {
