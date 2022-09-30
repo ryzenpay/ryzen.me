@@ -46,8 +46,11 @@ body {
         <label for="steamid">Enter steam id:</label>
         <input type="text" id="steamid" name="steamid" class="input"
             value="<?php echo htmlspecialchars($_GET['steamid']); ?>">
+        <a href="inventory.php">
+            <button type="button" class="minibutton">Search</button>
+        </a>
         <a target="_blank" href="https://www.steamidfinder.com/">
-            <button type="button" class="minibutton">Stream ID finder</button>
+            <button type="button" class="minibutton">Steam ID finder</button>
         </a>
     </form>
     <form name="skins" onchange="">
