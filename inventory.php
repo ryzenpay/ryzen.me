@@ -85,20 +85,20 @@ foreach ($inventory->rgDescriptions as $value => $v) {
         
 }
 echo '<p>Inventory value: '.$invval.'</p>';
-$check = "select * from leaderboard where name='".$id."'";
-$result = $con->query($check);
+$check = 'SELECT * from leaderboard where name="' . $id . '"';
+$result = $conn->query($check);
         if ($result->num_rows > 0) {
-            $update = 'UPDATE leaderboard SET value="'.$invval.'" WHERE name="'.$id.'"';
-            $con->query($update);
+            $update = 'UPDATE leaderboard SET value="'.$invval.'" WHERE name="' . $id . '"';
+            $conn->query($update);
         }
                 else {
-            $insert = 'INSERT INTO leaderboard (name, value) VALUES("'.$id .'",'.$invval.');';
-            $con->query($insert);
+            $insert = 'INSERT INTO leaderboard (name, value) VALUES("' . $id .'",' . $invval . ');';
+            $conn->query($insert);
               }
-              if ($con->query($insert)=== TRUE || $con->query($update) === TRUE || $con->query($sql) === TRUE){
+              if ($conn->query($insert)=== TRUE || $conn->query($update) === TRUE || $conn->query($sql) === TRUE){
     echo "Data successfully imported";
 } else{
-    echo "error saving data: " . $con->error;
+    echo "error saving data: " . $conn->error;
 }
 ?>
     </form>
