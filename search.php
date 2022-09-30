@@ -47,9 +47,12 @@ body {
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
-        <a href="search.php">
+        <?php
+        echo '        <a href="search.php?searchbar="'.$_GET["searchbar"].'">
             <button class="minibutton">search</button>
-        </a>
+        </a>'
+            ?>
+
     </form>
     <?php
 echo '<p>Search results: </p>';

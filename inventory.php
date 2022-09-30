@@ -46,9 +46,11 @@ body {
         <label for="steamid">Enter steam id:</label>
         <input type="text" id="steamid" name="steamid" class="input"
             value="<?php echo htmlspecialchars($_GET['steamid']); ?>">
-        <a href="inventory.php">
-            <button type="button" class="minibutton">Search</button>
-        </a>
+        <?php
+        echo '        <a href="search.php?searchbar="'.$_GET["steamid"].'">
+            <button class="minibutton">search</button>
+        </a>'
+            ?>
     </form>
     <form name="skins" onchange="">
         <?php
