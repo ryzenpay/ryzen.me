@@ -64,9 +64,9 @@ body {
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
 echo '<label for="value">Inventory Value: </label>';
-echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" oninput="this.size = this.value.length" readonly>';
+echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" size="1" readonly>';
 echo '<label for="value"> | for </label>';
-echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" oninput="this.size = this.value.length" readonly>';
+echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" size="1" readonly>';
 echo '<label for="value">  Items</label>';
 echo '<hr class="line"> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
@@ -86,7 +86,9 @@ foreach ($inventory->rgDescriptions as $value => $v) {
     echo
         '<script type="text/javascript">
             document.getElementById("value").setAttribute("value","' . $invval . '");
+            document.getElementById("value").setAttribute("size","' . strlen((string)$invval) . '");
             document.getElementById("items").setAttribute("value","'.$items.'")
+            document.getElementById("value").setAttribute("size","' . strlen((string)$items) . '");
         </script>';
         
 }
