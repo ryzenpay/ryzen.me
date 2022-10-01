@@ -64,9 +64,9 @@ body {
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
 echo '<label for="value">Inventory Value: </label>';
-echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" readonly>';
+echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" oninput="this.size = this.value.length" readonly>';
 echo '<label for="value"> | for </label>';
-echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" readonly>';
+echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" oninput="this.size = this.value.length" readonly>';
 echo '<label for="value">  Items</label>';
 echo '<hr class="line"> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
