@@ -59,10 +59,6 @@ body {
         $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
     $id_json = json_decode(file_get_contents($id_url));
     $id = $id_json->response->steamid;
-                echo
-                '<script type="text/javascript">
-            document.getElementById("steamid").setAttribute("value","'.$id.'")
-        </script>';
                 }
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
