@@ -47,7 +47,7 @@ body {
         <input type="text" id="steamid" name="steamid" class="input"
             value="<?php echo htmlspecialchars($_GET['steamid']); ?>">
         <?php
-        echo '        <a href="search.php?searchbar="'.$_GET["steamid"].'">
+        echo '        <a href="inventory.php?steamid="'.$_GET["steamid"].'">
             <button class="minibutton">search</button>
         </a>'
             ?>
@@ -61,7 +61,7 @@ body {
     $id = $id_json->response->steamid;
                 echo
                 '<script type="text/javascript">
-            document.getElementById("value").setAttribute("searchbar","'.$id.'")
+            document.getElementById("value").setAttribute("steamid","'.$id.'")
         </script>';
                 }
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
