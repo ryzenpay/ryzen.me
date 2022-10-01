@@ -61,7 +61,7 @@ body {
     $id = $id_json->response->steamid;
                 echo
                 '<script type="text/javascript">
-            document.getElementById("steamid").setAttribute("steamid","'.$id.'")
+            document.getElementById("steamid").setAttribute("value","'.$id.'")
         </script>';
                 }
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
