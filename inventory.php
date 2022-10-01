@@ -81,7 +81,7 @@ foreach ($inventory->rgDescriptions as $value => $v) {
     $result->fetch();
     echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
     if ($v->cache_expiration){
-        $hold = substr($v->cache_expiration,0,9);
+        $hold = substr($v->cache_expiration,0,10);
             echo '<label>' . $name . ' | $' . $price . ' | TradeHold: '.$hold.'</label><br>';
     }
     else {
