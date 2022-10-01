@@ -55,6 +55,7 @@ body {
     <form name="skins" onchange="">
         <?php
                 $id = $_GET['steamid'];
+                $items = 0;
                 if (strlen($id) != 17){
         $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
     $id_json = json_decode(file_get_contents($id_url));
@@ -63,7 +64,10 @@ body {
                 $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
                 $inventory = json_decode(file_get_contents($url));
 echo '<label for="value">Inventory Value: </label>';
-echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" readonly> <br>';
+echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" readonly>';
+echo '<label for="value"> | for </label>';
+echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" readonly>';
+echo '<label for="value">  Items</label>';
 echo '<hr class="line"> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
@@ -78,9 +82,11 @@ foreach ($inventory->rgDescriptions as $value => $v) {
             echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
 	                    echo '<label>'.$name.' | $'.$price."</label><br>";
                         $invval = $invval + $price;
-            echo
-                '<script type="text/javascript">
-            document.getElementById("value").setAttribute("value","'.$invval.'")
+                        $items = $items + 1;
+    echo
+        '<script type="text/javascript">
+            document.getElementById("value").setAttribute("value","' . $invval . '");
+            document.getElementById("items").setAttribute("value","'.$items.'")
         </script>';
         
 }
