@@ -80,8 +80,8 @@ foreach ($inventory->rgDescriptions as $value => $v) {
     $result->bind_result($price);
     $result->fetch();
     echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
-    if ($v->market_tradable_restriction){
-        $hold = $v->market_tradable_restriction;
+    if ($v->cache_expiration){
+        $hold = substr($v->cache_expiration,0,9);
             echo '<label>' . $name . ' | $' . $price . ' | TradeHold: '.$hold.'</label><br>';
     }
     else {
