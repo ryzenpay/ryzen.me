@@ -67,7 +67,7 @@ echo '<label for="value">Inventory Value: </label>';
 echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" size="1" readonly>';
 echo '<label for="value"> | for </label>';
 echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" size="1" readonly>';
-echo '<label for="value">  Items</label>';
+echo '<label for="value">  Items</label> <br>';
 echo '<hr class="line"> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
                         $name = $v->market_hash_name;
