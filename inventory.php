@@ -67,22 +67,28 @@ echo '<label for="value">Inventory Value: </label>';
 echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" size="1" readonly>';
 echo '<label for="value"> | for </label>';
 echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" size="1" readonly>';
-echo '<label for="value">  Items</label> <br>';
+echo '<label for="value"> Items</label> <br>';
 echo '<hr class="line"> <br>';
 foreach ($inventory->rgDescriptions as $value => $v) {
-                        $name = $v->market_hash_name;
-                    $icon_url = $v->icon_url;
-                    $sql = "select price from prices where name='".$name."'";
-                    $result =  $conn->prepare($sql);
-                    $result->bind_param("d", $price);
-                    $result->execute();
-                    $result->store_result();
-                    $result->bind_result($price);
-                    $result->fetch();
-            echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
-	                    echo '<label>'.$name.' | $'.$price."</label><br>";
-                        $invval = $invval + $price;
-                        $items = $items + 1;
+    $name = $v->market_hash_name;
+    $icon_url = $v->icon_url;
+    $sql = "select price from prices where name='".$name."'";
+    $result =  $conn->prepare($sql);
+    $result->bind_param("d", $price);
+    $result->execute();
+    $result->store_result();
+    $result->bind_result($price);
+    $result->fetch();
+    echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
+    if ($v->market_tradable_restriction){
+        $hold = $v->market_tradable_restriction;
+            echo '<label>' . $name . ' | $' . $price . ' | TradeHold: '.$hold.'</label><br>';
+    }
+    else {
+            echo '<label>' . $name . ' | $' . $price . '</label><br>';
+    }
+    $invval = $invval + $price;
+    $items = $items + 1;
     echo
         '<script type="text/javascript">
             document.getElementById("value").setAttribute("value","' . $invval . '");
