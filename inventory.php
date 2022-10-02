@@ -19,6 +19,13 @@ if ($conn->connect_error){
     <title>Ryzen.me inventory checker</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/flavicon.png" />
+    <ul class="navigation">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="social.php">Socials</a></li>
+        <li><a href="inventory.php">inventory</a></li>
+        <li><a href="search.php">Search</a></li>
+        <li><a href="exchange.php">Exchange</a></li>
+    </ul>
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
