@@ -25,6 +25,7 @@ if ($conn->connect_error){
 <style>
 body {
     background-image: url("images/Background.png");
+    overflow: overlay;
 }
 
 ::-webkit-scrollbar {
@@ -32,7 +33,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.2)
 }
 
 ::-webkit-scrollbar-thumb {
