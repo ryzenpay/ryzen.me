@@ -38,6 +38,8 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: #b651e0;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 </style>
 
