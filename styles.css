@@ -1,22 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
 
-.section ::-webkit-scrollbar {
-  width: 5px;
-}
-
-.section::-webkit-scrollbar {
-  width: 5px;
-}
-
-.section::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 3%;
-}
-
-.section::-webkit-scrollbar-thumb {
-  background: #b651e0;
-}
-
 body {
   color: #b651e0;
   position: center;
