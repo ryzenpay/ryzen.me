@@ -27,6 +27,20 @@ if ($conn->connect_error){
 body {
     background-image: url("images/Background.png");
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2)
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b651e0;
+    border: 1px solid black;
+    border-radius: 3px;
+}
 </style>
 
 <body>
