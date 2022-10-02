@@ -80,7 +80,14 @@ for ($int = 1; $int < count($inputarray); $int++){
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
 while($row = $result->fetch_assoc() ){
-	echo '<label>'.$row["name"].' | $'.$row["price"]."</label><br>";
+    $name = $row["name"];
+    $name = str_replace('StatTrak™', 'ST™', $name);
+    $name = str_replace('Factory New', 'FN', $name);
+    $name = str_replace('Minimal Wear', 'MW', $name);
+    $name = str_replace('Field-Tested', 'FT', $name);
+    $name = str_replace('Well-Worn', 'WW', $name);
+    $name = str_replace('Battle Scarred', 'BS', $name);
+	echo '<label>'.$name.' | $'.$row["price"]."</label><br>";
 }}
  else {
 	echo "0 records";

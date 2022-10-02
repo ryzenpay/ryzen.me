@@ -69,52 +69,58 @@ body {
     </form>
     <form name="skins" onchange="">
         <?php
-                $id = $_GET['steamid'];
-                $items = 0;
-                if (strlen($id) != 17){
-        $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
-    $id_json = json_decode(file_get_contents($id_url));
-    $id = $id_json->response->steamid;
+            $id = $_GET['steamid'];
+            $items = 0;
+            if (strlen($id) != 17){
+                $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
+                $id_json = json_decode(file_get_contents($id_url));
+                $id = $id_json->response->steamid;
+            }
+            $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
+            $inventory = json_decode(file_get_contents($url));
+            echo '<label for="value">Inventory Value: </label>';
+            echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" size="1" readonly>';
+            echo '<label for="value"> | for </label>';
+            echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" size="1" readonly>';
+            echo '<label for="value"> Items</label> <br>';
+            echo '<hr class="line"> <br>';
+            foreach ($inventory->rgDescriptions as $value => $v) {
+                $name = $v->market_hash_name;
+                $icon_url = $v->icon_url;
+                $sql = "select price from prices where name='".$name."'";
+                $result =  $conn->prepare($sql);
+                $result->bind_param("d", $price);
+                $result->execute();
+                $result->store_result();
+                $result->bind_result($price);
+                $result->fetch();
+                $name = str_replace('StatTrak™', 'ST™', $name);
+                $name = str_replace('Factory New', 'FN', $name);
+                $name = str_replace('Minimal Wear', 'MW', $name);
+                $name = str_replace('Field-Tested', 'FT', $name);
+                $name = str_replace('Well-Worn', 'WW', $name);
+                $name = str_replace('Battle Scarred', 'BS', $name);
+                echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
+                if ($v->cache_expiration){
+                    $hold = substr($v->cache_expiration,0,10);
+                    echo '<label>' . $name . ' | $' . $price . ' | TradeHold: '.$hold.'</label><br>';
                 }
-                $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
-                $inventory = json_decode(file_get_contents($url));
-echo '<label for="value">Inventory Value: </label>';
-echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" size="1" readonly>';
-echo '<label for="value"> | for </label>';
-echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" size="1" readonly>';
-echo '<label for="value"> Items</label> <br>';
-echo '<hr class="line"> <br>';
-foreach ($inventory->rgDescriptions as $value => $v) {
-    $name = $v->market_hash_name;
-    $icon_url = $v->icon_url;
-    $sql = "select price from prices where name='".$name."'";
-    $result =  $conn->prepare($sql);
-    $result->bind_param("d", $price);
-    $result->execute();
-    $result->store_result();
-    $result->bind_result($price);
-    $result->fetch();
-    echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
-    if ($v->cache_expiration){
-        $hold = substr($v->cache_expiration,0,10);
-            echo '<label>' . $name . ' | $' . $price . ' | TradeHold: '.$hold.'</label><br>';
-    }
-    else {
-            echo '<label>' . $name . ' | $' . $price . '</label><br>';
-    }
-    $invval = $invval + $price;
-    $items = $items + 1;
-    echo
-        '<script type="text/javascript">
-            document.getElementById("value").setAttribute("value","' . $invval . '");
-            document.getElementById("value").setAttribute("size","' . strlen((string)$invval) . '");
-            document.getElementById("items").setAttribute("value","'.$items.'")
-            document.getElementById("value").setAttribute("size","' . strlen((string)$items) . '");
-        </script>';
+                else {
+                echo '<label>' . $name . ' | $' . $price . '</label><br>';
+                }
+                $invval = $invval + $price;
+                $items = $items + 1;
+                echo
+                    '<script type="text/javascript">
+                    document.getElementById("value").setAttribute("value","' . $invval . '");
+                    document.getElementById("value").setAttribute("size","' . strlen((string)$invval) . '");
+                    document.getElementById("items").setAttribute("value","'.$items.'")
+                    document.getElementById("value").setAttribute("size","' . strlen((string)$items) . '");
+                    </script>';
         
-}
-echo '<p>Inventory value: '.$invval.'</p>';
-?>
+            }
+        echo '<p>Inventory value: '.$invval.'</p>';
+        ?>
     </form>
     <br>
     <hr class="line"> <br>
