@@ -5,6 +5,13 @@
     <title>Ryzen.me Exchange service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/flavicon.png" />
+    <a href="index.php"><button type="button" class="headbutton">Home</button></a>
+    <a href="social.php"><button type="button" class="headbutton">Socials</button></a>
+    <a href="inventory.php"><button type="button" class="headbutton">Inventory price
+            check</button></a>
+    <a href="search.php"><button type="button" class="headbutton">Buff database search</button></a>
+    <a href="exchange.php"><button type="button" class="headbutton"
+            style="background-color:purple">Exchange</button></a>
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
@@ -21,13 +28,6 @@ body {
                 srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
-    <br>
-    <a href="index.php"><button type="button" class="minibutton">Home</button></a>
-    <a href="social.php"><button type="button" class="minibutton">Socials</button></a>
-    <a href="inventory.php"><button type="button" class="minibutton">Inventory price check</button></a>
-    <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
-    <a href="exchange.php"><button type="button" class="minibutton">Exchange</button></a>
-    <br>
     <h1>Ryzen's Exchange service</h1>
     <hr class="line"> <br>
     <h2>7% Paypal -> LTC/BTC</h2>
