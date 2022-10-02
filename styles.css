@@ -69,6 +69,27 @@ h2 {
   transform: translateY(4px);
 }
 
+.headbutton {
+  background-color: purple;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+}
+
+.headbutton:hover {
+  background-color: purple;
+  color: #b651e0;
+  opacity: 1;
+
+}
+
+.headbutton:active {
+  background-color: purple;
+  transform: translateY(4px);
+}
+
 .footer {
   position: fixed;
   position: center;
