@@ -4,10 +4,17 @@
   width: 5px;
 }
 
-.section {
-  scrollbar-width: thin;
-  scrollbar-color: #b651e0;
-  scrollbar-base-color: transparent;
+.section::-webkit-scrollbar {
+  width: 5px;
+}
+
+.section::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3%;
+}
+
+.section::-webkit-scrollbar-thumb {
+  background: #b651e0;
 }
 
 body {
