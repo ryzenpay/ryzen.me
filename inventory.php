@@ -19,11 +19,6 @@ if ($conn->connect_error){
     <title>Ryzen.me inventory checker</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/flavicon.png" />
-    <a href="index.php"><button type="button" class="headbutton">Home</button></a>
-    <a href="social.php"><button type="button" class="headbutton">Socials</button></a>
-    <a href="inventory.php"><button type="button" class="headbutton">Inventory price check</button></a>
-    <a href="search.php"><button type="button" class="headbutton">Buff database search</button></a>
-    <a href="exchange.php"><button type="button" class="headbutton">Exchange</button></a>
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
