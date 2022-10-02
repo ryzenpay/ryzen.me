@@ -50,6 +50,13 @@ body {
 </style>
 
 <body>
+    <br><br><br><br>
+    <div class="wp-site-blocks">
+        <figure class="calligimage" style="border-radius:0px"><img loading="lazy" src="images/ryzen_calligraphy.png"
+                alt="" class="wp-image-25" width="302" height="131"
+                srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
+                sizes="(max-width: 302px) 100vw, 302px"></figure>
+    </div>
     <hr class="line"> <br>
     <form name="steamidmenu" action="" method="get">
         <label for="steamid">Enter steam id:</label>
