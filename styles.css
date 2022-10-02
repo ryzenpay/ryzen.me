@@ -233,8 +233,19 @@ h2 {
 }
 
 table {
-  border: 1px;
+  border: 1px solid;
   border-color: #b651e0;
   align-items: center;
   text-align: center;
+}
+
+th {
+  text-align: center;
+  border: 1px solid;
+}
+
+td {
+  padding: 3px;
+  text-align: center;
+  border: 1px solid;
 }
