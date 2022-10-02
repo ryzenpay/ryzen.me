@@ -50,6 +50,7 @@ body {
 </style>
 
 <body>
+    <br>
     <div class="wp-site-blocks">
         <figure class="calligimage" style="border-radius:0px"><img loading="lazy" src="images/ryzen_calligraphy.png"
                 alt="" class="wp-image-25" width="302" height="131"
