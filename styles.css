@@ -232,9 +232,7 @@ h2 {
   transform: scale(2);
 }
 
-table,
-td,
-th {
+table {
   border: 1px;
   align-items: center;
   text-align: center;
