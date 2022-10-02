@@ -23,6 +23,7 @@ h2 {
 
 .calligimage {
   align-items: center;
+  overflow: visible;
 }
 
 .button {
