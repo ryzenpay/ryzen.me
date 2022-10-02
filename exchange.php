@@ -1,22 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<?php
-
-$servername = "localhost";
-$username = "readonly";
-$password = "secret_password";
-$db = "prices";
-
-$conn = new mysqli($servername, $username, $password, $db);
-
-
-if ($conn->connect_error){
-	die("Connection failed: ". $conn->connect_error);
-}
-?>
 
 <head>
-    <title>Ryzen.me inventory checker</title>
+    <title>Ryzen.me Exchange service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/flavicon.png" />
 </head>
@@ -40,10 +26,10 @@ body {
     <a href="social.php"><button type="button" class="minibutton">Socials</button></a>
     <a href="inventory.php"><button type="button" class="minibutton">Inventory price check</button></a>
     <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
-    <a href="leaderboard.php"><button type="button" class="minibutton">Inventory leaderboard</button></a>
+    <a href="exchange.php"><button type="button" class="minibutton">Exchange</button></a>
     <br>
     <hr class="line"> <br>
-    <p>Current inventory price leaderboard:</p>
+    <h1>Ryzen's Exchange service</h1>
     <hr class="line"> <br>
 
 </html>

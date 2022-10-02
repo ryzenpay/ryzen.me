@@ -55,6 +55,7 @@ body {
     <a href="social.php"><button type="button" class="minibutton">Socials</button></a>
     <a href="inventory.php"><button type="button" class="minibutton">Inventory price check</button></a>
     <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
+    <a href="exchange.php"><button type="button" class="minibutton">Exchange</button></a>
     <br>
     <hr class="line"> <br>
     <form name="Searchmenu" action="" method="get">
