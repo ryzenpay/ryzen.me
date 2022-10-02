@@ -51,9 +51,8 @@ body {
 
 <body>
     <div class="wp-site-blocks">
-        <figure class="wp-block-image size-full is-resized is-style-default" style="border-radius:0px"><img
-                loading="lazy" src="images/ryzen_calligraphy.png" alt="" class="wp-image-25" width="302" height="131"
-                srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
+        <figure class="headimage"><img loading="lazy" src="images/ryzen_calligraphy.png" alt="" class="wp-image-25"
+                width="302" height="131" srcset="images/ryzen_calligraphy.png 302w, images/ryzen_calligraphy.png 300w"
                 sizes="(max-width: 302px) 100vw, 302px"></figure>
     </div>
     <hr class="line"> <br>
