@@ -231,3 +231,11 @@ h2 {
 .icon:hover {
   transform: scale(2);
 }
+
+.table,
+th,
+td {
+  border: 1px;
+  align-items: center;
+  text-align: center;
+}

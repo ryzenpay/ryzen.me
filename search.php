@@ -79,7 +79,7 @@ for ($int = 1; $int < count($inputarray); $int++){
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
-    echo '<table>';
+    echo '<table class="table">';
     echo '<tr><th>Name</th><th>price</th></tr>';
 while($row = $result->fetch_assoc() ){
     $name = $row["name"];
