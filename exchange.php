@@ -33,7 +33,8 @@ body {
     <h2>7% Paypal -> LTC/BTC</h2>
     <h2>10% Paypal -> ETH</h2>
     <h2>15% Paypal -> Any other crypto</h2>
-    <p>If you are interested join the discord server or add me through my socials (ryzen.me/social)</p><br>
+    <p>If you are interested join the discord server or add me through my </p>
+    <a href="social.php"><button type="button" class="minibutton">Socials</button></a><br>
     <a href="https://discord.gg/wE7yQSXsts"><button type="button" class="minibutton">Discord server</button></a>
     <hr class="line"> <br>
 
