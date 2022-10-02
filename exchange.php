@@ -28,8 +28,13 @@ body {
     <a href="search.php"><button type="button" class="minibutton">Buff database search</button></a>
     <a href="exchange.php"><button type="button" class="minibutton">Exchange</button></a>
     <br>
-    <hr class="line"> <br>
     <h1>Ryzen's Exchange service</h1>
+    <hr class="line"> <br>
+    <h2>7% Paypal -> LTC/BTC</h2>
+    <h2>10% Paypal -> ETH</h2>
+    <h2>15% Paypal -> Any other crypto</h2>
+    <p>If you are interested join the discord server or add me through my socials (ryzen.me/social)</p><br>
+    <a href="https://discord.gg/wE7yQSXsts"><button type="button" class="minibutton">Discord server</button></a>
     <hr class="line"> <br>
 
 </html>
