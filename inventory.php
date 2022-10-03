@@ -84,6 +84,8 @@ body {
             echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" size="1" readonly>';
             echo '<label for="value"> Items</label> <br>';
             echo '<hr class="line"> <br>';
+            echo '<table>';
+            echo '<tr><th>Image</th><th>Name</th><th>price</th><th>TradeHold</th></tr>';
             foreach ($inventory->rgDescriptions as $value => $v) {
                 $name = $v->market_hash_name;
                 $icon_url = $v->icon_url;
@@ -100,13 +102,13 @@ body {
                 $name = str_replace('Field-Tested', 'FT', $name);
                 $name = str_replace('Well-Worn', 'WW', $name);
                 $name = str_replace('Battle Scarred', 'BS', $name);
-                echo '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
+                $image =  '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
                 if ($v->cache_expiration){
                     $hold = substr($v->cache_expiration,0,10);
-                    echo '<label>' . $name . ' | $' . $price . ' | TradeHold: '.$hold.'</label><br>';
+                    echo '<tr><td>'.$image.'</td><td>'.$name.'</td><td>$'.$price.'</td><td>'.$hold.'</td></tr>';
                 }
                 else {
-                echo '<label>' . $name . ' | $' . $price . '</label><br>';
+                echo '<tr><td>'.$image.'</td><td>'.$name.'</td><td>$'.$price.'</td><td>Tradeable</td></tr>';
                 }
                 $invval = $invval + $price;
                 $items = $items + 1;
@@ -119,6 +121,7 @@ body {
                     </script>';
         
             }
+        echo '</table>';
         echo '<p>Inventory value: '.$invval.'</p>';
         ?>
     </form>
