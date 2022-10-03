@@ -115,7 +115,7 @@ body {
                 echo
                     '<script type="text/javascript">
                     document.getElementById("value").setAttribute("value","' . $invval . '");
-                    document.getElementById("value").setAttribute("size","' . strlen((string)$invval + 2) . '");
+                    document.getElementById("value").setAttribute("size","' . strlen((string)$invval) . '");
                     document.getElementById("items").setAttribute("value","'.$items.'")
                     document.getElementById("items").setAttribute("size","' . strlen((string)$items) . '");
                     </script>';
