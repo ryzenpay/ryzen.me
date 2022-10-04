@@ -100,6 +100,17 @@ echo '</table>';
 
     <br>
     <hr class="line"> <br>
+    <address>
+        <div class="footer">
+            <p>By using our services you agree to our TOS</p>
+            </footer>
+    </address>
+    <a href="TOS.php">
+        <button title="TOS" class="tos">TOS</button>
+    </a>
+    <a href="privpos.php">
+        <button title="privpos" class="privpos">Privacy Policy</button>
+    </a>
 </body>
 
 </html>
