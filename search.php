@@ -63,9 +63,7 @@ body {
         ?>
         <label for="skins">Skins in database:</label>
         <input type="number" id="skins" name="skins" class="hiddeninput" value="<?php
-foreach ($conn->query('SELECT COUNT(*) FROM item_id') as $row) {
-    echo $row['COUNT(*)'];
-}
+
         ?>"> <br>
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
