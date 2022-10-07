@@ -59,6 +59,11 @@ body {
     </div>
     <hr class="line"> <br>
     <form name="Searchmenu" action="" method="get">
+        <?php
+        $sql = "select count(*) from prices";
+        $skins = $conn->query($sql);
+        ?>
+        <label>Skins in database: <?php $skins?></label><br>
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
