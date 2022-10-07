@@ -64,7 +64,7 @@ body {
         $skins = $conn->query($sql);
         ?>
         <label for="skins">Skins in database:</label>
-        <input type="number" id="skins" name="skins" class="hiddeninput" value="<?php echo $skins?>"> <br>
+        <input type="number" id="skins" name="skins" class="hiddeninput" value="<?php ?>"> <br>
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
