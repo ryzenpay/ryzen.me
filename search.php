@@ -60,7 +60,7 @@ body {
     <hr class="line"> <br>
     <form name="Searchmenu" action="" method="get">
         <?php
-        $sql = "select count(*) from prices";
+        $sql = "select count(item_id) from prices";
         $skins = $conn->query($sql);
         ?>
         <label for="skins">Skins in database:</label>
