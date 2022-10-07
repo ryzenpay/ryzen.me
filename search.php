@@ -73,10 +73,17 @@ body {
     <?php
 echo '<p>Search results: </p>';
 $inputarray = explode(' ',$_GET['searchbar']);
+if ($_GET["page"] == null){
+    $page = 100;
+}
+else {
+    $page = $_GET["page"];
+}
 $sql = "select * from prices where name like '%". $inputarray[0] ."%'";
 for ($int = 1; $int < count($inputarray); $int++){
-    $sql .=" and name like '%".$inputarray[$int]."%' where item_id between ".(($_GET["page"]*100)-100)."and ".(($_GET["page"]*100)-100)."";
+    $sql .=" and name like '%".$inputarray[$int]."%'";
 }
+$sql .= " limit ".($page-100). ",".$page."";
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
