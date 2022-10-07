@@ -62,19 +62,20 @@ body {
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
+        <label for="page">Page:</label>
+        <input type="number" id="page" name="page" class="input" value="<?php echo htmlspecialchars($_GET['page']); ?>">
         <?php
-        echo '        <a href="search.php?searchbar="'.$_GET["searchbar"].'">
+        echo '        <a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.$_GET["page"].'"">
             <button class="minibutton">search</button>
         </a>'
             ?>
-
     </form>
     <?php
 echo '<p>Search results: </p>';
 $inputarray = explode(' ',$_GET['searchbar']);
 $sql = "select * from prices where name like '%". $inputarray[0] ."%'";
 for ($int = 1; $int < count($inputarray); $int++){
-    $sql .=" and name like '%".$inputarray[$int]."%'";
+    $sql .=" and name like '%".$inputarray[$int]."%' where item_id between ".(($_GET["page"]*100)-100)."and ".(($_GET["page"]*100)-100)."";
 }
 
 $result = $conn->query($sql);
