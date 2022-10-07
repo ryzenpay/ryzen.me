@@ -77,7 +77,7 @@ if ($_GET["page"] == null){
     $page = 100;
 }
 else {
-    $page = $_GET["page"];
+    $page = $_GET["page"] * 100;
 }
 $sql = "select * from prices where name like '%". $inputarray[0] ."%'";
 for ($int = 1; $int < count($inputarray); $int++){
