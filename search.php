@@ -63,12 +63,14 @@ body {
         $sql = "select count(*) from prices";
         $skins = $conn->query($sql);
         ?>
-        <label>Skins in database: <?php echo $skins?></label><br>
+        <label for="skins">Skins in database:</label>
+        <input type="number" id="skins" name="skins" class="hiddeninput" value="<?php echo $skins?>"> <br>
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
         <label for="page">Page:</label>
-        <input type="number" id="page" name="page" class="input" value="<?php echo htmlspecialchars($_GET['page']); ?>">
+        <input type="number" id="page" name="page" class="input" size="1"
+            value="<?php echo htmlspecialchars($_GET['page']); ?>">
         <?php
         echo '        <a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.$_GET["page"].'"">
             <button class="minibutton">search</button>
