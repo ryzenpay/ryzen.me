@@ -60,11 +60,13 @@ body {
     <hr class="line"> <br>
     <form name="Searchmenu" action="" method="get">
         <?php
-        $sql = "select count(item_id) from prices";
-        $skins = $conn->query($sql);
         ?>
         <label for="skins">Skins in database:</label>
-        <input type="number" id="skins" name="skins" class="hiddeninput" value="<?php ?>"> <br>
+        <input type="number" id="skins" name="skins" class="hiddeninput" value="<?php
+foreach ($conn->query('SELECT COUNT(*) FROM item_id') as $row) {
+    echo $row['COUNT(*)'];
+}
+        ?>"> <br>
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
