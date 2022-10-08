@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <?php
+$search = $_POST['search'];
+$searchbar = $_POST['searchbar'];
 
 $servername = "localhost";
 $username = "readonly";

@@ -3,7 +3,7 @@
 <?php
 
 $search = $_POST['search'];
-
+$searchbar = $_POST['searchbar'];
 $servername = "localhost";
 $username = "readonly";
 $password = "secret_password";
@@ -15,6 +15,7 @@ if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
 ?>
+var searchbar = zaiga7
 
 <head>
     <title>Ryzen.me buff search</title>
