@@ -90,9 +90,14 @@ body {
             foreach ($inventory->rgDescriptions as $value => $v) {
                 $name = $v->market_hash_name;
                 $icon_url = $v->icon_url;
-                $sql = "select (select * from prices where name='".$name."')";
+                $sql = "select (select* from prices where name='".$name."')";
                 $result = $conn->query($sql);
                 $row = $result->fetch_assoc();
+                if(isset($row)){
+                    $price = $row['price'];
+                } else{
+                    $price = 0.0;
+                }
                 $name = str_replace('StatTrak™', 'ST™', $name);
                 $name = str_replace('Factory New', 'FN', $name);
                 $name = str_replace('Minimal Wear', 'MW', $name);
@@ -102,10 +107,10 @@ body {
                 $image =  '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/'.$icon_url.'" class="icon" alt="'.$name.'">';
                 if ($v->cache_expiration){
                     $hold = substr($v->cache_expiration,0,10);
-                    echo '<tr><td>'.$image.'</td><td>'.$name.'</td><td>$'.$row["price"].'</td><td>'.$hold.'</td></tr>';
+                    echo '<tr><td>'.$image.'</td><td>'.$name.'</td><td>$'.$price.'</td><td>'.$hold.'</td></tr>';
                 }
                 else {
-                echo '<tr><td>'.$image.'</td><td>'.$name.'</td><td>$'.$row["price"].'</td><td>Tradeable</td></tr>';
+                echo '<tr><td>'.$image.'</td><td>'.$name.'</td><td>$'.$price.'</td><td>Tradeable</td></tr>';
                 }
                 $invval = $invval + $price;
                 $items = $items + 1;
