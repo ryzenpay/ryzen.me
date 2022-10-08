@@ -90,7 +90,7 @@ body {
             foreach ($inventory->rgDescriptions as $value => $v) {
                 $name = $v->market_hash_name;
                 $icon_url = $v->icon_url;
-                $sql = "select IFNULL( (select * from prices where name='".$name."') ,'0.0')";
+                $sql = "select (select * from prices where name='".$name."')";
                 $result = $conn->query($sql);
                 $row = $result->fetch_assoc();
                 $name = str_replace('StatTrak™', 'ST™', $name);
