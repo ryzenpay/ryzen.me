@@ -92,7 +92,7 @@ body {
                 $icon_url = $v->icon_url;
                 $sql = "select IFNULL( (select price from prices where name='".$name."') ,'0.0')";
                 $result =  $conn->prepare($sql);
-                $result->bind_param("d",$price);
+                //$result->bind_param("d",$price);
                 $result->execute();
                 $result->store_result();
                 $result->bind_result($price);
