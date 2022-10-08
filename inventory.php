@@ -94,6 +94,8 @@ body {
                 $result =  $conn->prepare($sql);
                 $result->bind_param("d", $price);
                 $result->execute();
+                $result->store_result();
+                $result->bind_result($price);
                 $name = str_replace('StatTrak™', 'ST™', $name);
                 $name = str_replace('Factory New', 'FN', $name);
                 $name = str_replace('Minimal Wear', 'MW', $name);
