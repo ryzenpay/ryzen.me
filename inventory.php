@@ -90,12 +90,13 @@ body {
             foreach ($inventory->rgDescriptions as $value => $v) {
                 $name = $v->market_hash_name;
                 $icon_url = $v->icon_url;
-                $sql = "select IFNULL( (select price from prices where name='".$name."') ,'0')";
+                $sql = "select IFNULL( (select price from prices where name='".$name."') ,'0.0')";
                 $result =  $conn->prepare($sql);
-                $result->bind_param("d", $price);
+                $result->bind_param("d",$price);
                 $result->execute();
                 $result->store_result();
                 $result->bind_result($price);
+                $result->fetch();
                 $name = str_replace('StatTrak™', 'ST™', $name);
                 $name = str_replace('Factory New', 'FN', $name);
                 $name = str_replace('Minimal Wear', 'MW', $name);
