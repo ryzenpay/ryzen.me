@@ -12,7 +12,7 @@ $conn = new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
-if ($_GET["page"] == null){
+if ($_GET["page"] == null || "0"){
     $page = 1;
 }
 ?>
@@ -113,12 +113,12 @@ echo '</table>';
  else {
 	echo "0 records";
 }
-echo '<br><a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . $page . '"">
+echo '<br><a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($page - 1) . '"">
             <button class="minibutton">-</button>
         </a>';
 
 echo '<input type="text" id="page" name="page" value="'.$page.'" class="hiddeninput" size="1" readonly>';
-echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . $page . '"">
+echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($page + 1) . '"">
             <button class="minibutton">+</button>
         </a>';
 ?>
