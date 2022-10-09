@@ -71,11 +71,8 @@ body {
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
-        <label for="page">Page:</label>
-        <input type="number" id="page" name="page" class="input" size="1"
-            value="<?php echo htmlspecialchars($_GET['page']); ?>">
         <?php
-        echo '        <a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.$_GET["page"].'"">
+        echo '<a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.$_GET["page"].'"">
             <button class="minibutton">search</button>
         </a>'
             ?>
@@ -84,7 +81,7 @@ body {
     <?php
 echo '<p>Search results: </p>';
 $inputarray = explode(' ',$_GET['searchbar']);
-if ($_GET["page"] == null){
+if ($_GET["page"] == null || "0"){
     $page = 100;
 }
 else {
@@ -94,7 +91,7 @@ $sql = "select * from prices where name like '%". $inputarray[0] ."%'";
 for ($int = 1; $int < count($inputarray); $int++){
     $sql .=" and name like '%".$inputarray[$int]."%'";
 }
-$sql .= " limit ".($page - 100). ",".$page."";
+$sql .= "where item_id between '" . ($page - 100) . "' and '" . $page . "'";
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
@@ -115,6 +112,13 @@ echo '</table>';
  else {
 	echo "0 records";
 }
+echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($_GET["page"]-1) . '"">
+            <button class="minibutton">-</button>
+        </a>';
+echo '<input type="text" id="page" name="page" value="0" class="hiddeninput" size="1" readonly>';
+echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($_GET["page"]+1) . '"">
+            <button class="minibutton">+</button>
+        </a>';
 ?>
 
     <br>
