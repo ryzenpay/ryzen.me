@@ -61,12 +61,14 @@ h2 {
   color: white;
   text-align: center;
   font-size: 16px;
+  font-weight: bold;
   font-family: 'Kanit', sans-serif;
 }
 
 .minibutton:hover {
   background-color: purple;
   color: #b651e0;
+  transform: scale(1.5);
   opacity: 1;
 
 }
@@ -205,6 +207,7 @@ h2 {
   color: #b651e0;
   position: relative;
   text-align: center;
+  font-weight: bold;
 }
 
 .username {
