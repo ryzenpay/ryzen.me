@@ -112,16 +112,21 @@ echo '</table>';
  else {
 	echo "0 records";
 }
-echo '<br><a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($page - 1) . '"">
-            <button class="minibutton">-</button>
-        </a>';
-
-echo '<input type="text" id="page" name="page" value="'.$page.'" class="hiddeninput" size="1" readonly>';
-echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($page + 1) . '"">
-            <button class="minibutton">+</button>
-        </a>';
 ?>
-
+    <form name="pagemenu" action="" method="get">
+        <?php
+        echo '<a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.($_GET["page"]-1).'"">
+            <button class="minibutton">-</button>
+        </a>'
+            ?>
+        <input type="text" id="page" name="page" value="<?php echo htmlspecialchars($_GET['page']); ?>"
+            class="hiddeninput" size="1">
+        <?php
+        echo '<a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.($_GET["page"]+1).'"">
+            <button class="minibutton">+</button>
+        </a>'
+            ?>
+    </form>
     <br>
     <hr class="line"> <br>
     <address>
