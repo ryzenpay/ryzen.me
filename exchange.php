@@ -22,7 +22,7 @@ body {
 </style>
 
 <body>
-    <br>
+    <br><br>
     <img src="images/ryzen_calligraphy.png" class="cover">
     <h1>Ryzen's Exchange service</h1>
     <hr class="line"> <br>

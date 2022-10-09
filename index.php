@@ -15,7 +15,7 @@ body {
 </style>
 
 <body>
-    <br>
+    <br><br>
     <img src="images/ryzen_calligraphy.png" class="cover">
     <br>
     <a href="index.php"><button type="button" class="minibutton">Home</button></a>

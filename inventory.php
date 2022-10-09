@@ -50,7 +50,7 @@ body {
 </style>
 
 <body>
-    <br>
+    <br><br>
     <img src="images/ryzen_calligraphy.png" class="cover">
     <hr class="line"> <br>
     <form name="steamidmenu" action="" method="get">
