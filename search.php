@@ -16,7 +16,6 @@ if ($_GET["page"] == null || "0"){
     $page = 1;
 }
 ?>
-var searchbar = zaiga7
 
 <head>
     <title>Ryzen.me buff search</title>
