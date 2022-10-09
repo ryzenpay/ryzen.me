@@ -57,7 +57,7 @@ body {
         <?php
         ?>
         <label for="skins">Skins in database:</label>
-        <input type="number" id="skins" name="skins" class="hiddeninput" value="0"> <br>\
+        <input type="text" id="skins" name="skins" value="0" class="hiddeninput" size="1" readonly> <br>
         <?php
         $sql = "select * from prices";
         $result = $conn->query($sql);
@@ -65,6 +65,7 @@ body {
                         echo
                     '<script type="text/javascript">
                     document.getElementById("skins").setAttribute("value","' . $rowcount . '");
+                    document.getElementById("value").setAttribute("size","' . strlen((string)$rowcount) . '");
                     </script>';
         ?>
         <label for="searchbar">Buff search:</label>
