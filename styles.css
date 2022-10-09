@@ -124,10 +124,13 @@ h2 {
 }
 
 .headline {
+  display: block;
+  height: 1px;
+  border: 0;
   color: purple;
-  border: 3px solid purple;
   width: 100%;
   position: fixed;
+  border-top: 3px #b651e0 solid;
   border-radius: 30%;
 }
 
