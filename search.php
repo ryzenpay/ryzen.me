@@ -115,7 +115,7 @@ echo '</table>';
 echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($_GET["page"]-1) . '"">
             <button class="minibutton">-</button>
         </a>';
-echo '<input type="text" id="page" name="page" value="0" class="hiddeninput" size="1" readonly>';
+echo '<input type="text" id="page" name="page" value="'.$_GET["page"].'" class="hiddeninput" size="1" readonly>';
 echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($_GET["page"]+1) . '"">
             <button class="minibutton">+</button>
         </a>';
