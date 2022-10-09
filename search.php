@@ -51,9 +51,7 @@ body {
 
 <body>
     <br>
-    <div class="cover">
-        <img src="images/ryzen_calligraphy.png">
-    </div>
+    <img src="images/ryzen_calligraphy.png" class="cover">
     <hr class="line"> <br>
     <form name="Searchmenu" action="" method="get">
         <?php

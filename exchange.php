@@ -23,9 +23,7 @@ body {
 
 <body>
     <br>
-    <div class="cover">
-        <img src="images/ryzen_calligraphy.png">
-    </div>
+    <img src="images/ryzen_calligraphy.png" class="cover">
     <h1>Ryzen's Exchange service</h1>
     <hr class="line"> <br>
     <h2>7% Paypal -> LTC/BTC</h2>

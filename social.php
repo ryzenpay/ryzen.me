@@ -22,9 +22,7 @@ body {
 
 <body>
     <br>
-    <div class="cover">
-        <img src="images/ryzen_calligraphy.png">
-    </div>
+    <img src="images/ryzen_calligraphy.png" class="cover">
     <hr class="line"> <br>
     <h2 style="color:#b651e0">Discord: <button onclick="disccopy()" title="Copy" class="minibutton">ryzen#8829
         </button>
