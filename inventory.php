@@ -51,7 +51,9 @@ body {
 
 <body>
     <br>
-    <img src="images/ryzen_calligraphy.png" class="cover">
+    <div class="cover">
+        <img src="images/ryzen_calligraphy.png">
+    </div>
     <hr class="line"> <br>
     <form name="steamidmenu" action="" method="get">
         <label for="steamid">Enter steam id:</label>

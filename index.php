@@ -16,7 +16,9 @@ body {
 
 <body>
     <br>
-    <img src="images/ryzen_calligraphy.png" class="cover">
+    <div class="cover">
+        <img src="images/ryzen_calligraphy.png">
+    </div>
     <br>
     <a href="index.php"><button type="button" class="minibutton">Home</button></a>
     <a href="social.php"><button type="button" class="minibutton">Socials</button></a>
