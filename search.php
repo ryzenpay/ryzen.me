@@ -94,7 +94,7 @@ $sql = "select * from prices where name like '%". $inputarray[0] ."%'";
 for ($int = 1; $int < count($inputarray); $int++){
     $sql .=" and name like '%".$inputarray[$int]."%'";
 }
-$sql .= "where item_id between '" . ($display - 100) . "' and '" . $display . "'";
+//$sql .= "where item_id between '" . ($display - 100) . "' and '" . $display . "'";
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
