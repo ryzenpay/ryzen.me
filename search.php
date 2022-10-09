@@ -117,17 +117,10 @@ echo '</table>';
 }
 ?>
     <form name="pagemenu" action="" method="get">
-        <?php
-echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($_GET["page"] - 1) . '"">
-            <button class="minibutton">-</button>
-        </a>';
-            ?>
+        <input type="submit" class="minibutton" value="-" name="downpage" id="downpage">
         <input type="text" id="page" name="page" value="<?php $_GET['page']; ?>" class="hiddeninput" size="1">
-        <?php
-echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($_GET["page"] + 1) . '"">
-            <button class="minibutton">+</button>
-        </a>';
-            ?>
+        <input type="submit" class="minibutton" value="+" name="uppage" id="uppage">
+
     </form>
     <br>
     <hr class="line"> <br>
