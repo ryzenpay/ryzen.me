@@ -260,6 +260,9 @@ td {
 }
 
 .cover {
+  display: block;
   height: auto;
   max-width: 20%;
+  margin-right: auto;
+  margin-left: auto;
 }
