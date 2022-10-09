@@ -89,7 +89,7 @@ body {
             foreach ($inventory->rgDescriptions as $value => $v) {
                 $name = $v->market_hash_name;
                 $icon_url = $v->icon_url;
-                $sql = "select ifnull( (select price from prices where name='".$name."') ,'0.0'";
+                $sql = "select ifnull( (select price from prices where name='".$name."') ,'0.0')";
                 $result =  $conn->prepare($sql);
                 //$result->bind_param("d",$price);
                 $result->execute();
