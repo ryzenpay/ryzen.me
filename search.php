@@ -13,7 +13,7 @@ if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
 if ($_GET["page"] == null){
-    $page = 0;
+    $page = 1;
 }
 ?>
 var searchbar = zaiga7
@@ -84,19 +84,13 @@ body {
     <?php
 echo '<p>Search results: </p>';
 $inputarray = explode(' ',$_GET['searchbar']);
-if ($_GET["page"] == null || "0"){
-    $display = 100;
-}
-else {
-    $display = $_GET["page"] * 100;
-}
 $sql = "select * from prices where name like '%". $inputarray[0] ."%'";
 for ($int = 1; $int < count($inputarray); $int++){
     $sql .=" and name like '%".$inputarray[$int]."%'";
 }
-//$sql .= "where item_id between '" . ($display - 100) . "' and '" . $display . "'";
 
 $result = $conn->query($sql);
+$array = array();
 if ($result->num_rows > 0){
     echo '<table>';
     echo '<tr><th>Name</th><th>price</th></tr>';
@@ -108,7 +102,11 @@ while($row = $result->fetch_assoc() ){
     $name = str_replace('Field-Tested', 'FT', $name);
     $name = str_replace('Well-Worn', 'WW', $name);
     $name = str_replace('Battle Scarred', 'BS', $name);
-	echo '<tr><td>'.$name.'</td><td>$'.$row["price"]."</td></tr>";
+    array_push($array, array($name, $row["price"]));
+}
+$display = $page * 100;
+for ($int = ($display - 100); $int < $display; $int++){
+    echo '<tr><td>'.$array[$int][0].'</td><td>$'.$array[$int][1]."</td></tr>";
 }
 echo '</table>';
 }
