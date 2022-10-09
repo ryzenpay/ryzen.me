@@ -57,9 +57,16 @@ body {
         <?php
         ?>
         <label for="skins">Skins in database:</label>
-        <input type="number" id="skins" name="skins" class="hiddeninput" value="<?php
-
-        ?>"> <br>
+        <input type="number" id="skins" name="skins" class="hiddeninput" value="0"> <br>\
+        <?php
+        $sql = "select * from prices";
+        $result = $conn->query($sql);
+        $rowcount = mysqli_num_rows( $result );
+                        echo
+                    '<script type="text/javascript">
+                    document.getElementById("skins").setAttribute("value","' . $rowcount . '");
+                    </script>';
+        ?>
         <label for="searchbar">Buff search:</label>
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
@@ -72,6 +79,7 @@ body {
         </a>'
             ?>
     </form>
+    <hr class="line">
     <?php
 echo '<p>Search results: </p>';
 $inputarray = explode(' ',$_GET['searchbar']);
