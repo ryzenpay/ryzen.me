@@ -12,6 +12,9 @@ $conn = new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
+if ($_GET["page"] == null){
+    $page = 0;
+}
 ?>
 var searchbar = zaiga7
 
@@ -111,9 +114,6 @@ echo '</table>';
 }
  else {
 	echo "0 records";
-}
-if ($_GET["page"] == null){
-    $page = 0;
 }
 echo '<br><a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . $page . '"">
             <button class="minibutton">-</button>
