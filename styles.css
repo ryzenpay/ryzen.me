@@ -265,5 +265,5 @@ td {
   max-width: 20%;
   margin-right: auto;
   margin-left: auto;
-  position: inherit;
+  display: flex;
 }
