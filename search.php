@@ -12,9 +12,6 @@ $conn = new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
-if ($_GET["page"] == null || "0"){
-    $page = 1;
-}
 ?>
 
 <head>
@@ -103,7 +100,7 @@ while($row = $result->fetch_assoc() ){
     $name = str_replace('Battle Scarred', 'BS', $name);
     array_push($array, array($name, $row["price"]));
 }
-$display = $page * 100;
+$display = $_GET['page'] * 100;
 for ($int = ($display - 100); $int < $display; $int++){
     echo '<tr><td>'.$array[$int][0].'</td><td>$'.$array[$int][1]."</td></tr>";
 }
@@ -115,16 +112,21 @@ echo '</table>';
 ?>
     <form name="pagemenu" action="" method="get">
         <?php
-        echo '<a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.($_GET["page"]-1).'"">
+echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($_GET["page"] - 1) . '"">
             <button class="minibutton">-</button>
-        </a>'
+        </a>';
+        if ($_GET['page'] == null || "0"){
+            $page = 1;
+        }
+        else{
+            $page = $_GET['page'];
+        }
             ?>
-        <input type="text" id="page" name="page" value="<?php echo htmlspecialchars($_GET['page']); ?>"
-            class="hiddeninput" size="1">
+        <input type="text" id="page" name="page" value="<?php $page; ?>" class="hiddeninput" size="1">
         <?php
-        echo '<a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.($_GET["page"]+1).'"">
+echo '<a href="search.php?searchbar="' . $_GET["searchbar"] . '"&page="' . ($_GET["page"] + 1) . '"">
             <button class="minibutton">+</button>
-        </a>'
+        </a>';
             ?>
     </form>
     <br>
