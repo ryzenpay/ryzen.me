@@ -32,7 +32,7 @@ body {
         If you are interested join the discord server or add me through my
         <a href="social.php"><button type="button" class="minibutton">Socials</button></a><br>
     </h3>
-    <a href="https://discord.gg/wE7yQSXsts"><button type="button" class="minibutton">Discord server</button></a>
+    <a href="https://discord.gg/ryzen"><button type="button" class="minibutton">Discord server (.gg/ryzen)</button></a>
     <hr class="line"> <br>
 
 </html>

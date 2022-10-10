@@ -30,7 +30,7 @@ body {
         <button onclick="telecopy()" title="Open in new tab" class="minibutton">@highballer </button> <br> Steam:
         <button onclick="steamtradecopy()" title="Open in new tab" class="minibutton">Steam trade link </button>
         <br> Exchange server: <button onclick="discord()" title="Open in new tab" class="minibutton">Discord
-            invite</button>
+            (.gg/ryzen)</button>
     </h2>
     <hr class="line">
     <address>
@@ -69,8 +69,8 @@ function telecopy() {
 }
 
 function discord() {
-    navigator.clipboard.writeText('https://discord.gg/wE7yQSXsts');
-    window.open('https://discord.gg/wE7yQSXsts', '_blank');
+    navigator.clipboard.writeText('https://discord.gg/ryzen');
+    window.open('https://discord.gg/ryzen', '_blank');
 }
 </script>
 
