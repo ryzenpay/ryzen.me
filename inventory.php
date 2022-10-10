@@ -20,7 +20,6 @@ if ($conn->connect_error){
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/flavicon.png" />
     <a href="index.php"><button type="button" class="headbutton">Home</button></a>
-    <a href="social.php"><button type="button" class="headbutton">Socials</button></a>
     <a href="inventory.php"><button type="button" class="headbutton" style="background-color:purple">Inventory price
             check</button></a>
     <a href="search.php"><button type="button" class="headbutton">Buff database search</button></a>
