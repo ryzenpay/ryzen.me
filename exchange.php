@@ -25,9 +25,9 @@ body {
     <img src="images/ryzen_calligraphy.png" class="cover">
     <h1>Ryzen's Exchange service</h1>
     <hr class="line"> <br>
-    <h2>7% Paypal -> LTC/BTC</h2>
-    <h2>10% Paypal -> ETH</h2>
-    <h2>15% Paypal -> Any other crypto</h2>
+    <h3>7% Paypal -> LTC/BTC</h3>
+    <h3>10% Paypal -> ETH</h3>
+    <h3>15% Paypal -> Any other crypto</h3>
     <h3>
         If you are interested join the discord server or add me through my
         <a href="social.php"><button type="button" class="minibutton">Socials</button></a><br>
