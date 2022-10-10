@@ -106,7 +106,7 @@ else {
         $name = str_replace('Well-Worn', 'WW', $name);
         $name = str_replace('Battle Scarred', 'BS', $name);
         $image = '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/' . $icon_url . '" class="icon" alt="' . $name . '">';
-        if ($v->cache_expiration) {
+        if (isset($v->cache_expiration)) {
             $hold = substr($v->cache_expiration, 0, 10);
             echo '<tr><td>' . $image . '</td><td>' . $name . '</td><td>$' . $price . '</td><td>' . $hold . '</td></tr>';
         }
