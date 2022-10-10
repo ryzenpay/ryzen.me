@@ -76,6 +76,8 @@ body {
             $inventory = json_decode(file_get_contents($url));
             if ($inventory == null)
             {
+    echo '<p>Incorrect steam alias</p>';
+    echo '<p>or:</p>';
     echo '<p>You have been timed out by steam, give it a minute</p>';
             }
 else {
