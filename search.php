@@ -107,7 +107,9 @@ while($row = $result->fetch_assoc() ){
 }
 $display = $page * 100;
 for ($int = ($display - 100); $int < $display; $int++){
-    echo '<tr><td>'.$array[$int][0].'</td><td>$'.$array[$int][1]."</td></tr>";
+    if (isset($array[$int][0])){
+        echo '<tr><td>'.$array[$int][0].'</td><td>$'.$array[$int][1]."</td></tr>";
+    }
 }
 echo '</table>';
 }
