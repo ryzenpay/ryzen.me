@@ -42,7 +42,7 @@
     </a>
 </body>
 <script>
-$(document).ready(function() {
+window.addEventListener('load', function() {
     document.getElementsByTagName("html")[0].style.visibility = "visible";
 });
 
