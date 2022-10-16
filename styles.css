@@ -10,6 +10,7 @@ body {
   align-self: center;
   background-color: white;
   font-family: 'Kanit', sans-serif;
+  background-image: url("images/Background.png");
 }
 
 head {

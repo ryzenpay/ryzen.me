@@ -13,11 +13,6 @@
 </head>
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
-<style>
-body {
-    background-image: url("images/Background.png");
-}
-</style>
 
 <body>
     <br><br>
