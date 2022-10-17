@@ -30,5 +30,10 @@
     <a href="https://discord.gg/ryzen"><button type="button" class="minibutton">Discord server (.gg/ryzen)</button></a>
     <hr class="line"> <br>
 </body>
+<script>
+window.addEventListener('load', function() {
+    document.getElementsByTagName("body").style.backgroundColor = 'white';
+});
+</script>
 
 </html>

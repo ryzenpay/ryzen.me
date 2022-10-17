@@ -47,6 +47,10 @@
     </a>
 </body>
 <script>
+window.addEventListener('load', function() {
+    document.getElementsByTagName("body").style.backgroundColor = 'white';
+});
+
 function paypcopy() {
     navigator.clipboard.writeText("Nissangt420@gmail.com");
 }

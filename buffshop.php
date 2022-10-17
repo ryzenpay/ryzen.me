@@ -178,7 +178,7 @@ if (!isset($_SESSION['steamid'])) {
 </body>
 <script>
 window.addEventListener('load', function() {
-    document.getElementsByTagName("html")[0].style.visibility = "visible";
+    document.getElementsByTagName("body").style.backgroundColor = 'white';
 });
 
 function tradelink() {
