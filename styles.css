@@ -297,3 +297,12 @@ td:hover {
   margin-left: auto;
   display: flex;
 }
+
+.image {
+  display: block;
+  height: auto;
+  max-width: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  display: inline;
+}
