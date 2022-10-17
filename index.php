@@ -18,7 +18,7 @@
     <br><br>
     <img src="images/ryzen_calligraphy.png" class="cover">
     <hr class="line">
-    <h2 style="color:#b651e0">
+    <h2>
         <img src="images/discord.png" class="image">
         Discord: <button onclick="disccopy()" title="Copy" class="minibutton">ryzen#8829</button><br>
         <img src="images/cashapp.png" class="image">
