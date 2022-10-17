@@ -17,7 +17,7 @@ if ($conn->connect_error){
 
 <head>
     <title>Ryzen.me inventory checker</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/business.css">
     <link rel="icon" href="images/flavicon.png" />
     <a href="index.php"><button type="button" class="headbutton">Home</button></a>
     <a href="inventory.php"><button type="button" class="headbutton" style="background-color:purple">Inventory price
@@ -150,5 +150,10 @@ if (isset($error)){
         <button title="privpos" class="privpos">Privacy Policy</button>
     </a>
 </body>
+<script>
+window.addEventListener('load', function() {
+    document.getElementsByTagName("html")[0].style.visibility = "visible";
+});
+</script>
 
 </html>

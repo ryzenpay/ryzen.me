@@ -32,7 +32,7 @@ if ($action = "check"){
 
 <head>
     <title>Ryzen.me shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/business.css">
     <link rel="icon" href="images/flavicon.png" />
 </head>
 <hr class="headline" style="top: -10px;">
@@ -80,12 +80,12 @@ body {
     <br>
     <hr class="line"> <br>
     <?php
-    if(!isset($_SESSION['steamid'])) {
+if (!isset($_SESSION['steamid'])) {
     echo '<p> Login with Steam to access the shop</p>';
-    include ('steamauth/steamauth.php');
+    include('steamauth/steamauth.php');
     loginbutton();
-    } else {
-    include ('steamauth/userInfo.php');
+} else {
+    include('steamauth/userInfo.php');
     echo '    <img class="img-rounded" src="<?= $steamprofile["avatar"]; ?>"> <b class="username">
         <?= $steamprofile["personaname"]; ?>';
         logoutbutton();
@@ -124,37 +124,37 @@ body {
             <br>
             <form name="skins" onchange="">
                 <?php
-                $id = $_SESSION['steamid'];
-                $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
-                $inventory = json_decode(file_get_contents($url));
-                $url2 = 'prices.json';
-                $prices = json_decode(file_get_contents($url2), true);
-                $i = 0;
-                $value = 0.0;
-                echo '<p>Inventory Value: $'.$value.'</p><br>';
-                foreach ($inventory->rgDescriptions as $value => $v) {
-                    $fprice = 'NULL';
-                    $name = $v->market_hash_name;
-                    $icon_url = $v->icon_url;
-                    for ($x = 0; $x < count($prices); $x++) {
+    $id = $_SESSION['steamid'];
+    $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
+    $inventory = json_decode(file_get_contents($url));
+    $url2 = 'prices.json';
+    $prices = json_decode(file_get_contents($url2), true);
+    $i = 0;
+    $value = 0.0;
+    echo '<p>Inventory Value: $' . $value . '</p><br>';
+    foreach ($inventory->rgDescriptions as $value => $v) {
+        $fprice = 'NULL';
+        $name = $v->market_hash_name;
+        $icon_url = $v->icon_url;
+        for ($x = 0; $x < count($prices); $x++) {
+            if (isset($prices[$name]['buff163']['starting_at']['price'])) {
+                $fprice = $prices[$name]['buff163']['starting_at']['price'];
+                $value += ($fprice * 0.141279);
+            }
+        }
         if (isset($prices[$name]['buff163']['starting_at']['price'])) {
             $fprice = $prices[$name]['buff163']['starting_at']['price'];
-            $value += ($fprice * 0.141279);
+            $name = str_replace('StatTrak™', 'ST™', $name);
+            $name = str_replace('Factory New', 'FN', $name);
+            $name = str_replace('Minimal Wear', 'MW', $name);
+            $name = str_replace('Field-Tested', 'FT', $name);
+            $name = str_replace('Well-Worn', 'WW', $name);
+            $name = str_replace('Battle Scarred', 'BS', $name);
+            echo '<input type="checkbox" id="' . $i . '" name="' . $name . '" value="' . $i . ' ">';
+            echo '<label for="' . $i . '"> ' . $name . ' | $' . ($fprice * 0.141279) . '  </label>';
+            $i++;
         }
-                    }
-                        if (isset($prices[$name]['buff163']['starting_at']['price'])){
-                        $fprice = $prices[$name]['buff163']['starting_at']['price'];
-                        $name = str_replace('StatTrak™', 'ST™', $name);
-                        $name = str_replace('Factory New', 'FN', $name);
-                        $name = str_replace('Minimal Wear', 'MW', $name);
-                        $name = str_replace('Field-Tested', 'FT', $name);
-                        $name = str_replace('Well-Worn', 'WW', $name);
-                        $name = str_replace('Battle Scarred', 'BS', $name);
-                        echo '<input type="checkbox" id="' . $i . '" name="' . $name . '" value="' . $i .' ">';
-                        echo '<label for="' . $i . '"> '. $name . ' | $' . ($fprice * 0.141279) . '  </label>';
-                        $i++;
-                    }
-                }
+    }
 ?>
                 <br>
             </form>
@@ -162,8 +162,8 @@ body {
         </form>
         <hr class="line"> <br><br>
         <?php
-        }
-        ?>
+}
+?>
         <address>
             <div class="footer">
                 <p>By using our services you agree to our TOS</p>
@@ -177,6 +177,10 @@ body {
         </a>
 </body>
 <script>
+window.addEventListener('load', function() {
+    document.getElementsByTagName("html")[0].style.visibility = "visible";
+});
+
 function tradelink() {
     window.open('https://steamcommunity.com/my/tradeoffers/privacy', '_blank');
     alert("Opened in new tab");

@@ -3,7 +3,7 @@
 
 <head>
     <title>Ryzen.me Exchange service</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" href="images/flavicon.png" />
     <a href="index.php"><button type="button" class="headbutton">Home</button></a>
     <a href="inventory.php"><button type="button" class="headbutton">Inventory price
@@ -29,5 +29,11 @@
     </h3>
     <a href="https://discord.gg/ryzen"><button type="button" class="minibutton">Discord server (.gg/ryzen)</button></a>
     <hr class="line"> <br>
+</body>
+<script>
+window.addEventListener('load', function() {
+    document.getElementsByTagName("html")[0].style.visibility = "visible";
+});
+</script>
 
 </html>

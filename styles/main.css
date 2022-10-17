@@ -141,27 +141,6 @@ h2 {
   border-radius: 30%;
 }
 
-.login {
-  position: absolute;
-  text-align: center;
-  font-size: 16px;
-  font-family: 'Kanit', sans-serif;
-  align-items: center;
-  top: 50%;
-}
-
-.logout {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-}
-
-.img-rounded {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-}
-
 .tos {
   background-color: purple;
   border: none;
@@ -193,105 +172,6 @@ h2 {
   padding-top: 20px;
 }
 
-.input {
-  align-items: center;
-  position: relative;
-  margin: auto;
-  background-color: black;
-  color: #b651e0;
-  border-color: purple;
-  padding: 3px;
-  border-radius: 10px;
-}
-
-.hiddeninput {
-  align-items: center;
-  margin: 0%;
-  background: transparent;
-  border: none;
-  color: #b651e0;
-  position: relative;
-  text-align: center;
-  font-weight: bold;
-}
-
-.username {
-  position: fixed;
-  top: 15px;
-  left: 60px;
-}
-
-.img-rounded {
-  position: fixed;
-  top: 10px;
-  left: 15px;
-}
-
-.logout {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-}
-
-.icon {
-  width: 46px;
-  height: auto;
-
-}
-
-.icon:hover {
-  transform: scale(2);
-}
-
-table {
-  border: 1px solid;
-  border-collapse: separate;
-  border-color: #b651e0;
-  align-items: center;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 6px;
-}
-
-th {
-  border-right: 1px #b651e0 solid;
-  border-bottom: 1px #b651e0 solid;
-  text-align: center;
-  color: white;
-  border-color: #b651e0;
-  border-radius: 3px;
-}
-
-th:first-of-type {
-  border-top-left-radius: 10px;
-}
-
-th:last-of-type {
-  border-top-right-radius: 10px;
-}
-
-td {
-  border-right: 1px #b651e0 solid;
-  border-bottom: 1px #b651e0 solid;
-  padding: 3px;
-  text-align: center;
-  color: white;
-  border-color: #b651e0;
-  border-radius: 3px;
-}
-
-td:last-of-type td:first-of-type {
-  border-bottom-left-radius: 10px;
-}
-
-td:last-of-type td:last-of-type {
-  border-bottom-right-radius: 10px;
-}
-
-td:hover {
-  font-weight: bold;
-}
 
 .cover {
   display: block;
@@ -300,4 +180,13 @@ td:hover {
   margin-right: auto;
   margin-left: auto;
   display: flex;
+}
+
+.image {
+  display: block;
+  height: auto;
+  max-width: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  display: inline;
 }
