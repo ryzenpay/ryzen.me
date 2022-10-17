@@ -24,7 +24,7 @@ head {
 h2 {
   text-align: center;
   align-items: center;
-  text-shadow: -2px 2px grey;
+  text-shadow: -2px 2px black;
 }
 
 .calligimage {
@@ -33,7 +33,7 @@ h2 {
 }
 
 .minibutton {
-  background-color: purple;
+  background-color: rgba(109, 64, 163, 255);
   border: none;
   border-radius: 4px;
   color: white;
@@ -46,7 +46,7 @@ h2 {
 }
 
 .minibutton:hover {
-  background-color: purple;
+  background-color: rgba(109, 64, 163, 255);
   color: #b651e0;
   transform: scale(1.1);
   opacity: 1;
@@ -54,7 +54,7 @@ h2 {
 }
 
 .minibutton:active {
-  background-color: purple;
+  background-color: rgba(109, 64, 163, 255);
   transform: translateY(4px);
 }
 
@@ -72,14 +72,14 @@ h2 {
 }
 
 .headbutton:hover {
-  background-color: purple;
+  background-color: rgba(109, 64, 163, 255);
   color: #b651e0;
   opacity: 1;
 
 }
 
 .headbutton:active {
-  background-color: purple;
+  background-color: rgba(109, 64, 163, 255);
   transform: translateY(4px);
 }
 
@@ -97,7 +97,8 @@ h2 {
 }
 
 .line {
-  color: purple;
+  background-color: rgba(109, 64, 163, 255);
+  ;
   border: 2px solid purple;
   width: 25%;
   position: absolute;
@@ -109,7 +110,7 @@ h2 {
   display: block;
   height: 1px;
   border: 0;
-  color: purple;
+  background-color: rgba(109, 64, 163, 255);
   width: 100%;
   position: fixed;
   border-top: 3px #b651e0 solid;
@@ -117,7 +118,7 @@ h2 {
 }
 
 .tos {
-  background-color: purple;
+  background-color: rgba(109, 64, 163, 255);
   border: none;
   border-radius: 4px;
   color: white;
@@ -130,7 +131,7 @@ h2 {
 }
 
 .privpos {
-  background-color: purple;
+  background-color: rgba(109, 64, 163, 255);
   border: none;
   border-radius: 4px;
   color: white;
