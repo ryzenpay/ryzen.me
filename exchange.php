@@ -3,7 +3,7 @@
 
 <head>
     <title>Ryzen.me Exchange service</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="icon" href="images/flavicon.png" />
     <a href="index.php"><button type="button" class="headbutton">Home</button></a>
     <a href="inventory.php"><button type="button" class="headbutton">Inventory price
