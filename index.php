@@ -47,10 +47,6 @@
     </a>
 </body>
 <script>
-window.addEventListener('load', function() {
-    document.getElementsByTagName("html")[0].style.visibility = "visible";
-});
-
 function paypcopy() {
     navigator.clipboard.writeText("Nissangt420@gmail.com");
 }

@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
 
-html {
-  visibility: hidden;
-}
-
 body {
   color: white;
   position: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  align-self: center;
   background-color: white;
+  font-family: 'Kanit', sans-serif;
   background-image: url("images/Background.png");
 }
 
@@ -45,6 +47,7 @@ h2 {
   background-color: purple;
   color: #b651e0;
   opacity: 1;
+
 }
 
 .button:active {
@@ -68,6 +71,7 @@ h2 {
   color: #b651e0;
   transform: scale(1.1);
   opacity: 1;
+
 }
 
 .minibutton:active {
@@ -92,12 +96,14 @@ h2 {
   background-color: purple;
   color: #b651e0;
   opacity: 1;
+
 }
 
 .headbutton:active {
   background-color: purple;
   transform: translateY(4px);
 }
+
 
 .footer {
   position: fixed;
@@ -226,6 +232,7 @@ h2 {
 .icon {
   width: 46px;
   height: auto;
+
 }
 
 .icon:hover {
@@ -289,13 +296,4 @@ td:hover {
   margin-right: auto;
   margin-left: auto;
   display: flex;
-}
-
-.image {
-  display: block;
-  height: auto;
-  max-width: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  display: inline;
 }

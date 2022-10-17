@@ -150,10 +150,5 @@ if (isset($error)){
         <button title="privpos" class="privpos">Privacy Policy</button>
     </a>
 </body>
-<script>
-window.addEventListener('load', function() {
-    document.getElementsByTagName("html")[0].style.visibility = "visible";
-});
-</script>
 
 </html>
