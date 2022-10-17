@@ -32,7 +32,8 @@ h2 {
 }
 
 .minibutton {
-    background-color: purple;
+    background-color: rgba(109, 64, 163, 255);
+    ;
     border: none;
     border-radius: 4px;
     color: white;
@@ -43,7 +44,8 @@ h2 {
 }
 
 .minibutton:hover {
-    background-color: purple;
+    background-color: rgba(109, 64, 163, 255);
+    ;
     color: #b651e0;
     transform: scale(1.1);
     opacity: 1;
@@ -51,7 +53,8 @@ h2 {
 }
 
 .minibutton:active {
-    background-color: purple;
+    background-color: rgba(109, 64, 163, 255);
+    ;
     transform: translateY(4px);
 }
 
@@ -69,14 +72,16 @@ h2 {
 }
 
 .headbutton:hover {
-    background-color: purple;
+    background-color: rgba(109, 64, 163, 255);
+    ;
     color: #b651e0;
     opacity: 1;
 
 }
 
 .headbutton:active {
-    background-color: purple;
+    background-color: rgba(109, 64, 163, 255);
+    ;
     transform: translateY(4px);
 }
 
@@ -120,7 +125,8 @@ h2 {
 }
 
 .tos {
-    background-color: purple;
+    background-color: rgba(109, 64, 163, 255);
+    ;
     border: none;
     border-radius: 4px;
     color: white;
@@ -133,7 +139,8 @@ h2 {
 }
 
 .privpos {
-    background-color: purple;
+    background-color: rgba(109, 64, 163, 255);
+    ;
     border: none;
     border-radius: 4px;
     color: white;
