@@ -19,16 +19,16 @@
     <img src="images/ryzen_calligraphy.png" class="cover">
     <hr class="line">
     <h2 style="color:#b651e0">
-        <img src="gfx/discord.png" class="image">
+        <img src="images/discord.png" class="image">
         Discord: <button onclick="disccopy()" title="Copy" class="minibutton">ryzen#8829</button><br>
-        <img src="gfx/cashapp.png" class="image">
+        <img src="images/cashapp.png" class="image">
         CashApp: <button onclick="cashcopy()" title="Copy" class="minibutton">$Zaiga</button> <br>
-        <img src="gfx/telegram.png" class="image">
+        <img src="images/telegram.png" class="image">
         Telegram:<button onclick="telecopy()" title="Open in new tab" class="minibutton">@highballer </button> <br>
-        <img src="gfx/steam.png" class="image">
+        <img src="images/steam.png" class="image">
         Steam:<button onclick="steamtradecopy()" title="Open in new tab" class="minibutton">Steam trade
             link</button><br>
-        <img src="gfx/discord.png" class="image">
+        <img src="images/discord.png" class="image">
         Exchange server: <button onclick="discord()" title="Open in new tab" class="minibutton">Discord
             (.gg/ryzen)</button>
     </h2>
