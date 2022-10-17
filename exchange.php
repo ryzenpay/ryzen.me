@@ -31,9 +31,6 @@
     <hr class="line"> <br>
 </body>
 <script>
-window.addEventListener('load', function() {
-    document.getElementsByTagName("body").style.backgroundColor = 'white';
-});
 </script>
 
 </html>

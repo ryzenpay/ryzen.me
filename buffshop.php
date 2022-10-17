@@ -177,10 +177,6 @@ if (!isset($_SESSION['steamid'])) {
         </a>
 </body>
 <script>
-window.addEventListener('load', function() {
-    document.getElementsByTagName("body").style.backgroundColor = 'white';
-});
-
 function tradelink() {
     window.open('https://steamcommunity.com/my/tradeoffers/privacy', '_blank');
     alert("Opened in new tab");
