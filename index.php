@@ -2,7 +2,7 @@
 <html lang="en-US">
 
 <head>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Ryzen.me</title>
     <link rel="icon" href="images/flavicon.png" />
     <a href="index.php"><button type="button" class="headbutton" style="background-color: purple">Home</button></a>

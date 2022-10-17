@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+
+html {
+  visibility: hidden;
+}
+
+body {
+  color: white;
+  position: center;
+}
+
+head {
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  align-items: center;
+}
+
+.calligimage {
+  align-items: center;
+  overflow: visible;
+}
+
+.button {
+  background-color: purple;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 15px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  transition-duration: 0.4s;
+  margin: auto;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: purple;
+  color: #b651e0;
+  opacity: 1;
+}
+
+.button:active {
+  background-color: purple;
+  transform: translateY(4px);
+}
+
+.minibutton {
+  background-color: purple;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+}
+
+.minibutton:hover {
+  background-color: purple;
+  color: #b651e0;
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.minibutton:active {
+  background-color: purple;
+  transform: translateY(4px);
+}
+
+.headbutton {
+  background: transparent;
+  border: 3px;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  float: left;
+  margin: 5px;
+  margin-bottom: 0px;
+}
+
+.headbutton:hover {
+  background-color: purple;
+  color: #b651e0;
+  opacity: 1;
+}
+
+.headbutton:active {
+  background-color: purple;
+  transform: translateY(4px);
+}
+
+.footer {
+  position: fixed;
+  position: center;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 11px;
+  font-family: 'Kanit', sans-serif;
+  align-items: center;
+  width: 100%;
+}
+
+.line {
+  color: purple;
+  border: 2px solid purple;
+  width: 25%;
+  position: absolute;
+  border-radius: 30%;
+  left: 37%;
+}
+
+.headline {
+  display: block;
+  height: 1px;
+  border: 0;
+  color: purple;
+  width: 100%;
+  position: fixed;
+  border-top: 3px #b651e0 solid;
+  border-radius: 30%;
+}
+
+.login {
+  position: absolute;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  align-items: center;
+  top: 50%;
+}
+
+.logout {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.img-rounded {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.tos {
+  background-color: purple;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  left: 0%;
+  bottom: 0%;
+  position: fixed;
+}
+
+.privpos {
+  background-color: purple;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  right: 0%;
+  bottom: 0%;
+  position: fixed;
+}
+
+.ticket {
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.input {
+  align-items: center;
+  position: relative;
+  margin: auto;
+  background-color: black;
+  color: #b651e0;
+  border-color: purple;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.hiddeninput {
+  align-items: center;
+  margin: 0%;
+  background: transparent;
+  border: none;
+  color: #b651e0;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+}
+
+.username {
+  position: fixed;
+  top: 15px;
+  left: 60px;
+}
+
+.img-rounded {
+  position: fixed;
+  top: 10px;
+  left: 15px;
+}
+
+.logout {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.icon {
+  width: 46px;
+  height: auto;
+}
+
+.icon:hover {
+  transform: scale(2);
+}
+
+table {
+  border: 1px solid;
+  border-collapse: separate;
+  border-color: #b651e0;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+}
+
+th {
+  border-right: 1px #b651e0 solid;
+  border-bottom: 1px #b651e0 solid;
+  text-align: center;
+  color: white;
+  border-color: #b651e0;
+  border-radius: 3px;
+}
+
+th:first-of-type {
+  border-top-left-radius: 10px;
+}
+
+th:last-of-type {
+  border-top-right-radius: 10px;
+}
+
+td {
+  border-right: 1px #b651e0 solid;
+  border-bottom: 1px #b651e0 solid;
+  padding: 3px;
+  text-align: center;
+  color: white;
+  border-color: #b651e0;
+  border-radius: 3px;
+}
+
+td:last-of-type td:first-of-type {
+  border-bottom-left-radius: 10px;
+}
+
+td:last-of-type td:last-of-type {
+  border-bottom-right-radius: 10px;
+}
+
+td:hover {
+  font-weight: bold;
+}
+
+.cover {
+  display: block;
+  height: auto;
+  max-width: 20%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+}

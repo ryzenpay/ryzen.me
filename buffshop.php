@@ -32,7 +32,7 @@ if ($action = "check"){
 
 <head>
     <title>Ryzen.me shop</title>
-    <link rel="stylesheet" href="business.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/flavicon.png" />
 </head>
 <hr class="headline" style="top: -10px;">

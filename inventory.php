@@ -17,7 +17,7 @@ if ($conn->connect_error){
 
 <head>
     <title>Ryzen.me inventory checker</title>
-    <link rel="stylesheet" href="business.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/flavicon.png" />
     <a href="index.php"><button type="button" class="headbutton">Home</button></a>
     <a href="inventory.php"><button type="button" class="headbutton" style="background-color:purple">Inventory price
