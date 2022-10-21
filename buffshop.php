@@ -9,7 +9,6 @@ if ($action = "check"){
     $tradelink = $_GET["tradelink"];
     if (strlen($tradelink) != 77){
         echo 'alert("Please input valid tradelink")';
-        break;
     }
     else{
     $communication = $_GET["communication"];
