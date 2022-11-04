@@ -96,7 +96,7 @@ while($row = $result->fetch_assoc() ){
     $name = str_replace('Minimal Wear', 'MW', $name);
     $name = str_replace('Field-Tested', 'FT', $name);
     $name = str_replace('Well-Worn', 'WW', $name);
-    $name = str_replace('Battle Scarred', 'BS', $name);
+    $name = str_replace('Battle-Scarred', 'BS', $name);
     array_push($array, array($name, $row["price"]));
 }
 for ($int = 0; $int < 100; $int++){
