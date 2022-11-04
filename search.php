@@ -12,12 +12,6 @@ $conn = new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
-if ($_GET['page'] == null || "0"){
-    $page = 1;
-}
-else{
-    $page = $_GET['page'];
-}
 ?>
 
 <head>
@@ -76,7 +70,7 @@ body {
         <input type="text" id="searchbar" name="searchbar" class="input"
             value="<?php echo htmlspecialchars($_GET['searchbar']); ?>">
         <?php
-        echo '<a href="search.php?searchbar="'.$_GET["searchbar"].'"&page="'.$_GET["page"].'"">
+        echo '<a href="search.php?searchbar="'.$_GET["searchbar"].'">
             <button class="minibutton">search</button>
         </a>'
             ?>
@@ -105,8 +99,7 @@ while($row = $result->fetch_assoc() ){
     $name = str_replace('Battle Scarred', 'BS', $name);
     array_push($array, array($name, $row["price"]));
 }
-$display = $page * 100;
-for ($int = ($display - 100); $int < $display; $int++){
+for ($int = 0; $int < 100; $int++){
     if (isset($array[$int][0])){
         echo '<tr><td>'.$array[$int][0].'</td><td>$'.$array[$int][1]."</td></tr>";
     }
@@ -117,12 +110,6 @@ echo '</table>';
 	echo "0 records";
 }
 ?>
-    <form name="pagemenu" action="" method="get">
-        <input type="submit" class="minibutton" value="-" name="downpage" id="downpage">
-        <input type="text" id="page" name="page" value="<?php $_GET['page']; ?>" class="hiddeninput" size="1">
-        <input type="submit" class="minibutton" value="+" name="uppage" id="uppage">
-
-    </form>
     <br>
     <hr class="line"> <br>
     <address>
