@@ -66,6 +66,7 @@ body {
         <?php
             $id = $_GET['steamid'];
             $items = 0;
+            $error = null;
             $curl = curl_init();
             curl_setopt($curl,CURLOPT_RETURNTRANSFER, true);
             if (strlen($id) != 17){
