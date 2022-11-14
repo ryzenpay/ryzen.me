@@ -76,7 +76,7 @@ body {
                    $id = $id_json->response->steamid; 
                 }
             }
-            $url = "http://steamcommunity.com/profiles/$id/inventory/json/730/2";
+            $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
             $inventory = json_decode(file_get_contents($url));
             if ($inventory == null && $id_json != null)
             {
