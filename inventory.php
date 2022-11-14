@@ -76,8 +76,9 @@ body {
                 if($e = curl_error($curl)) {
                     $error = "Error obtaining steam ID: " + $e;
                 } else{
-                    $id_json = json_decode($id_data);
-                    $id = $id_json->response->steamid; 
+                    $id_json = json_decode($id_data, true);
+                    $id = $id_json['response']['steamid'];
+                    $error = "worked with getting array";
                 }
             }
             $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
