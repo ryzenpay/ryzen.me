@@ -77,12 +77,14 @@ body {
                 }
             }
             $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_URL,$url);
-            $jsonreturn = curl_exec($ch)
-            $inventory = json_decode($jsonreturn);
-            curl_close($ch);
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL,$url);
+            curl_setopt($curl,CURLOPT_RETURNTRANSFER, true);
+            if($e = curl_error($curl)) {
+                $error = "Error obtaining steam inventory";
+            } else{
+                $jsondata = curl_exec($curl);
+                $inventory = json_decode($jsondata);
             if ($inventory == null && $id_json != null)
             {
                 $error = "You have been timed out by steam, give it a minute";
@@ -133,7 +135,7 @@ body {
                     }
                     echo '</table>';
                     echo '<p>Inventory value: ' . $invval . '</p>';
-}
+}}
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
