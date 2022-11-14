@@ -82,6 +82,7 @@ body {
             {
                 $error = "You have been timed out by steam, give it a minute";
             }
+            else {
                 echo '<label for="value">Inventory Value: </label>';
                 echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" size="1" readonly>';
                 echo '<label for="value"> | for </label>';
@@ -127,7 +128,7 @@ body {
                     }
                     echo '</table>';
                     echo '<p>Inventory value: ' . $invval . '</p>';
-
+}
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
