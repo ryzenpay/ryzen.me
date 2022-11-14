@@ -78,8 +78,11 @@ body {
             }
             $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
             $ch = curl_init();
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_URL,$url);
-            $inventory = json_decode(curl_exec($ch));
+            $jsonreturn = curl_exec($ch)
+            $inventory = json_decode($jsonreturn);
+            curl_close($ch);
             if ($inventory == null && $id_json != null)
             {
                 $error = "You have been timed out by steam, give it a minute";
