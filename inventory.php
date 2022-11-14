@@ -75,7 +75,7 @@ body {
                 if($e = curl_error($curl)) {
                     $error = "Error obtaining steam ID";
                 } else{
-                    $id_json = json_decode($id_data,true);
+                    $id_json = json_decode($id_data);
                     $id = $id_json->response->steamid; 
                 }
             }
@@ -85,7 +85,7 @@ body {
             if($e = curl_error($curl) || $error !=null) {
                 $error = "Error obtaining steam inventory";
             } else{
-                $inventory = json_decode($jsondata, true);
+                $inventory = json_decode($jsondata);
             if ($inventory == null && $id_json != null)
             {
                 $error = "You have been timed out by steam, give it a minute";
