@@ -80,10 +80,10 @@ body {
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL,$url);
             curl_setopt($curl,CURLOPT_RETURNTRANSFER, true);
+            $jsondata = curl_exec($curl);
             if($e = curl_error($curl)) {
                 $error = "Error obtaining steam inventory";
             } else{
-                $jsondata = curl_exec($curl);
                 $inventory = json_decode($jsondata);
             if ($inventory == null && $id_json != null)
             {
