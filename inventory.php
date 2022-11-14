@@ -87,7 +87,7 @@ body {
                 $error = "Error obtaining steam inventory";
             } else{
                 $inventory = json_decode($jsondata);
-            if ($inventory == null && $id_json != null)
+            if ($inventory == null)
             {
                 $error = "You have been timed out by steam, give it a minute";
             }
