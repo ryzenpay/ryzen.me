@@ -143,7 +143,7 @@ curl_close($curl);
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
-    echo '<p>'.$e.'</p>'
+    echo '<p>'.$e.'</p>';
 }
         ?>
     </form>
