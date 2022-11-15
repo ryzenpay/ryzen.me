@@ -81,9 +81,10 @@ body {
                 $error = "Please input steam alias/ID";
             } else {
             $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
-            $jsondata = curl_get_contents($url);
+            var_dump($url);
+            //$jsondata = curl_get_contents($url);
+            $jsondata = file_get_contents($url, false, $browser);
             var_dump($jsondata);
-            //$jsondata = file_get_contents($url, false, $browser);
             if($jsondata || $error !=null) {
                 $inventory = json_decode($jsondata, true);
                 if ($inventory == null && $error != null)
