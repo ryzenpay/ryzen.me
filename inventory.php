@@ -9,14 +9,6 @@ $db = "prices";
 
 $conn = new mysqli($servername, $username, $password, $db);
 
-$browser = stream_context_create(
-    array(
-        "http" => array(
-            "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
-        )
-    )
-);
-
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
@@ -89,7 +81,7 @@ body {
             $jsondata = curl_get_contents($url);
             //$jsondata = file_get_contents($url, false, $browser);
             if($jsondata || $error !=null) {
-                $inventory = json_decode($jsondata, true);
+                $inventory = json_decode($jsondata);
                 if ($inventory == null && $error != null)
                 {
                     $error = "You have been timed out by steam, give it a minute";
@@ -103,7 +95,7 @@ body {
                     echo '<hr class="line"> <br>';
                     echo '<table>';
                     echo '<tr><th>Image</th><th>Name</th><th>price</th><th>TradeHold</th></tr>';
-                    foreach ($inventory[0]["rgDescriptions"] as $v) {
+                    foreach ($inventory as $value => $v) {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         $sql = 'select ifnull( (select price from prices where name="' . $name . '") ,"0.0")';
