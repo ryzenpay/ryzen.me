@@ -89,7 +89,7 @@ body {
             $jsondata = curl_get_contents($url);
             //$jsondata = file_get_contents($url, false, $browser);
             if($jsondata || $error !=null) {
-                $inventory = json_decode($jsondata);
+                $inventory = json_decode($jsondata, true);
                 if ($inventory == null && $error != null)
                 {
                     $error = "You have been timed out by steam, give it a minute";
@@ -103,7 +103,7 @@ body {
                     echo '<hr class="line"> <br>';
                     echo '<table>';
                     echo '<tr><th>Image</th><th>Name</th><th>price</th><th>TradeHold</th></tr>';
-                    foreach ($inventory->rgDescriptions as $value => $v) {
+                    foreach ($inventory['rgDescriptions'] as $value => $v) {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         $sql = 'select ifnull( (select price from prices where name="' . $name . '") ,"0.0")';
