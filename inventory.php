@@ -71,8 +71,8 @@ body {
                 //$id_data = file_get_contents($id_url, true, $browser);
                 $id_data = curl_get_contents($id_url);
                 if($id_data) {
-                    $id_json = json_decode($id_data, true);
-                    $id = $id_json["response"]["steamid"];
+                    $id_json = json_decode($id_data);
+                    $id = $id_json->response->steamid;
                 } else{
                     $error = "Error obtaining steam ID: ";
                 }
