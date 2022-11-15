@@ -67,24 +67,19 @@ body {
             $id = $_GET['steamid'];
             $items = 0;
             $error = null;
-            $curl = curl_init();
-            curl_setopt($curl,CURLOPT_RETURNTRANSFER, true);
             if (strlen($id) != 17){
                 $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
-                curl_setopt($curl, CURLOPT_URL,$id_url);
-                $id_data = curl_exec($curl);
-                if($e = curl_error($curl)) {
-                    $error = "Error obtaining steam ID: ";
-                } else{
+                $id_data = file_get_contents($id_url);
+                if($id_data) {
                     $id_json = json_decode($id_data, true);
                     $id = $id_json['response']['steamid'];
-                    $error = "worked with getting array";
+                } else{
+                    $error = "Error obtaining steam ID: ";
                 }
             }
             $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
-            curl_setopt($curl, CURLOPT_URL,$url);
-            $jsondata = curl_exec($curl);
-            if($e = curl_error($curl) || $error !=null) {
+            $jsondata = file_get_contents($url);
+            if($jsondata || $error !=null) {
                 $error = "Error obtaining steam inventory: ";
             } else{
                 $inventory = json_decode($jsondata);
@@ -139,7 +134,6 @@ body {
                     echo '</table>';
                     echo '<p>Inventory value: ' . $invval . '</p>';
 }}
-curl_close($curl);
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
