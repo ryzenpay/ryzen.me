@@ -76,7 +76,8 @@ body {
             $error = null;
             if (strlen($id) != 17){
                 $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
-                $id_data = file_get_contents($id_url, true, $browser);
+                //$id_data = file_get_contents($id_url, true, $browser);
+                $id_data = curl_get_contents($id_url);
                 if($id_data) {
                     $id_json = json_decode($id_data, true);
                     $id = $id_json['response']['steamid'];
@@ -85,7 +86,8 @@ body {
                 }
             }
             $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
-            $jsondata = file_get_contents($url, false, $browser);
+            $jsondata = curl_get_contents($url);
+            //$jsondata = file_get_contents($url, false, $browser);
             if($jsondata || $error !=null) {
                 $inventory = json_decode($jsondata);
                 if ($inventory == null && $error != null)
@@ -145,7 +147,6 @@ body {
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
-    echo '<p>'.$e.'</p>';
 }
         ?>
     </form>
@@ -165,6 +166,18 @@ if (isset($error)){
     </a>
 </body>
 <script>
+    <?php
+function curl_get_contents($url)
+{
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+  $data = curl_exec($ch);
+  curl_close($ch);
+  return $data;
+}
+?>
 </script>
 
 </html>
