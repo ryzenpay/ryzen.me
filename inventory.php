@@ -87,6 +87,9 @@ body {
                 {
                     $error = "You have been timed out by steam, give it a minute";
                 }
+                else if ($inventory->success = false){
+                    $error = "Steam had problems displaying the inventory JSON";
+                }
                 else {
                     echo '<label for="value">Inventory Value: </label>';
                     echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" size="1" readonly>';
