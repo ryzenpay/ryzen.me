@@ -80,7 +80,7 @@ body {
                 $id_data = curl_get_contents($id_url);
                 if($id_data) {
                     $id_json = json_decode($id_data, true);
-                    $id = $id_json['response']['steamid'];
+                    $id = $id_json["response"]["steamid"];
                 } else{
                     $error = "Error obtaining steam ID: ";
                 }
@@ -103,7 +103,7 @@ body {
                     echo '<hr class="line"> <br>';
                     echo '<table>';
                     echo '<tr><th>Image</th><th>Name</th><th>price</th><th>TradeHold</th></tr>';
-                    foreach ($inventory['rgDescriptions'] as $value => $v) {
+                    foreach ($inventory["rgDescriptions"] as $value => $v) {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         $sql = 'select ifnull( (select price from prices where name="' . $name . '") ,"0.0")';
