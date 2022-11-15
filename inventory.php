@@ -95,7 +95,7 @@ body {
                     echo '<hr class="line"> <br>';
                     echo '<table>';
                     echo '<tr><th>Image</th><th>Name</th><th>price</th><th>TradeHold</th></tr>';
-                    foreach ($inventory->rgDescriptions as $value => $v) {
+                    foreach ($inventory->"rgDescriptions" as $value => $v) {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         $sql = 'select ifnull( (select price from prices where name="' . $name . '") ,"0.0")';
