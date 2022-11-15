@@ -82,7 +82,7 @@ body {
             //$jsondata = file_get_contents($url, false, $browser);
             if($jsondata || $error !=null) {
                 $inventory = json_decode($jsondata);
-                if ($inventory == null && $error != null)
+                if ($inventory == NULL && $error != null)
                 {
                     $error = "You have been timed out by steam, give it a minute";
                 }
