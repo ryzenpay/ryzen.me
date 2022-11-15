@@ -77,6 +77,9 @@ body {
                     $error = "Error obtaining steam ID: ";
                 }
             }
+            if (strlen($id) == 0){
+                $error = "Please input steam alias/ID";
+            } else {
             $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
             $jsondata = curl_get_contents($url);
             var_dump($jsondata);
@@ -139,7 +142,7 @@ body {
     }
             } else if($error == null){
                 $error = "Error obtaining steam inventor (possibly timed out): ";
-            }
+            }}
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
