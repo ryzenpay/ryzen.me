@@ -86,13 +86,14 @@ body {
             //$jsondata = file_get_contents($url, false, $browser);
             var_dump($jsondata);
             if($jsondata || $error !=null) {
-                $inventory = json_decode($jsondata, true);
+                $inventory = json_decode($jsondata);
                 if ($inventory == null && $error != null)
                 {
                     $error = "You have been timed out by steam, give it a minute";
                 }
-                else if ($inventory['success'] = false){
-                    $error = "Steam had problems displaying the inventory JSON";
+                else if ($inventory->success = false){
+                    $error = $inventory->Error;
+                    $error = "Steam had problems displaying the inventory JSON: $error ";
                 }
                 else {
                     echo '<label for="value">Inventory Value: </label>';
@@ -103,9 +104,9 @@ body {
                     echo '<hr class="line"> <br>';
                     echo '<table>';
                     echo '<tr><th>Image</th><th>Name</th><th>price</th><th>TradeHold</th></tr>';
-                    foreach ($inventory['rgDescriptions'] as $v) {
-                        $name = $v['market_hash_name'];
-                        $icon_url = $v['icon_url'];
+                    foreach ($inventory->rgDescriptions as $v) {
+                        $name = $v->market_hash_name;
+                        $icon_url = $v->icon_url;
                         $sql = 'select ifnull( (select price from prices where name="' . $name . '") ,"0.0")';
                         $result = $conn->prepare($sql);
                         //$result->bind_param("d",$price);
