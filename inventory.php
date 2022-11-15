@@ -9,6 +9,13 @@ $db = "prices";
 
 $conn = new mysqli($servername, $username, $password, $db);
 
+$browser = stream_context_create(
+    array(
+        "http" => array(
+            "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+        )
+    )
+);
 
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
@@ -69,7 +76,7 @@ body {
             $error = null;
             if (strlen($id) != 17){
                 $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
-                $id_data = file_get_contents($id_url);
+                $id_data = file_get_contents($id_url, true, $browser);
                 if($id_data) {
                     $id_json = json_decode($id_data, true);
                     $id = $id_json['response']['steamid'];
@@ -78,7 +85,7 @@ body {
                 }
             }
             $url = "https://steamcommunity.com/profiles/$id/inventory/json/730/2";
-            $jsondata = file_get_contents($url);
+            $jsondata = file_get_contents($url, false, $browser);
             if($jsondata || $error !=null) {
                 $error = "Error obtaining steam inventory: ";
             } else{
