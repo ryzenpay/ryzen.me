@@ -87,7 +87,7 @@ body {
                 {
                     $error = "You have been timed out by steam, give it a minute";
                 }
-                else if ($inventory->success = false){
+                else if ($inventory['success'] = false){
                     $error = "Steam had problems displaying the inventory JSON";
                 }
                 else {
