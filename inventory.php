@@ -67,9 +67,9 @@ body {
             $items = 0;
             $error = null;
             if (strlen($id) == 0){
-                $error = "Please input steam alias/ID";
-            }
-                if (strlen($id) != 17){
+                $error = "Please input stea, alias/ID";
+            } else{
+            if (strlen($id) != 17 ){
                 $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
                 //$id_data = file_get_contents($id_url, true, $browser);
                 $id_data = curl_get_contents($id_url);
@@ -79,7 +79,6 @@ body {
                 } else{
                     $error = "Error obtaining steam ID: ";
                 }
-            
             } else {
             $url = "https://steamcommunity.com/inventory/$id/730/2";
             $jsondata = curl_get_contents($url);
@@ -139,7 +138,7 @@ body {
     }
             } else if($error == null){
                 $error = "Error obtaining steam inventor (possibly timed out): ";
-            }}
+            }}}
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
