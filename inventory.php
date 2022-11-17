@@ -73,7 +73,7 @@ body {
                 $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
                 //$id_data = file_get_contents($id_url, true, $browser);
                 $id_data = curl_get_contents($id_url);
-                if($id_data) {
+                if($id_data != null) {
                     $id_json = json_decode($id_data);
                     $id = $id_json->response->steamid;
                 } else{
