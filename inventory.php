@@ -81,19 +81,13 @@ body {
                 $error = "Please input steam alias/ID";
             } else {
             $url = "https://steamcommunity.com/inventory/$id/730/2";
-            var_dump($url);
             $jsondata = curl_get_contents($url);
             //$jsondata = file_get_contents($url, false, $browser);
-            var_dump($jsondata);
             if($jsondata || $error !=null) {
                 $inventory = json_decode($jsondata);
                 if ($inventory == null && $error != null)
                 {
                     $error = "You have been timed out by steam, give it a minute";
-                }
-                else if ($inventory->success = false){
-                    $error = $inventory->Error;
-                    $error = "Steam had problems displaying the inventory JSON: $error ";
                 }
                 else {
                     echo '<label for="value">Inventory Value: </label>';
@@ -104,9 +98,15 @@ body {
                     echo '<hr class="line"> <br>';
                     echo '<table>';
                     echo '<tr><th>Image</th><th>Name</th><th>price</th><th>TradeHold</th></tr>';
-                    foreach ($inventory->rgDescriptions as $v) {
+                    foreach ($inventory->descriptions as $v) {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
+                        if ($v->tradable == 0){
+                            $hold = $v->owner_descriptions[1]->value;
+                        }
+                        else{
+                            $hold = "Tradeable";
+                        }
                         $sql = 'select ifnull( (select price from prices where name="' . $name . '") ,"0.0")';
                         $result = $conn->prepare($sql);
                         //$result->bind_param("d",$price);
@@ -121,13 +121,7 @@ body {
                         $name = str_replace('Well-Worn', 'WW', $name);
                         $name = str_replace('Battle Scarred', 'BS', $name);
                         $image = '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/' . $icon_url . '" class="icon" alt="' . $name . '">';
-                        if (isset($v->cache_expiration)) {
-                            $hold = substr($v->cache_expiration, 0, 10);
-                            echo '<tr><td>' . $image . '</td><td>' . $name . '</td><td>$' . $price . '</td><td>' . $hold . '</td></tr>';
-                        }
-                        else {
-                            echo '<tr><td>' . $image . '</td><td>' . $name . '</td><td>$' . $price . '</td><td>Tradeable</td></tr>';
-                        }
+                        echo '<tr><td>' . $image . '</td><td>' . $name . '</td><td>$' . $price . '</td><td>' . $hold . '</td></tr>';
                         $invval = $invval + $price;
                         $items = $items + 1;
                         echo
@@ -167,7 +161,7 @@ if (isset($error)){
     </a>
 </body>
 <script>
-    <?php
+<?php
 function curl_get_contents($url)
 {
   $ch = curl_init();
