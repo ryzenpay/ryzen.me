@@ -77,10 +77,11 @@ body {
                 if($id_data != null) {
                     $id_json = json_decode($id_data);
                     $id = $id_json->response->steamid;
+                    var_dump($id);
                 } else{
                     $error = "Error obtaining steam ID: ";
                 }
-            } else {
+            }
             $url = "https://steamcommunity.com/inventory/$id/730/2";
             var_dump($url);
             $jsondata = curl_get_contents($url);
@@ -140,7 +141,7 @@ body {
     }
             } else if($error == null){
                 $error = "Error obtaining steam inventor (possibly timed out): ";
-            }}}
+            }}
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
