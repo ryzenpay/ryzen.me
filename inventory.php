@@ -67,7 +67,7 @@ body {
             $items = 0;
             $error = null;
             if (strlen($id) == 0){
-                $error = "Please input stea, alias/ID";
+                $error = "$error + Please input stea, alias/ID";
             } else{
             if (strlen($id) != 17 ){
                 $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
@@ -77,7 +77,7 @@ body {
                     $id_json = json_decode($id_data);
                     $id = $id_json->response->steamid;
                 } else{
-                    $error = "Error obtaining steam ID: ";
+                    $error = "$error + Error obtaining steam ID: ";
                 }
             }}
             $url = "https://steamcommunity.com/inventory/$id/730/2";
@@ -88,7 +88,7 @@ body {
                 $inventory = json_decode($jsondata);
                 if ($inventory == null && $error != null)
                 {
-                    $error = "You have been timed out by steam, give it a minute";
+                    $error = "$error + You have been timed out by steam, give it a minute";
                 }
                 else {
                     echo '<label for="value">Inventory Value: </label>';
@@ -137,8 +137,8 @@ body {
                         echo '</table>';
                         echo '<p>Inventory value: ' . $invval . '</p>';
     }
-            } else if($error == null){
-                $error = "Error obtaining steam inventor (possibly timed out): ";
+            } else{
+                $error = "$error + Error obtaining steam inventor (possibly timed out): ";
             }
 if (isset($error)){
     echo '<p>An error has been caught:</p>';
