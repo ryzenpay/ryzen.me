@@ -177,6 +177,10 @@ function curl_get_contents($url)
   curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:17.0) Gecko/20100101 Firefox/17.0');
   curl_setopt($ch, CURLOPT_REFERER, 'https://ryzen.me/');
   curl_setopt($ch,CURLOPT_ENCODING, '');
+  $dir = dirname(__FILE__);
+  $cookies = $dir . '/cookies/' . md5($_SERVER['REMOTE_ADDR']) . '.txt';
+  curl_setopt($curl, CURLOPT_COOKIEFILE, $cookies);
+  curl_setopt($curl, CURLOPT_COOKIEJAR, $cookies);
   $data = curl_exec($ch);
   curl_close($ch);
   return $data;
