@@ -179,8 +179,8 @@ function curl_get_contents($url)
   curl_setopt($ch,CURLOPT_ENCODING, '');
   $dir = dirname(__FILE__);
   $cookies = $dir . '/cookies/' . md5($_SERVER['REMOTE_ADDR']) . '.txt';
-  curl_setopt($curl, CURLOPT_COOKIEFILE, $cookies);
-  curl_setopt($curl, CURLOPT_COOKIEJAR, $cookies);
+  curl_setopt($ch, CURLOPT_COOKIEFILE, $cookies);
+  curl_setopt($ch, CURLOPT_COOKIEJAR, $cookies);
   $data = curl_exec($ch);
   curl_close($ch);
   return $data;
