@@ -102,8 +102,9 @@ body {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         if ($v->tradable == 0){
-                            $hold = (array) $v->owner_descriptions;
-                            $hold = $hold[1]['value'];
+                            //$hold = (array) $v->owner_descriptions;
+                            //$hold = $hold[1]['value'];
+                            $hold = "On tradehold";
                         }
                         else{
                             $hold = "Tradeable";
