@@ -102,8 +102,8 @@ body {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         if ($v->tradable == 0){
-                            $buffer = json_decode($v->owner_descriptions,true);
-                            $hold = $buffer[1]['value'];
+                            $hold = $v->owner_descriptions;
+                            $hold = $hold[1]->value;
                         }
                         else{
                             $hold = "Tradeable";
