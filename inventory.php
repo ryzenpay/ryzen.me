@@ -71,20 +71,18 @@ body {
             } else{
             if (strlen($id) != 17 ){
                 $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
-                var_dump($id_url);
                 //$id_data = file_get_contents($id_url, true, $browser);
                 $id_data = curl_get_contents($id_url);
                 if($id_data != null) {
                     $id_json = json_decode($id_data);
                     $id = $id_json->response->steamid;
-                    var_dump($id);
                 } else{
                     $error = "Error obtaining steam ID: ";
                 }
             }}
             $url = "https://steamcommunity.com/inventory/$id/730/2";
-            var_dump($url);
             $jsondata = curl_get_contents($url);
+            var_dump($jsondata);
             //$jsondata = file_get_contents($url, false, $browser);
             if($jsondata != null || $error !=null) {
                 $inventory = json_decode($jsondata);
@@ -185,4 +183,4 @@ function curl_get_contents($url)
 ?>
 </script>
 
-</html
+</htm
