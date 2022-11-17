@@ -66,10 +66,7 @@ body {
             $id = $_GET['steamid'];
             $items = 0;
             $error = null;
-            if (strlen($id) == 0){
-                $error = "Please input steam alias/ID";
-                }
-            else if (strlen($id) != 17){
+            if (strlen($id) != 17){
                 $id_url = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=74B813881CCD0CB19AC3FBBF096EBFA9&vanityurl=" . $id . "";
                 //$id_data = file_get_contents($id_url, true, $browser);
                 $id_data = curl_get_contents($id_url);
@@ -79,10 +76,11 @@ body {
                 } else{
                     $error = "Error obtaining steam ID: ";
                 }
-
+            }
+            if (strlen($id) == 0){
+                $error = "Please input steam alias/ID";
             } else {
             $url = "https://steamcommunity.com/inventory/$id/730/2";
-            var_dump($url);
             $jsondata = curl_get_contents($url);
             //$jsondata = file_get_contents($url, false, $browser);
             if($jsondata || $error !=null) {
@@ -104,9 +102,7 @@ body {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         if ($v->tradable == 0){
-                            //$hold = (array) $v->owner_descriptions;
-                            //$hold = $hold[1]['value'];
-                            $hold = "On tradehold";
+                            $hold = $v->owner_descriptions[1]->value;
                         }
                         else{
                             $hold = "Tradeable";
