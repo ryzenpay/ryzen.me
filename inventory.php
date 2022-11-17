@@ -82,9 +82,8 @@ body {
             } else {
             $url = "https://steamcommunity.com/inventory/$id/730/2";
             $jsondata = curl_get_contents($url);
-            var_dump($jsondata);
             //$jsondata = file_get_contents($url, false, $browser);
-            if($jsondata || $error !=null) {
+            if($jsondata != null || $error !=null) {
                 $inventory = json_decode($jsondata);
                 if ($inventory == null && $error != null)
                 {
