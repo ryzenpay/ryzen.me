@@ -102,7 +102,12 @@ body {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         if ($v->tradable == 0){
-                        $hold = "On Tradehold";
+                            if (isset($v->owner_descriptions->value)){
+                                $hold = $v->owner_descriptions->value;
+                            }
+                            else{
+                                $hold = "Not Tradeable";
+                            }
                         }
                         else{
                             $hold = "Tradeable";
