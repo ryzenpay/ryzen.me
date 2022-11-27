@@ -82,11 +82,10 @@ body {
             }}
             $url = "https://steamcommunity.com/inventory/$id/730/2";
             $jsondata = curl_get_contents($url);
-            var_dump($jsondata);
             //$jsondata = file_get_contents($url, false, $browser);
-            if($jsondata != null || $error !=null) {
+            if($jsondata != null) {
                 $inventory = json_decode($jsondata);
-                if ($inventory == null && $error != null)
+                if ($inventory == null)
                 {
                     $error = "$error + You have been timed out by steam, give it a minute";
                 }
@@ -103,7 +102,7 @@ body {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         if ($v->tradable == 0){
-                            $hold = $v->owner_descriptions[1]->value;
+                        $hold = "On Tradehold";
                         }
                         else{
                             $hold = "Tradeable";
@@ -140,7 +139,7 @@ body {
             } else{
                 $error = "$error + Error obtaining steam inventor (possibly timed out): ";
             }
-if (isset($error)){
+if ($error != null){
     echo '<p>An error has been caught:</p>';
     echo '<p>'.$error.'</p>';
 }
