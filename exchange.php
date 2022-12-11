@@ -20,9 +20,18 @@
     <img src="images/ryzen_calligraphy.png" class="cover">
     <h1>Ryzen's Exchange service</h1>
     <hr class="line"> <br>
-    <h3>7% Paypal -> LTC/BTC</h3>
-    <h3>10% Paypal -> ETH</h3>
-    <h3>15% Paypal -> Any other crypto</h3>
+    <h1>Rates</h1>
+    <h3>8% Balance -> Crypto</h3>
+    <h3>5% Crypto -> Crypto</h3>
+    <h3>5% Crypto -> Balance</h3>
+
+    <h2>Available payment methods:</h2>
+    <h3>Most available crypto's</h3>
+    <h3>Paypal (balance + f&f)</h3>
+    <h3>Wise</h3>
+    <h3>Zelle</h3>
+    <h3>Cashapp (balance)</h3>
+
     <h3>
         If you are interested join the discord server or add me through my
         <a href="social.php"><button type="button" class="minibutton">Socials</button></a><br>

@@ -20,7 +20,7 @@
     <hr class="line">
     <h2>
         <img src="images/discord.png" class="image">
-        Discord: <button onclick="disccopy()" title="Copy" class="minibutton">ryzen#8829</button><br>
+        Discord: <button onclick="disccopy()" title="Copy" class="minibutton">ryzen#0001</button><br>
         <img src="images/cashapp.png" class="image">
         CashApp: <button onclick="cashcopy()" title="Copy" class="minibutton">$Zaiga</button> <br>
         <img src="images/telegram.png" class="image">
