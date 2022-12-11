@@ -22,6 +22,7 @@ h2 {
   text-align: center;
   align-items: center;
   text-shadow: -2px 2px rgba(109, 64, 163, 255);
+  line-height: 10px;
 }
 
 .calligimage {

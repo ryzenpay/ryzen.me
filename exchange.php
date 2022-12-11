@@ -20,7 +20,7 @@
     <img src="images/ryzen_calligraphy.png" class="cover">
     <h1>Ryzen's Exchange service</h1>
     <hr class="line"> <br>
-    <h1>Rates</h1>
+    <h2>Rates</h2>
     <h3>8% Balance -> Crypto</h3>
     <h3>5% Crypto -> Crypto</h3>
     <h3>5% Crypto -> Balance</h3>
