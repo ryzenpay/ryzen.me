@@ -24,7 +24,6 @@
     <h3>8% Balance -> Crypto</h3>
     <h3>5% Crypto -> Crypto</h3>
     <h3>5% Crypto -> Balance</h3>
-    <h2></h2>
     <h2>Available payment methods:</h2>
     <h3>Most available crypto's</h3>
     <h3>Paypal (balance + f&f)</h3>
