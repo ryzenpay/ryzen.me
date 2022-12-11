@@ -49,6 +49,7 @@ h3 {
   font-weight: bold;
   font-family: 'Kanit', sans-serif;
   box-shadow: -2px 2px black;
+  margin-bottom: 5px;
 }
 
 .minibutton:hover {
