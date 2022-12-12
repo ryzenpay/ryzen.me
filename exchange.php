@@ -24,13 +24,14 @@
     <h3>8% Balance -> Crypto</h3>
     <h3>5% Crypto -> Crypto</h3>
     <h3>5% Crypto -> Balance</h3>
+    <br>
     <h2>Available payment methods:</h2>
     <h3>Most available crypto's</h3>
     <h3>Paypal (balance + f&f)</h3>
     <h3>Wise</h3>
     <h3>Zelle</h3>
     <h3>Cashapp (balance)</h3>
-
+    <br>
     <h3>
         If you are interested join the discord server or add me through my
         <a href="index.php"><button type="button" class="minibutton">Socials</button></a><br>
