@@ -132,12 +132,6 @@ h3 {
   top: 50%;
 }
 
-.logout {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-}
-
 .img-rounded {
   position: fixed;
   top: 10px;
@@ -201,12 +195,6 @@ h3 {
   position: fixed;
   top: 15px;
   left: 60px;
-}
-
-.img-rounded {
-  position: fixed;
-  top: 10px;
-  left: 15px;
 }
 
 .logout {
