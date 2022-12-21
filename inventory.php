@@ -204,7 +204,7 @@ function curl_get_contents($url)
 function arraysort($array){
     for ($y = 0; $y <= count($array); $y++){
         for ($x = 0; $x <= count($array); $x++){
-            if ($array[$y]->price < $array[$x]->price){
+            if ($array[$y]->skinprice < $array[$x]->skinprice){
                 $buffer = $array[$y];
                 $array[$y] = $array[$x];
                 $array[$x] = $buffer;
