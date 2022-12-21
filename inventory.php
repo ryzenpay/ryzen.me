@@ -140,7 +140,7 @@ body {
                         $skins[$i]->skinname = $name;
                         $skins[$i]->skinprice = $price;
                         $skins[$i]->skinhold = $hold;
-                        $skins = sort($skins);
+                        $skins = arraysort($skins);
                         $invval = $invval + $price;
                         $items = $items + 1;
                         echo
@@ -201,7 +201,7 @@ function curl_get_contents($url)
   curl_close($ch);
   return $data;
 }
-function sort($array){
+function arraysort($array){
     for ($y = 0; $y <= count($array); $y++){
         for ($x = 0; $x <= count($array); $x++){
             if ($array[$y]->price < $array[$x]->price){
