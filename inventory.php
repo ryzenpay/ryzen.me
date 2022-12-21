@@ -12,6 +12,13 @@ $conn = new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
+
+class SKIN {
+    public $skinimage;
+    public $skinname;
+    public $skinprice;
+    public $skinhold;
+}
 ?>
 
 <head>
@@ -90,6 +97,8 @@ body {
                     $error = "$error + You have been timed out by steam, give it a minute";
                 }
                 else {
+                    $skins = array();
+                    $i = 0; 
                     echo '<label for="value">Inventory Value: </label>';
                     echo '<input type="text" id="value" name="value" value="0.0" class="hiddeninput" size="1" readonly>';
                     echo '<label for="value"> | for </label>';
@@ -102,7 +111,12 @@ body {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         if ($v->tradable == 0){
-                        $hold = "On Tradehold";
+                            if (isset($v->owner_descriptions)){
+                                $hold = $v->owner_descriptions[1]->value;
+                            }
+                            else{
+                                $hold = "Not Tradeable";
+                            }
                         }
                         else{
                             $hold = "Tradeable";
@@ -121,7 +135,12 @@ body {
                         $name = str_replace('Well-Worn', 'WW', $name);
                         $name = str_replace('Battle-Scarred', 'BS', $name);
                         $image = '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/' . $icon_url . '" class="icon" alt="' . $name . '">';
-                        echo '<tr><td>' . $image . '</td><td>' . $name . '</td><td>$' . $price . '</td><td>' . $hold . '</td></tr>';
+                        $skins[$i] = new SKIN();
+                        $skins[$i]->skinimage = $image;
+                        $skins[$i]->skinname = $name;
+                        $skins[$i]->skinprice = $price;
+                        $skins[$i]->skinhold = $hold;
+                        $skins = arraysort($skins);
                         $invval = $invval + $price;
                         $items = $items + 1;
                         echo
@@ -135,6 +154,9 @@ body {
                         }
                         echo '</table>';
                         echo '<p>Inventory value: ' . $invval . '</p>';
+    }
+    for ($c = 0; $c <= count($skins); $c++){
+        echo '<tr><td>' . $skins[$c]->skinimage . '</td><td>' . $skins[$c]->skinname . '</td><td>$' . $skins[$c]->skinprice . '</td><td>' . $skins[$c]->skinhold . '</td></tr>';
     }
             } else{
                 $error = "$error + Error obtaining steam inventor (possibly timed out): ";
@@ -179,7 +201,19 @@ function curl_get_contents($url)
   curl_close($ch);
   return $data;
 }
+function arraysort($array){
+    for ($y = 0; $y <= count($array); $y++){
+        for ($x = 0; $x <= count($array); $x++){
+            if ($array[$y]->skinprice < $array[$x]->skinprice){
+                $buffer = $array[$y];
+                $array[$y] = $array[$x];
+                $array[$x] = $buffer;
+            }
+        }
+    }
+    return $array;
+}
 ?>
 </script>
 
-</htm
+</html>
