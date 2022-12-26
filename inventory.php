@@ -81,11 +81,14 @@ body {
                 }
             }}
             $url = "https://steamcommunity.com/inventory/$id/730/2";
+            $tfurl = "https://steamcommunity.com/inventory/$id/440/2";
             $jsondata = curl_get_contents($url);
+            $tfdata = curl_get_contents($tfurl);
             //$jsondata = file_get_contents($url, false, $browser);
-            if($jsondata != null) {
+            if($jsondata != null && $tfdata != null) {
                 $inventory = json_decode($jsondata);
-                if ($inventory == null)
+                $tf2 = json_decode($tfdata);
+                if ($inventory == null && $tf2 == null)
                 {
                     $error = "$error + You have been timed out by steam, give it a minute";
                 }
@@ -96,13 +99,33 @@ body {
                     echo '<input type="text" id="items" name="items" value="0" class="hiddeninput" size="1" readonly>';
                     echo '<label for="value"> Items</label> <br>';
                     echo '<hr class="line"> <br>';
+                    if ($tfdata != null){
+                        $keys = 0;
+                        echo '<table>';
+                        echo '<tr><th>icon</th><th>name</th><th>amount</th></tr>';
+                        foreach ($tf2->descriptions as $h){
+                            if ($h->market_hash_name == "Mann Co. Supply Crate Key")
+                            {
+                                $keys++;
+                            }
+                        }
+                        $tfimage = '<img src = "http://steamcommunity-a.akamaihd.net/economy/image/fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEAaR4uURrwvz0N252yVaDVWrRTno9m4ccG2GNqxlQoZrC2aG9hcVGUWflbX_drrVu5UGki5sAij6tOtQ" class="icon" alt="TF2_Key_Image">';
+                        echo '<tr><td>' . $tfimage . '</td><td>"Mann Co. Supply Crate Key"</td><td>' . $keys . '</td></tr>';
+                        echo '</table>';
+                    }
                     echo '<table>';
                     echo '<tr><th>Image</th><th>Name</th><th>price</th><th>TradeHold</th></tr>';
                     foreach ($inventory->descriptions as $v) {
                         $name = $v->market_hash_name;
                         $icon_url = $v->icon_url;
                         if ($v->tradable == 0){
+                            if (isset($v->owner_descriptions)){
+                                $hold = $v->owner_descriptions[1]->value;
+                            }
+                            else{
                         $hold = "On Tradehold";
+                                $hold = "Not Tradeable";
+                            }
                         }
                         else{
                             $hold = "Tradeable";
