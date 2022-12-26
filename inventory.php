@@ -84,9 +84,9 @@ body {
             $tfurl = "https://steamcommunity.com/inventory/$id/440/2";
             $jsondata = curl_get_contents($url);
             //$jsondata = file_get_contents($url, false, $browser);
-            if($jsondata != null && $tfdata != null) {
+            if($jsondata != null) {
                 $inventory = json_decode($jsondata);
-                if ($inventory == null && $tf2 == null)
+                if ($inventory == null)
                 {
                     $error = "$error + You have been timed out by steam, give it a minute";
                 }
