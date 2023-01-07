@@ -154,8 +154,7 @@ if ($error != null){
         <head>
             <?php
                 echo '<meta content="' . $id . '\'s inventory" property="og:title" />';
-                echo '<meta content="Value: '.$invval.'" property="og:description" />';
-                echo '<meta content="Items: '.$items.'" property="og:description" />';
+                echo '<meta content="Value: '.$invval.' \nItems: '.$items.'" property="og:description" />';
             ?>
         </head>
     </form>
