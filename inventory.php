@@ -151,6 +151,12 @@ if ($error != null){
     echo '<p>'.$error.'</p>';
 }
         ?>
+        <head>
+            <?php
+                echo '<meta content="' . $id . '\'s inventory" property="og:title" />';
+                echo '<meta content="Value: '.$invval.'" property="og:description" />';
+            ?>
+        </head>
     </form>
     <br>
     <hr class="line"> <br>
