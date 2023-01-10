@@ -107,7 +107,6 @@ body {
                                 $hold = $v->owner_descriptions[1]->value;
                             }
                             else{
-                        $hold = "On Tradehold";
                                 $hold = "Not Tradeable";
                             }
                         }
@@ -151,6 +150,7 @@ if ($error != null){
     echo '<p>'.$error.'</p>';
 }
         ?>
+
         <head>
             <?php
                 echo '<meta content="' . $id . '\'s inventory" property="og:title" />';
