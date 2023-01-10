@@ -17,11 +17,21 @@ head {
   color: white;
 }
 
+h1 {
+  margin-bottom: 0px;
+}
+
 h2 {
   color: white;
   text-align: center;
   align-items: center;
   text-shadow: -2px 2px rgba(109, 64, 163, 255);
+  line-height: 10px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  line-height: 2px;
 }
 
 .calligimage {
@@ -39,6 +49,7 @@ h2 {
   font-weight: bold;
   font-family: 'Kanit', sans-serif;
   box-shadow: -2px 2px black;
+  margin-bottom: 5px;
 }
 
 .minibutton:hover {
@@ -121,12 +132,6 @@ h2 {
   top: 50%;
 }
 
-.logout {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-}
-
 .img-rounded {
   position: fixed;
   top: 10px;
@@ -190,12 +195,6 @@ h2 {
   position: fixed;
   top: 15px;
   left: 60px;
-}
-
-.img-rounded {
-  position: fixed;
-  top: 10px;
-  left: 15px;
 }
 
 .logout {

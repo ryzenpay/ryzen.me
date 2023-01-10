@@ -28,23 +28,23 @@ if ($conn->connect_error){
 <hr class="headline" style="top: -10px;">
 <hr class="headline" style="bottom: -10px;">
 <style>
-body {
-    background-image: url("images/Background.png");
-}
+    body {
+        background-image: url("images/Background.png");
+    }
 
-::-webkit-scrollbar {
-    width: 5px;
-}
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
 
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2)
-}
+    ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.2)
+    }
 
-::-webkit-scrollbar-thumb {
-    background: #b651e0;
-    border: 1px solid black;
-    border-radius: 3px;
-}
+    ::-webkit-scrollbar-thumb {
+        background: #b651e0;
+        border: 1px solid black;
+        border-radius: 3px;
+    }
 </style>
 
 <body>
@@ -62,8 +62,8 @@ body {
         $rowcount = mysqli_num_rows( $result );
                         echo
                     '<script type="text/javascript">
-                    document.getElementById("skins").setAttribute("value","' . $rowcount . '");
-                    document.getElementById("value").setAttribute("size","' . strlen((string)$rowcount) . '");
+                        document.getElementById("skins").setAttribute("value", "' . $rowcount . '");
+                        document.getElementById("skins").setAttribute("size", "' . strlen((string)$rowcount) . '");
                     </script>';
         ?>
         <label for="searchbar">Buff search:</label>

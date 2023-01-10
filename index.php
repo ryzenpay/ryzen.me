@@ -35,7 +35,7 @@
     <hr class="line">
     <address>
         <div class="footer">
-            <p>Author:Ryzen</p>
+            <p>Author: Ryzen</p>
             <p>Collaborator: Ezi</p>
             </footer>
     </address>
@@ -47,31 +47,30 @@
     </a>
 </body>
 <script>
-function paypcopy() {
-    navigator.clipboard.writeText("Nissangt420@gmail.com");
-}
+    function paypcopy() {
+        navigator.clipboard.writeText("Nissangt420@gmail.com");
+    }
 
-function cashcopy() {
-    navigator.clipboard.writeText("$Zaiga");
-}
+    function cashcopy() {
+        navigator.clipboard.writeText("$Zaiga");
+    }
 
-function disccopy() {
-    navigator.clipboard.writeText("ryzen#8829");
-}
+    function disccopy() {
+        navigator.clipboard.writeText("ryzen#8829");
+    }
 
-function steamtradecopy() {
-    window.open('https://steamcommunity.com/tradeoffer/new/?partner=1092089915&token=o8jkW4va', '_blank');
-}
+    function steamtradecopy() {
+        window.open('https://steamcommunity.com/tradeoffer/new/?partner=1092089915&token=o8jkW4va', '_blank');
+    }
 
-function telecopy() {
-    navigator.clipboard.writeText("@highballer");
-    window.open('https://t.me/highballer', '_blank');
-}
+    function telecopy() {
+        navigator.clipboard.writeText("@highballer");
+        window.open('https://t.me/highballer', '_blank');
+    }
 
-function discord() {
-    navigator.clipboard.writeText('https://discord.gg/ryzen');
-    window.open('https://discord.gg/ryzen', '_blank');
-}
+    function discord() {
+        window.open('https://discord.gg/ryzen', '_blank');
+    }
 </script>
 
 </html>

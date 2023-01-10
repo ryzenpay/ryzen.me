@@ -81,6 +81,7 @@ body {
                 }
             }}
             $url = "https://steamcommunity.com/inventory/$id/730/2";
+            $tfurl = "https://steamcommunity.com/inventory/$id/440/2";
             $jsondata = curl_get_contents($url);
             //$jsondata = file_get_contents($url, false, $browser);
             if($jsondata != null) {
@@ -106,6 +107,7 @@ body {
                                 $hold = $v->owner_descriptions[1]->value;
                             }
                             else{
+                        $hold = "On Tradehold";
                                 $hold = "Not Tradeable";
                             }
                         }
@@ -149,6 +151,12 @@ if ($error != null){
     echo '<p>'.$error.'</p>';
 }
         ?>
+        <head>
+            <?php
+                echo '<meta content="' . $id . '\'s inventory" property="og:title" />';
+                echo '<meta content="Value: '.$invval.' \nItems: '.$items.'" property="og:description" />';
+            ?>
+        </head>
     </form>
     <br>
     <hr class="line"> <br>
