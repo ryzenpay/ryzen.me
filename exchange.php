@@ -22,14 +22,13 @@
     <hr class="line"> <br>
     <h2>Rates</h2>
     <h3>8% Balance -> Crypto</h3>
-    <h3>5% Crypto -> Crypto</h3>
-    <h3>5% Crypto -> Balance</h3>
+    <h3>3% Crypto -> Crypto</h3>
+    <h3>3% Crypto -> Balance</h3>
     <br>
     <h2>Available payment methods:</h2>
     <h3>Most available crypto's</h3>
-    <h3>Paypal (balance + f&f)</h3>
+    <h3>Paypal (Only crypto -> balance)</h3>
     <h3>Wise</h3>
-    <h3>Zelle</h3>
     <h3>Cashapp (balance)</h3>
     <br>
     <h3>

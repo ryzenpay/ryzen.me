@@ -22,7 +22,7 @@
         <img src="images/discord.png" class="image">
         Discord: <button onclick="disccopy()" title="Copy" class="minibutton">ryzen#0001</button><br>
         <img src="images/cashapp.png" class="image">
-        CashApp: <button onclick="cashcopy()" title="Copy" class="minibutton">$Zaiga</button> <br>
+        CashApp: <button onclick="cashcopy()" title="Copy" class="minibutton">$Payryzen</button> <br>
         <img src="images/telegram.png" class="image">
         Telegram:<button onclick="telecopy()" title="Open in new tab" class="minibutton">@highballer </button> <br>
         <img src="images/steam.png" class="image">
@@ -52,7 +52,7 @@
     }
 
     function cashcopy() {
-        navigator.clipboard.writeText("$Zaiga");
+        navigator.clipboard.writeText("$Payryzen");
     }
 
     function disccopy() {
