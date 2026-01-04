@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website
+  namespace: website
+  labels:
+    app: website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      imagePullSecrets:
+        - name: harborpullsecret
+      containers:
+      - name: website
+        image: harbor.ryzen.me/library/website:latest
+        ports:
+        - containerPort: 80
+          protocol: TCP
