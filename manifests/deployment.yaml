@@ -19,7 +19,7 @@ spec:
         - name: harborpullsecret
       containers:
       - name: website
-        image: harbor.ryzen.me/library/ryzen-me:latest
+        image: harbor.ryzen.me/library/ryzen.me:latest
         ports:
         - containerPort: 80
           protocol: TCP
