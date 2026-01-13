@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: website
+  name: ryzen-me
   namespace: ryzen-me
   labels:
-    app: website
+    app: ryzen-me
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: website
+      app: ryzen-me
   template:
     metadata:
       labels:
-        app: website
+        app: ryzen-me
     spec:
       imagePullSecrets:
         - name: harborpullsecret
       containers:
       - name: website
-        image: harbor.ryzen.me/library/website:latest
+        image: harbor.ryzen.me/library/ryzen-me:latest
         ports:
         - containerPort: 80
           protocol: TCP
