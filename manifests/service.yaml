@@ -3,8 +3,8 @@ kind: Service
 metadata:
   labels:
     app: website
-  name: website
-  namespace: website
+  name: ryzen-me
+  namespace: ryzen-me
 spec:
   ports:
     - name: http

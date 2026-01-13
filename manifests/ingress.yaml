@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: cert-manager
+  name: ryzen-me
+  namespace: ryzen-me
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: ryzen.me
+      http:
+        paths:
+          - backend:
+              service:
+                name: website
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - ryzen.me
+      secretName: ryzen-me-tls
