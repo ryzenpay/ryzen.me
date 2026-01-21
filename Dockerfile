@@ -1,6 +1,7 @@
 FROM nginx:alpine
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 COPY images/* /usr/share/nginx/html/images/
 
-COPY index.html /usr/share/nginx/html
-COPY health.html /usr/share/nginx/html
+COPY *.html /usr/share/nginx/html
