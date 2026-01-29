@@ -1,0 +1,11 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: ryzen-me
+  namespace: fleet-local
+spec:
+  branch: main
+  pollingInterval: 1m0s
+  repo: https://github.com/ryzenpay/ryzen.me.git
+  paths:
+    - manifests
